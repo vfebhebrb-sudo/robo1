@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+تحلیل آزمون کاربران
+</title>
+
+
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<style>
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+margin:10px;
+
+min-height:100vh;
+
+background:
+radial-gradient(
+circle at top right,
+#1e293b,
+#090b0f 60%
+);
+
+color:white;
+
+font-family:"Vazirmatn";
+
+}
+
+
+
+/* MAIN */
+
+.analysis-page{
+
+width:100%;
+
+}
+
+
+.main-box{
+
+background:
+rgba(255,255,255,.04);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:28px;
+
+padding:25px;
+
+box-shadow:
+
+0 30px 80px rgba(0,0,0,.45);
+
+}
+
+
+
+/* =====================
+HEADER
+===================== */
+
+
+.analysis-top-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+
+
+.analysis-title-box{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+
+
+.analysis-main-icon{
+
+width:55px;
+
+height:55px;
+
+border-radius:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+
+linear-gradient(
+135deg,
+#2563eb,
+#7c3aed
+);
+
+box-shadow:
+
+0 10px 30px #2563eb55;
+
+}
+
+
+.analysis-main-icon svg{
+
+width:28px;
+
+}
+
+
+
+.analysis-title-box h1{
+
+font-size:22px;
+
+font-weight:900;
+
+}
+
+
+
+.analysis-title-box p{
+
+font-size:13px;
+
+color:#94a3b8;
+
+margin-top:5px;
+
+}
+
+
+
+.analysis-status{
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+padding:10px 16px;
+
+border-radius:50px;
+
+background:#052e16;
+
+color:#86efac;
+
+font-size:13px;
+
+}
+
+
+
+.analysis-status span{
+
+width:9px;
+
+height:9px;
+
+background:#22c55e;
+
+border-radius:50%;
+
+box-shadow:0 0 10px #22c55e;
+
+}
+
+
+
+/* =====================
+TOP CARDS
+===================== */
+
+
+.top-info-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:20px;
+
+}
+
+
+
+.info-card{
+
+background:
+
+rgba(17,19,21,.8);
+
+border:1px solid #292e36;
+
+border-radius:24px;
+
+padding:22px;
+
+transition:.3s;
+
+}
+
+
+.info-card:hover{
+
+transform:translateY(-5px);
+
+border-color:#3b82f6;
+
+}
+
+
+
+/* CARD HEADER */
+
+
+.card-header{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.mini-icon{
+
+width:40px;
+
+height:40px;
+
+border-radius:14px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#172554;
+
+color:#60a5fa;
+
+}
+
+
+
+.card-header h3{
+
+font-size:16px;
+
+}
+
+
+
+
+/* PROFILE */
+
+
+.profile-preview{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.big-avatar{
+
+width:70px;
+
+height:70px;
+
+border-radius:22px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+
+linear-gradient(
+145deg,
+#2563eb,
+#1e1b4b
+);
+
+}
+
+
+
+.big-avatar svg{
+
+width:35px;
+
+}
+
+
+
+.profile-preview h2{
+
+font-size:18px;
+
+}
+
+
+
+.profile-preview span{
+
+font-size:13px;
+
+color:#94a3b8;
+
+}
+
+
+
+/* INFO LIST */
+
+
+.info-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+
+
+.info-item{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:12px 14px;
+
+border-radius:14px;
+
+background:#ffffff05;
+
+border:1px solid #ffffff08;
+
+}
+
+
+
+.info-item span{
+
+color:#94a3b8;
+
+font-size:13px;
+
+}
+
+
+
+.info-item b{
+
+font-size:13px;
+
+}
+
+
+
+/* EXAM */
+
+
+.exam-highlight{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:18px;
+
+border-radius:18px;
+
+background:#172554;
+
+margin-bottom:15px;
+
+}
+
+
+
+.exam-highlight svg{
+
+color:#60a5fa;
+
+}
+
+
+
+/* =====================
+ANSWERS
+===================== */
+
+
+.answer-main-box{
+
+margin-top:25px;
+
+}
+
+
+
+.answer-layout{
+
+display:grid;
+
+grid-template-columns:1fr 300px;
+
+gap:20px;
+
+}
+
+
+
+.answers-panel,
+.answer-summary{
+
+background:#111315;
+
+border:1px solid #292e36;
+
+border-radius:24px;
+
+padding:22px;
+
+}
+
+
+
+.box-title{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.box-title svg{
+
+color:#60a5fa;
+
+}
+
+
+
+.answers{
+
+max-height:500px;
+
+overflow:auto;
+
+}
+
+
+
+/* ANSWER ITEM */
+
+
+.student-answer-item{
+
+display:grid;
+
+grid-template-columns:
+45px
+1fr
+120px
+120px
+100px;
+
+gap:15px;
+
+align-items:center;
+
+padding:16px;
+
+margin-bottom:12px;
+
+background:#ffffff04;
+
+border-radius:18px;
+
+border:1px solid #ffffff08;
+
+transition:.25s;
+
+}
+
+
+.student-answer-item:hover{
+
+transform:translateX(-5px);
+
+background:#ffffff08;
+
+}
+
+
+
+.answer-number{
+
+width:38px;
+
+height:38px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#27272a;
+
+}
+
+
+
+/* SUMMARY */
+
+
+.summary-grid{
+
+display:grid;
+
+gap:12px;
+
+}
+
+
+.summary-item,
+.percent-box{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:16px;
+
+border-radius:18px;
+
+background:#ffffff05;
+
+border:1px solid #ffffff08;
+
+}
+
+
+
+.summary-item svg{
+
+width:20px;
+
+}
+
+
+
+.correct-box strong{
+
+color:#22c55e;
+
+}
+
+
+.wrong-box strong{
+
+color:#ef4444;
+
+}
+
+
+.empty-box strong{
+
+color:#94a3b8;
+
+}
+
+
+
+.percent-box{
+
+margin-top:15px;
+
+background:#172554;
+
+}
+
+
+.percent-box strong{
+
+font-size:25px;
+
+color:#60a5fa;
+
+}
+
+
+
+/* AI */
+
+
+.ai-analysis-box{
+
+margin-top:25px;
+
+background:#111315;
+
+border:1px solid #292e36;
+
+border-radius:24px;
+
+padding:22px;
+
+}
+
+
+
+.ai-header{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.ai-icon{
+
+width:45px;
+
+height:45px;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#4c1d95;
+
+}
+
+
+
+.ai-header p{
+
+font-size:13px;
+
+color:#94a3b8;
+
+}
+
+
+
+#aiText{
+
+width:100%;
+
+height:150px;
+
+background:#090b0f;
+
+border:1px solid #292e36;
+
+border-radius:18px;
+
+padding:18px;
+
+color:white;
+
+font-family:inherit;
+
+resize:none;
+
+outline:none;
+
+}
+
+
+
+#aiText:focus{
+
+border-color:#3b82f6;
+
+}
+
+
+
+.send-btn{
+
+margin-top:15px;
+
+height:48px;
+
+width:100%;
+
+border:none;
+
+border-radius:16px;
+
+background:
+
+linear-gradient(
+135deg,
+#2563eb,
+#7c3aed
+);
+
+color:white;
+
+font-family:inherit;
+
+font-weight:700;
+
+cursor:pointer;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+}
+
+
+
+/* MOBILE */
+
+
+@media(max-width:900px){
+
+.top-info-grid,
+.answer-layout{
+
+grid-template-columns:1fr;
+
+}
+
+
+.analysis-top-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+
+.student-answer-item{
+
+grid-template-columns:1fr;
+
+}
+
+}
+</style>
+
+
+</head>
+<body>
+
+
+<div class="analysis-page">
+
+
+<div class="main-box">
+
+
+
+
+
+
+<!-- =========================
+HEADER
+========================= -->
+
+
+<header class="analysis-top-header">
+
+
+
+<div class="analysis-title-box">
+
+
+<div class="analysis-main-icon">
+
+<i data-lucide="brain-circuit"></i>
+
+</div>
+
+
+
+<div>
+
+<h1>
+تحلیل آزمون کاربر
+</h1>
+
+
+<p>
+بررسی عملکرد، پاسخ‌ها و پیشنهاد هوشمند
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="analysis-status">
+
+<span></span>
+
+در حال تحلیل
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+TOP INFO
+========================= -->
+
+
+<section class="top-info-grid">
+
+
+
+
+
+
+<!-- USER CARD -->
+
+
+<div class="info-card user-info-card">
+
+
+
+<div class="card-header">
+
+
+<div class="mini-icon">
+
+<i data-lucide="user-round"></i>
+
+</div>
+
+
+<h3>
+اطلاعات کاربر
+</h3>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="profile-preview">
+
+
+<div class="big-avatar">
+
+<i data-lucide="user"></i>
+
+</div>
+
+
+
+<div>
+
+
+<h2 id="userName">
+-
+</h2>
+
+
+<span id="candidateNumber">
+داوطلب -
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="info-list">
+
+
+
+<div class="info-item">
+
+<span>
+موبایل
+</span>
+
+<b id="phone">
+-
+</b>
+
+</div>
+
+
+
+
+
+<div class="info-item">
+
+<span>
+ایمیل
+</span>
+
+<b id="email">
+-
+</b>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- EXAM CARD -->
+
+
+<div class="info-card exam-info-card">
+
+
+
+<div class="card-header">
+
+
+<div class="mini-icon">
+
+<i data-lucide="file-check"></i>
+
+</div>
+
+
+<h3>
+اطلاعات آزمون
+</h3>
+
+
+</div>
+
+
+
+
+
+
+<div class="exam-highlight">
+
+
+<i data-lucide="clipboard-list"></i>
+
+
+<strong id="examTitle">
+-
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="info-list">
+
+
+
+<div class="info-item">
+
+<span>
+تعداد سوال
+</span>
+
+<b id="examCount">
+-
+</b>
+
+</div>
+
+
+
+
+
+<div class="info-item">
+
+<span>
+زمان آزمون
+</span>
+
+<b id="examDuration">
+-
+</b>
+
+</div>
+
+
+
+
+
+
+<div class="info-item">
+
+<span>
+پاسخ داده شده
+</span>
+
+<b id="answeredCount">
+-
+</b>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+ANSWER SECTION
+========================= -->
+
+
+<section class="answer-main-box">
+
+
+
+
+
+
+<div class="answer-layout">
+
+
+
+
+
+
+
+<!-- ANSWERS -->
+
+
+<div class="answers-panel">
+
+
+<div class="box-title">
+
+
+<i data-lucide="list-check"></i>
+
+
+<h3>
+پاسخ های کاربر
+</h3>
+
+
+</div>
+
+
+
+
+
+
+<div 
+class="answers"
+id="answersContainer"
+>
+
+
+<div class="empty">
+
+در حال دریافت پاسخ ها ...
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- SUMMARY -->
+
+
+<aside class="answer-summary">
+
+
+
+<div class="box-title">
+
+
+<i data-lucide="chart-column-big"></i>
+
+
+<h3>
+نتیجه آزمون
+</h3>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="summary-grid">
+
+
+
+
+
+<div class="summary-item correct-box">
+
+
+<i data-lucide="circle-check"></i>
+
+
+<span>
+پاسخ صحیح
+</span>
+
+
+<strong id="correctCount">
+0
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="summary-item wrong-box">
+
+
+<i data-lucide="circle-x"></i>
+
+
+<span>
+پاسخ غلط
+</span>
+
+
+<strong id="wrongCount">
+0
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="summary-item empty-box">
+
+
+<i data-lucide="minus-circle"></i>
+
+
+<span>
+بدون پاسخ
+</span>
+
+
+<strong id="emptyCount">
+0
+</strong>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="percent-box">
+
+
+<span>
+درصد نهایی
+</span>
+
+
+<strong id="percentCount">
+0%
+</strong>
+
+
+</div>
+
+
+
+
+
+</aside>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+AI
+========================= -->
+
+
+<section class="ai-analysis-box">
+
+
+
+
+
+<div class="ai-header">
+
+
+
+<div class="ai-icon">
+
+
+<i data-lucide="sparkles"></i>
+
+
+</div>
+
+
+
+
+<div>
+
+
+<h3>
+تحلیل هوش مصنوعی
+</h3>
+
+
+<p>
+پیشنهادهای هوشمند برای پیشرفت کاربر
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<textarea
+
+id="aiText"
+
+placeholder="
+تحلیل آزمون را وارد کنید...
+"
+
+></textarea>
+
+
+
+
+
+
+
+
+<button
+
+class="send-btn"
+
+id="sendAnalysisBtn"
+
+>
+
+
+
+<i data-lucide="send"></i>
+
+
+ارسال تحلیل
+
+
+
+</button>
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+<script src="./config.js"></script>
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+console.log(
+"ADMIN FULL ANALYSIS READY"
+);
+
+
+
+// =====================================
+// IDS
+// =====================================
+
+
+const userId =
+localStorage.getItem(
+"analysisUserId"
+);
+
+
+const examId =
+localStorage.getItem(
+"analysisExamId"
+);
+
+
+
+console.log(
+"USER ID:",
+userId
+);
+
+
+console.log(
+"EXAM ID:",
+examId
+);
+
+
+
+if(!userId || !examId){
+
+console.error(
+"IDS NOT FOUND"
+);
+
+return;
+
+}
+
+
+
+
+
+// =====================================
+// ELEMENTS
+// =====================================
+
+
+const answersContainer =
+document.getElementById(
+"answersContainer"
+);
+
+
+
+const userName =
+document.getElementById(
+"userName"
+);
+
+
+const candidateNumber =
+document.getElementById(
+"candidateNumber"
+);
+
+
+const phone =
+document.getElementById(
+"phone"
+);
+
+
+const email =
+document.getElementById(
+"email"
+);
+
+
+
+
+
+const examTitle =
+document.getElementById(
+"examTitle"
+);
+
+
+const examCount =
+document.getElementById(
+"examCount"
+);
+
+
+const examDuration =
+document.getElementById(
+"examDuration"
+);
+
+
+
+
+
+const answeredCount =
+document.getElementById(
+"answeredCount"
+);
+
+
+
+const correctCount =
+document.getElementById(
+"correctCount"
+);
+
+
+
+const wrongCount =
+document.getElementById(
+"wrongCount"
+);
+
+
+
+const emptyCount =
+document.getElementById(
+"emptyCount"
+);
+
+
+
+const percentCount =
+document.getElementById(
+"percentCount"
+);
+
+
+
+
+
+
+
+// =====================================
+// LOAD ANALYSIS
+// =====================================
+
+
+async function loadAnalysis(){
+
+
+
+try{
+
+
+
+const url =
+
+`${API_URL}/admin/analysis/${examId}/${userId}`;
+
+
+
+console.log(
+"REQUEST URL:",
+url
+);
+
+
+
+
+const response =
+
+await fetch(url);
+
+
+
+
+const raw =
+
+await response.text();
+
+
+
+console.log(
+"SERVER RAW:",
+raw
+);
+
+
+
+
+
+let data;
+
+
+
+try{
+
+
+data = JSON.parse(raw);
+
+
+}
+
+catch{
+
+
+throw new Error(
+"SERVER JSON RETURN نکرد"
+);
+
+
+}
+
+
+
+
+
+console.log(
+"ANALYSIS DATA:",
+data
+);
+
+
+
+
+
+if(!data.success){
+
+
+throw new Error(
+data.message ||
+"تحلیل پیدا نشد"
+);
+
+
+}
+
+
+
+
+
+const user =
+data.user;
+
+
+
+const exam =
+data.exam;
+
+
+
+const summary =
+data.summary;
+
+
+
+const answers =
+data.answers || [];
+
+
+
+
+
+
+
+
+
+// =====================================
+// USER INFO
+// =====================================
+
+
+
+if(userName)
+
+userName.textContent =
+user.fullname || "-";
+
+
+
+if(candidateNumber)
+
+candidateNumber.textContent =
+user.candidateNumber || "-";
+
+
+
+if(phone)
+
+phone.textContent =
+user.phone || "-";
+
+
+
+if(email)
+
+email.textContent =
+user.email || "-";
+
+
+
+
+
+
+
+
+
+// =====================================
+// EXAM INFO
+// =====================================
+
+
+
+if(examTitle)
+
+examTitle.textContent =
+exam.title || "-";
+
+
+
+if(examCount)
+
+examCount.textContent =
+exam.totalQuestions || 0;
+
+
+
+if(examDuration)
+
+examDuration.textContent =
+
+exam.duration
+
+?
+
+exam.duration+" دقیقه"
+
+:
+
+"-";
+
+
+
+
+
+
+
+
+
+
+// =====================================
+// SUMMARY
+// =====================================
+
+
+
+if(correctCount)
+
+correctCount.textContent =
+summary.correct || 0;
+
+
+
+if(wrongCount)
+
+wrongCount.textContent =
+summary.wrong || 0;
+
+
+
+if(emptyCount)
+
+emptyCount.textContent =
+summary.empty || 0;
+
+
+
+if(answeredCount)
+
+answeredCount.textContent =
+
+(summary.correct || 0)
++
+(summary.wrong || 0);
+
+
+
+
+if(percentCount)
+
+percentCount.textContent =
+
+(summary.percent || 0)
++
+"%";
+
+
+
+
+
+
+
+
+
+// =====================================
+// ANSWERS
+// =====================================
+
+
+
+answersContainer.innerHTML = "";
+
+
+
+
+if(answers.length === 0){
+
+
+answersContainer.innerHTML = `
+
+
+<div class="empty">
+
+پاسخی ثبت نشده است
+
+</div>
+
+
+`;
+
+
+return;
+
+
+}
+
+
+
+
+
+
+
+answers.forEach(
+
+(answer)=>{
+
+
+
+let statusText =
+"نزده";
+
+
+
+let icon =
+"minus-circle";
+
+
+
+
+
+if(answer.status === "correct"){
+
+
+statusText =
+"درست";
+
+
+icon =
+"check-circle-2";
+
+
+}
+
+
+
+else if(answer.status === "wrong"){
+
+
+statusText =
+"غلط";
+
+
+icon =
+"x-circle";
+
+
+}
+
+
+
+
+
+
+
+const item =
+
+document.createElement(
+"div"
+);
+
+
+
+item.className =
+
+`student-answer-item ${answer.status}`;
+
+
+
+
+
+
+item.innerHTML = `
+
+
+
+<div class="answer-number">
+
+${answer.number}
+
+</div>
+
+
+
+
+
+<div class="answer-question">
+
+
+<h4>
+
+سوال ${answer.number}
+
+</h4>
+
+
+
+<p>
+
+${answer.question}
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="answer-selected">
+
+
+<span>
+
+پاسخ کاربر
+
+</span>
+
+
+<strong>
+
+${
+answer.studentAnswer !== null
+
+?
+
+"گزینه "
++
+(Number(answer.studentAnswer)+1)
+
+:
+
+"بدون پاسخ"
+
+}
+
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="answer-correct">
+
+
+<span>
+
+پاسخ صحیح
+
+</span>
+
+
+<strong>
+
+
+گزینه ${
+
+Number(answer.correctAnswer)+1
+
+}
+
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="answer-status">
+
+
+<i data-lucide="${icon}"></i>
+
+
+<span>
+
+${statusText}
+
+</span>
+
+
+</div>
+
+
+
+
+`;
+
+
+
+
+
+answersContainer.appendChild(item);
+
+
+
+});
+
+
+
+
+
+
+
+
+// =====================================
+// ICONS
+// =====================================
+
+
+if(window.lucide){
+
+lucide.createIcons();
+
+}
+
+
+
+
+
+
+}
+
+catch(error){
+
+
+
+console.error(
+"ANALYSIS ERROR:",
+error
+);
+
+
+
+
+if(answersContainer){
+
+
+answersContainer.innerHTML = `
+
+
+<div class="empty">
+
+خطا در دریافت تحلیل آزمون
+
+</div>
+
+
+`;
+
+
+}
+
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+loadAnalysis();
+
+
+
+
+
+});
+
+</script>
+</body>

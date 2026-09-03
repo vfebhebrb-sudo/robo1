@@ -1,0 +1,3220 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+مدیریت گروه و کانال
+</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* =========================================================
+   ROOT — DARK GRAY / BLUE THEME
+========================================================= */
+
+:root {
+    --background: #111315;
+    --surface: #191c21;
+    --surface-hover: #22262d;
+    --border: #292e36;
+
+    --text: #f9fafb;
+    --muted: #9ca3af;
+
+    --accent: #3b82f6;
+    --accent-soft: #172554;
+
+    --success: #22c55e;
+    --danger: #ef4444;
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+        font-family:"Vazirmatn",sans-serif;
+}
+
+html {
+    min-height: 100%;
+}
+
+body.admin-chat-page {
+    margin: 0;
+    min-height: 100vh;
+
+    direction: rtl;
+
+    color: var(--text);
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(59, 130, 246, .08),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(59, 130, 246, .045),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #0d0f11,
+            var(--background) 45%,
+            #0f1114
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SUBTLE TEXTURE
+========================================================= */
+
+body.admin-chat-page::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 0;
+
+    opacity: .16;
+
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.018) 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            315deg,
+            rgba(255,255,255,.012) 25%,
+            transparent 25%
+        );
+
+    background-size: 7px 7px;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.admin-layout {
+    position: relative;
+    z-index: 1;
+
+    width: min(1450px, calc(100% - 48px));
+
+    margin: 0 auto;
+    padding: 42px 0 60px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(380px, .75fr);
+
+    grid-template-areas:
+        "header header"
+        "channels create";
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-header {
+    grid-area: header;
+
+    min-height: 86px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8px;
+}
+
+
+/* header information */
+
+.admin-header-info {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* header icon */
+
+.admin-header-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(59,130,246,.25);
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(59,130,246,.16),
+            rgba(59,130,246,.035)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 8px 30px rgba(0,0,0,.25);
+
+    color: var(--accent);
+}
+
+
+.admin-header-icon svg {
+    width: 25px;
+    height: 25px;
+
+    filter:
+        drop-shadow(
+            0 0 10px rgba(59,130,246,.4)
+        );
+}
+
+
+/* header title */
+
+.admin-header h1 {
+    margin: 0 0 6px;
+
+    font-size: 23px;
+    font-weight: 800;
+
+    letter-spacing: -.5px;
+}
+
+
+.admin-header p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* status */
+
+.admin-header-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    background: rgba(255,255,255,.018);
+}
+
+
+.admin-header-status span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 10px rgba(34,197,94,.65);
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.panel {
+    position: relative;
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            rgba(255,255,255,.006)
+        ),
+        var(--surface);
+
+    box-shadow:
+        var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.025);
+
+    overflow: hidden;
+}
+
+
+/* panel ambient glow */
+
+.panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    top: -160px;
+    left: -90px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    opacity: .045;
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CHANNEL AREA
+========================================================= */
+
+.channels-area {
+    grid-area: channels;
+
+    min-height: 620px;
+}
+
+
+/* =========================================================
+   CREATE AREA
+========================================================= */
+
+.create-area {
+    grid-area: create;
+}
+
+
+/* =========================================================
+   PANEL TITLE
+========================================================= */
+
+.panel-title {
+    position: relative;
+
+    min-height: 82px;
+
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.022),
+            transparent
+        );
+}
+
+
+/* title main */
+
+.panel-title-main {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+/* title icon */
+
+.panel-title-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    border: 1px solid rgba(59,130,246,.16);
+
+    background:
+        rgba(59,130,246,.07);
+
+    color: var(--accent);
+}
+
+
+.panel-title-icon svg {
+    width: 20px;
+    height: 20px;
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(59,130,246,.3)
+        );
+}
+
+
+/* title text */
+
+.panel-title-main > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.panel-title-main span {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+
+.panel-title-main small {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CHANNEL COUNT
+========================================================= */
+
+.channel-count {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.channel-count strong {
+    min-width: 29px;
+    height: 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   CHANNEL GRID
+========================================================= */
+
+.channels-grid {
+    padding: 22px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty {
+    grid-column: 1 / -1;
+
+    min-height: 450px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: 1px dashed #303640;
+
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(59,130,246,.035),
+            transparent 60%
+        );
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+
+.empty-icon {
+    width: 70px;
+    height: 70px;
+
+    margin-bottom: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            #20242a,
+            #15181c
+        );
+
+    color: #68717e;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 12px 35px rgba(0,0,0,.25);
+}
+
+
+.empty-icon svg {
+    width: 29px;
+    height: 29px;
+}
+
+
+.empty strong {
+    color: #d5d9df;
+
+    font-size: 14px;
+}
+
+
+.empty > span {
+    max-width: 300px;
+
+    line-height: 1.8;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CREATE CONTENT
+========================================================= */
+
+.create-content {
+    padding: 22px;
+}
+
+
+/* =========================================================
+   CREATE SECTIONS
+========================================================= */
+
+.create-section {
+    padding: 18px;
+
+    margin-bottom: 14px;
+
+    border: 1px solid #252a31;
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,.12);
+}
+
+
+.create-section:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+
+.section-heading > div:first-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.section-heading strong {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+.section-heading span {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FIELDS
+========================================================= */
+
+.field {
+    margin-bottom: 14px;
+}
+
+
+.field:last-child {
+    margin-bottom: 0;
+}
+
+
+.field label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #c9ced5;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUT / TEXTAREA
+========================================================= */
+
+.create-area input,
+.create-area textarea {
+    width: 100%;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    outline: none;
+
+    background:
+        #13161a;
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+.create-area input {
+    height: 48px;
+
+    padding: 0 14px;
+
+    font-size: 12px;
+}
+
+
+.create-area textarea {
+    min-height: 105px;
+
+    padding: 13px 14px;
+
+    resize: vertical;
+
+    line-height: 1.8;
+
+    font-size: 12px;
+}
+
+
+.create-area input::placeholder,
+.create-area textarea::placeholder {
+    color: #626a75;
+}
+
+
+.create-area input:hover,
+.create-area textarea:hover {
+    border-color: #353b45;
+}
+
+
+.create-area input:focus,
+.create-area textarea:focus {
+    border-color: rgba(59,130,246,.65);
+
+    background:
+        #15191e;
+
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,.07),
+        0 8px 25px rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   TYPE BOX
+========================================================= */
+
+.type-box {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    padding: 5px;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    background: #121519;
+}
+
+
+/* =========================================================
+   TYPE BUTTONS
+========================================================= */
+
+.type-box button {
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: 0;
+    border-radius: 11px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.type-box button:hover {
+    color: var(--text);
+
+    background:
+        var(--surface-hover);
+}
+
+
+.type-box button > svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+.type-box button > span {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 4px;
+}
+
+
+.type-box button strong {
+    font-size: 12px;
+}
+
+
+.type-box button small {
+    color: #6f7782;
+
+    font-size: 9px;
+}
+
+
+.type-box button.active {
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    box-shadow:
+        0 8px 22px rgba(59,130,246,.2);
+}
+
+
+.type-box button.active small {
+    color: rgba(255,255,255,.7);
+}
+
+
+/* =========================================================
+   MEMBERS
+========================================================= */
+
+.members-section {
+    padding-bottom: 12px;
+}
+
+
+.members {
+    min-height: 145px;
+    max-height: 250px;
+
+    overflow-y: auto;
+
+    padding: 6px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background:
+        #121519;
+}
+
+
+/* scrollbar */
+
+.members::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+.members::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.members::-webkit-scrollbar-thumb {
+    background: #303640;
+
+    border-radius: 10px;
+}
+
+
+.members::-webkit-scrollbar-thumb:hover {
+    background: #414956;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+    min-height: 130px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.loading svg {
+    width: 21px;
+    height: 21px;
+
+    color: var(--accent);
+
+    animation:
+        spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   SELECTED MEMBERS COUNTER
+========================================================= */
+
+.members-selected {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 5px 8px;
+
+    border-radius: 9px;
+
+    background: rgba(59,130,246,.06);
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+.members-selected strong {
+    min-width: 21px;
+    height: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   CREATE FOOTER
+========================================================= */
+
+.create-footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 16px;
+}
+
+
+/* =========================================================
+   CREATE HINT
+========================================================= */
+
+.create-hint {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #69717c;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+}
+
+
+.create-hint svg {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+
+    color: #59616d;
+}
+
+
+/* =========================================================
+   CREATE BUTTON
+========================================================= */
+
+.create-btn {
+    min-width: 145px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: 0;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(59,130,246,.22);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+
+.create-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+.create-btn:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 14px 30px rgba(59,130,246,.3);
+}
+
+
+.create-btn:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 7px 15px rgba(59,130,246,.2);
+}
+
+
+/* =========================================================
+   FOCUS / ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid rgba(59,130,246,.55);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .admin-layout {
+        width: min(900px, calc(100% - 32px));
+
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "header"
+            "create"
+            "channels";
+    }
+
+    .channels-area {
+        min-height: 500px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .admin-layout {
+        width: calc(100% - 18px);
+
+        padding: 20px 0 35px;
+
+        gap: 15px;
+    }
+
+
+    .admin-header {
+        min-height: auto;
+
+        padding: 5px 3px;
+    }
+
+
+    .admin-header-icon {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 14px;
+    }
+
+
+    .admin-header h1 {
+        font-size: 18px;
+    }
+
+
+    .admin-header p {
+        font-size: 10px;
+    }
+
+
+    .admin-header-status {
+        display: none;
+    }
+
+
+    .panel {
+        border-radius: 19px;
+    }
+
+
+    .panel-title {
+        min-height: 70px;
+
+        padding: 0 17px;
+    }
+
+
+    .panel-title-icon {
+        width: 37px;
+        height: 37px;
+
+        border-radius: 11px;
+    }
+
+
+    .panel-title-main span {
+        font-size: 13px;
+    }
+
+
+    .panel-title-main small {
+        font-size: 9px;
+    }
+
+
+    .channels-grid {
+        padding: 14px;
+    }
+
+
+    .empty {
+        min-height: 320px;
+    }
+
+
+    .create-content {
+        padding: 13px;
+    }
+
+
+    .create-section {
+        padding: 14px;
+    }
+
+
+    .create-footer {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+
+    .create-btn {
+        width: 100%;
+    }
+
+
+    .create-hint {
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .type-box button {
+        min-height: 58px;
+
+        gap: 6px;
+    }
+
+
+    .type-box button > svg {
+        width: 17px;
+        height: 17px;
+    }
+
+
+    .type-box button small {
+        display: none;
+    }
+
+}
+
+/* =========================================================
+   USER / MEMBER CARDS
+========================================================= */
+
+.members {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/* each user */
+
+.user {
+    position: relative;
+
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 9px 11px;
+
+    border: 1px solid transparent;
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.025),
+            rgba(255,255,255,.008)
+        );
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+
+/* hover */
+
+.user:hover {
+    transform: translateX(-2px);
+
+    border-color:
+        rgba(59,130,246,.22);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(255,255,255,.018)
+        );
+}
+
+
+/* user information */
+
+.user > span {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    line-height: 1.3;
+
+    font-size: 11px;
+}
+
+
+/* fullname */
+
+.user > span br + * {
+    color: var(--muted);
+}
+
+
+/* checkbox */
+
+.user input[type="checkbox"] {
+    appearance: none;
+
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    border: 1px solid #3a424d;
+    border-radius: 7px;
+
+    background: #111419;
+
+    cursor: pointer;
+
+    position: relative;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+/* checked */
+
+.user input[type="checkbox"]:checked {
+    border-color: var(--accent);
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,.09),
+        0 4px 15px rgba(59,130,246,.2);
+}
+
+
+/* check icon */
+
+.user input[type="checkbox"]:checked::after {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 9px;
+
+    top: 3px;
+    left: 7px;
+
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   CHANNEL CARDS
+========================================================= */
+
+.channel-card {
+    position: relative;
+
+    min-height: 190px;
+
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border: 1px solid var(--border);
+    border-radius: 19px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.008)
+        ),
+        #15181c;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.16),
+        inset 0 1px 0 rgba(255,255,255,.025);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* blue ambient light */
+
+.channel-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    top: -75px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    opacity: .08;
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+/* hover */
+
+.channel-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(59,130,246,.28);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.28),
+        0 0 25px rgba(59,130,246,.045),
+        inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+
+/* =========================================================
+   CHANNEL HEADER
+========================================================= */
+
+.channel-header {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   CHANNEL ICON
+========================================================= */
+
+.channel-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(59,130,246,.18);
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(59,130,246,.13),
+            rgba(59,130,246,.035)
+        );
+
+    color: var(--accent);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+
+.channel-icon svg {
+    width: 21px;
+    height: 21px;
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(59,130,246,.3)
+        );
+}
+
+
+/* channel name */
+
+.channel-header strong {
+    max-width: 170px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   CHANNEL DESCRIPTION / INFO
+========================================================= */
+
+.channel-card > p {
+    position: relative;
+    z-index: 1;
+
+    margin: 15px 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CHANNEL ACTIONS
+========================================================= */
+
+.channel-actions {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 1fr 42px;
+
+    gap: 8px;
+
+    margin-top: auto;
+}
+
+
+/* =========================================================
+   MESSAGE BUTTON
+========================================================= */
+
+.message-btn {
+    height: 42px;
+
+    border: 1px solid rgba(59,130,246,.22);
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.13),
+            rgba(59,130,246,.055)
+        );
+
+    color: #dbeafe;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.message-btn:hover {
+    transform: translateY(-1px);
+
+    border-color: var(--accent);
+
+    background:
+        var(--accent);
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(59,130,246,.2);
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.delete-btn {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(239,68,68,.15);
+    border-radius: 12px;
+
+    background:
+        rgba(239,68,68,.045);
+
+    color: #9b6464;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+
+.delete-btn:hover {
+    transform: translateY(-1px);
+
+    border-color:
+        rgba(239,68,68,.4);
+
+    background:
+        rgba(239,68,68,.11);
+
+    color: var(--danger);
+}
+
+
+/* =========================================================
+   EMPTY STATE — WHEN JS REPLACES IT
+========================================================= */
+
+.channels-grid > .empty {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .channels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .channel-card {
+        min-height: 170px;
+    }
+
+    .user {
+        min-height: 55px;
+    }
+
+}
+
+/* =========================================================
+   MODERN DASHBOARD HEADER
+========================================================= */
+
+.dashboard-header {
+    grid-area: header;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   HEADER CONTAINER
+========================================================= */
+
+.dashboard-header-inner {
+    position: relative;
+
+    min-height: 88px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 14px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.012) 55%,
+            rgba(59,130,246,.025)
+        ),
+        var(--surface);
+
+    box-shadow:
+        var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.035);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER TOP LIGHT
+========================================================= */
+
+.dashboard-header-inner::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+
+    width: 84%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(59,130,246,.45),
+            transparent
+        );
+
+    opacity: .8;
+}
+
+
+/* =========================================================
+   AMBIENT BLUE GLOW
+========================================================= */
+
+.dashboard-header-inner::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    top: -220px;
+    left: 45%;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    opacity: .045;
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.dashboard-back {
+    position: relative;
+    z-index: 3;
+
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #303640;
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #20242a,
+            #171a1e
+        );
+
+    color: #9aa3af;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.035),
+        0 7px 18px rgba(0,0,0,.2);
+
+    transition:
+        border-color .2s ease,
+        color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.dashboard-back svg {
+    width: 21px;
+    height: 21px;
+}
+
+
+.dashboard-back:hover {
+    color: var(--text);
+
+    border-color:
+        rgba(59,130,246,.4);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(59,130,246,.13),
+            #191d22
+        );
+
+    transform: translateX(3px);
+}
+
+
+.dashboard-back:active {
+    transform: translateX(3px) scale(.95);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.dashboard-brand {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-right: 16px;
+}
+
+
+/* =========================================================
+   BRAND MARK
+========================================================= */
+
+.dashboard-brand-mark {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(59,130,246,.24);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(59,130,246,.15),
+            rgba(59,130,246,.035)
+        );
+
+    color: var(--accent);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 8px 25px rgba(0,0,0,.2),
+        0 0 25px rgba(59,130,246,.045);
+}
+
+
+.dashboard-brand-mark svg {
+    width: 24px;
+    height: 24px;
+
+    filter:
+        drop-shadow(
+            0 0 9px rgba(59,130,246,.4)
+        );
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.dashboard-brand-text {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.dashboard-brand-text h1 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 16px;
+    font-weight: 800;
+
+    letter-spacing: -.3px;
+}
+
+
+.dashboard-brand-text span {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+
+.dashboard-header-right {
+    position: relative;
+    z-index: 2;
+
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+/* =========================================================
+   LIVE STATUS
+========================================================= */
+
+.dashboard-live {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    border: 1px solid rgba(34,197,94,.13);
+    border-radius: 10px;
+
+    background:
+        rgba(34,197,94,.035);
+
+    color: #8f9a96;
+
+    font-size: 10px;
+}
+
+
+.dashboard-live-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 9px rgba(34,197,94,.65);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.dashboard-divider {
+    width: 1px;
+    height: 25px;
+
+    background: var(--border);
+}
+
+
+/* =========================================================
+   HEADER LABEL
+========================================================= */
+
+.dashboard-header-label {
+    color: #656d78;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .dashboard-header-inner {
+        min-height: 76px;
+
+        padding: 10px;
+
+        border-radius: 18px;
+    }
+
+
+    .dashboard-back {
+        width: 42px;
+        height: 42px;
+
+        border-radius: 12px;
+    }
+
+
+    .dashboard-brand {
+        gap: 10px;
+
+        margin-right: 10px;
+    }
+
+
+    .dashboard-brand-mark {
+        width: 42px;
+        height: 42px;
+
+        border-radius: 12px;
+    }
+
+
+    .dashboard-brand-mark svg {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .dashboard-brand-text h1 {
+        font-size: 13px;
+    }
+
+
+    .dashboard-brand-text span {
+        font-size: 8px;
+    }
+
+
+    .dashboard-header-label,
+    .dashboard-divider {
+        display: none;
+    }
+
+
+    .dashboard-live {
+        padding: 7px 9px;
+
+        font-size: 9px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .dashboard-header-right {
+        display: none;
+    }
+
+    .dashboard-brand {
+        margin-right: 9px;
+    }
+
+}
+</style>
+</head>
+
+<body class="admin-chat-page" data-theme="dark">
+
+    <div class="admin-layout">
+
+        <!-- =====================================================
+             PAGE HEADER
+        ===================================================== -->
+
+        <!-- =====================================================
+     MODERN ADMIN HEADER
+===================================================== -->
+
+<header class="dashboard-header">
+
+    <div class="dashboard-header-inner">
+
+        <!-- BACK -->
+        <button
+            class="dashboard-back"
+            type="button"
+            onclick="history.back()"
+            aria-label="بازگشت"
+        >
+            <i data-lucide="chevron-right"></i>
+        </button>
+
+
+        <!-- BRAND -->
+        <div class="dashboard-brand">
+
+            <div class="dashboard-brand-mark">
+                <i data-lucide="messages-square"></i>
+            </div>
+
+            <div class="dashboard-brand-text">
+
+                <h1>
+                    گروه‌ها و کانال‌ها
+                </h1>
+
+                <span>
+                    مدیریت و ساخت فضای گفتگو
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="dashboard-header-right">
+
+            <div class="dashboard-live">
+
+                <span class="dashboard-live-dot"></span>
+
+                <span>
+                    آنلاین
+                </span>
+
+            </div>
+
+            <div class="dashboard-divider"></div>
+
+            <div class="dashboard-header-label">
+                پنل مدیریت
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+        <!-- =====================================================
+             CHANNEL LIST
+        ===================================================== -->
+
+        <section class="panel channels-area">
+
+            <div class="panel-title">
+
+                <div class="panel-title-main">
+
+                    <div class="panel-title-icon">
+                        <i data-lucide="messages-square"></i>
+                    </div>
+
+                    <div>
+                        <span>گروه‌ها و کانال‌ها</span>
+                        <small>مدیریت گفتگوهای ایجاد شده</small>
+                    </div>
+
+                </div>
+
+                <div class="channel-count">
+                    <strong>0</strong>
+                    <span>مورد</span>
+                </div>
+
+            </div>
+
+
+            <div class="channels-grid" id="channels">
+
+                <!-- کارت ها با JS ساخته می‌شوند -->
+
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        <i data-lucide="messages-square"></i>
+                    </div>
+
+                    <strong>
+                        هنوز گروهی ساخته نشده
+                    </strong>
+
+                    <span>
+                        اولین گروه یا کانال خود را از پنل کناری ایجاد کنید
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CREATE CHANNEL
+        ===================================================== -->
+
+        <section class="panel create-area">
+
+            <div class="panel-title">
+
+                <div class="panel-title-main">
+
+                    <div class="panel-title-icon">
+                        <i data-lucide="plus-circle"></i>
+                    </div>
+
+                    <div>
+                        <span>ساخت گروه / کانال</span>
+                        <small>یک فضای جدید برای گفتگو ایجاد کنید</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="create-content">
+
+
+                <!-- =================================================
+                     BASIC INFORMATION
+                ================================================= -->
+
+                <div class="create-section">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <strong>اطلاعات اولیه</strong>
+                            <span>نام و توضیحات فضای جدید</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="name">
+                            نام گروه یا کانال
+                        </label>
+
+                        <input
+                            id="name"
+                            type="text"
+                            placeholder="مثلاً تیم طراحی..."
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="description">
+                            توضیحات
+                        </label>
+
+                        <textarea
+                            id="description"
+                            placeholder="توضیح کوتاهی درباره این گروه یا کانال بنویسید..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TYPE
+                ================================================= -->
+
+                <div class="create-section">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <strong>نوع فضا</strong>
+                            <span>نوع ارتباط را انتخاب کنید</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="type-box">
+
+                        <button
+                            class="active"
+                            data-type="group"
+                        >
+
+                            <i data-lucide="users"></i>
+
+                            <span>
+                                <strong>گروه</strong>
+                                <small>گفتگوی چندنفره</small>
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            data-type="channel"
+                        >
+
+                            <i data-lucide="megaphone"></i>
+
+                            <span>
+                                <strong>کانال</strong>
+                                <small>انتشار محتوا</small>
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MEMBERS
+                ================================================= -->
+
+                <div class="create-section members-section">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <strong>انتخاب اعضا</strong>
+                            <span>افرادی که می‌توانند وارد این فضا شوند</span>
+                        </div>
+
+                        <div class="members-selected">
+                            <span>انتخاب شده</span>
+                            <strong>0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="members"
+                        id="members"
+                    >
+
+                        <div class="loading">
+
+                            <i data-lucide="loader-circle"></i>
+
+                            <span>
+                                در حال دریافت کاربران...
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CREATE BUTTON
+                ================================================= -->
+
+                <div class="create-footer">
+
+                    <div class="create-hint">
+
+                        <i data-lucide="info"></i>
+
+                        <span>
+                            بعد از ساخت، می‌توانید تنظیمات را تغییر دهید.
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="create-btn"
+                        id="createBtn"
+                    >
+
+                        <i data-lucide="plus"></i>
+
+                        <span>
+                            ساخت
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+
+<script src="./config.js"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<script src="admin-channel.js"></script>
+
+<script>
+    const themeSelect =
+document.getElementById("themeSelect");
+
+
+themeSelect.onchange=()=>{
+
+document.body.dataset.theme =
+themeSelect.value;
+
+
+localStorage.setItem(
+"siteTheme",
+themeSelect.value
+);
+
+};
+
+
+
+document.body.dataset.theme =
+localStorage.getItem("siteTheme")
+||
+"dark";
+
+</script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+const API = API_URL;
+
+
+// ELEMENTS
+
+const nameInput = document.getElementById("name");
+const descriptionInput = document.getElementById("description");
+const membersBox = document.getElementById("members");
+const channelsBox = document.getElementById("channels");
+const createBtn = document.getElementById("createBtn");
+
+const themeSelect = document.getElementById("themeSelect");
+
+const modal = document.getElementById("adminMessageModal");
+const closeModal = document.getElementById("closeAdminModal");
+const adminInput = document.getElementById("adminMessageInput");
+const sendAdminBtn = document.getElementById("sendAdminBtn");
+
+
+
+// STATE
+
+let selectedType = "group";
+let selectedMembers = [];
+let selectedChannelId = null;
+
+
+
+// TOAST
+
+function showToast(message,type="info"){
+
+const box=document.getElementById("toastBox");
+
+if(!box)return;
+
+
+const toast=document.createElement("div");
+
+toast.className=`toast ${type}`;
+
+toast.innerHTML=message;
+
+
+box.appendChild(toast);
+
+
+setTimeout(()=>{
+
+toast.remove();
+
+},3000);
+
+
+}
+
+
+
+// THEME
+
+const savedTheme =
+localStorage.getItem("siteTheme") || "dark";
+
+
+document.body.dataset.theme=savedTheme;
+
+
+if(themeSelect){
+
+themeSelect.value=savedTheme;
+
+
+themeSelect.onchange=()=>{
+
+document.body.dataset.theme =
+themeSelect.value;
+
+
+localStorage.setItem(
+"siteTheme",
+themeSelect.value
+);
+
+};
+
+}
+
+
+
+// TYPE
+
+document.querySelectorAll(".type-box button")
+.forEach(btn=>{
+
+
+btn.onclick=()=>{
+
+
+document.querySelectorAll(".type-box button")
+.forEach(b=>b.classList.remove("active"));
+
+
+btn.classList.add("active");
+
+
+selectedType =
+btn.dataset.type;
+
+
+};
+
+
+});
+
+
+
+
+// LOAD USERS
+
+
+async function loadUsers(){
+
+
+try{
+
+
+const res =
+await fetch(`${API}/admin/users`);
+
+
+const data =
+await res.json();
+
+
+const users =
+data.users || data;
+
+
+
+membersBox.innerHTML="";
+
+
+users.forEach(user=>{
+
+
+const item=document.createElement("div");
+
+item.className="user";
+
+
+item.innerHTML=`
+
+<span>
+
+${user.fullname || "بدون نام"}
+
+<br>
+
+${user.phone}
+
+</span>
+
+
+<input type="checkbox" value="${user.phone}">
+
+`;
+
+
+
+const checkbox =
+item.querySelector("input");
+
+
+
+checkbox.onchange=()=>{
+
+
+if(checkbox.checked){
+
+selectedMembers.push(user.phone);
+
+}
+
+else{
+
+selectedMembers =
+selectedMembers.filter(
+x=>x!==user.phone
+);
+
+}
+
+
+};
+
+
+membersBox.appendChild(item);
+
+
+});
+
+
+}
+
+catch(err){
+
+console.log(
+"LOAD USERS ERROR:",
+err
+);
+
+}
+
+
+}
+
+
+
+
+// CREATE GROUP
+
+
+createBtn.onclick=async()=>{
+
+
+const body={
+
+
+name:nameInput.value.trim(),
+
+type:selectedType,
+
+members:selectedMembers,
+
+
+admins:[]
+
+
+};
+
+
+
+if(!body.name){
+
+showToast(
+"نام گروه را وارد کنید",
+"error"
+);
+
+return;
+
+}
+
+
+
+try{
+
+
+const res =
+await fetch(
+
+`${API}/chat/create`,
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify(body)
+
+}
+
+);
+
+
+
+const data =
+await res.json();
+
+
+
+console.log(
+"CREATE:",
+data
+);
+
+
+
+if(data.success){
+
+
+showToast(
+"گروه ساخته شد",
+"success"
+);
+
+
+
+nameInput.value="";
+
+descriptionInput.value="";
+
+selectedMembers=[];
+
+
+loadChannels();
+
+
+}
+
+else{
+
+showToast(
+data.message || "خطا",
+"error"
+);
+
+}
+
+
+}
+
+catch(err){
+
+console.log(err);
+
+}
+
+
+};
+
+
+
+
+
+// LOAD GROUPS
+
+
+async function loadChannels(){
+
+
+try{
+
+
+const res =
+await fetch(
+`${API}/chat/all-test`
+);
+
+
+const data =
+await res.json();
+
+
+const channels =
+data.chats || [];
+
+
+
+if(!channelsBox)
+return;
+
+
+channelsBox.innerHTML="";
+
+
+
+if(!channels.length){
+
+
+channelsBox.innerHTML=`
+
+<div class="empty">
+
+گروهی وجود ندارد
+
+</div>
+
+`;
+
+
+return;
+
+}
+
+
+
+
+channels.forEach(ch=>{
+
+
+const card =
+document.createElement("div");
+
+
+card.className="channel-card";
+
+
+card.innerHTML=`
+
+<div class="channel-header">
+
+
+<div class="channel-icon">
+
+<i data-lucide="${
+ch.type==="channel"
+?
+"megaphone"
+:
+"users"
+}"></i>
+
+
+</div>
+
+
+<strong>
+
+${ch.name}
+
+</strong>
+
+
+</div>
+
+
+
+<p>
+
+${ch.type==="channel"?"کانال":"گروه"}
+
+-
+
+${ch.members?.length || 0}
+
+عضو
+
+</p>
+
+
+
+<div class="channel-actions">
+
+
+<button 
+class="message-btn"
+data-id="${ch._id}"
+>
+
+پیام
+
+</button>
+
+
+<button
+
+class="delete-btn"
+
+data-id="${ch._id}"
+
+>
+
+🗑
+
+</button>
+
+
+</div>
+
+
+`;
+
+
+
+channelsBox.appendChild(card);
+
+
+
+});
+
+
+
+
+// MESSAGE BUTTON
+
+document
+.querySelectorAll(".message-btn")
+.forEach(btn=>{
+
+    btn.onclick = (e)=>{
+
+        e.preventDefault();
+
+
+        const chatId =
+        btn.dataset.id;
+
+
+
+        localStorage.setItem(
+            "adminChatId",
+            chatId
+        );
+
+
+        window.location.href =
+        "ارسال پیام.html";
+
+
+    };
+
+});
+
+
+
+// DELETE BUTTON
+
+
+document.querySelectorAll(".delete-btn")
+.forEach(btn=>{
+
+
+btn.onclick=()=>{
+
+deleteChannel(
+btn.dataset.id
+);
+
+};
+
+
+});
+
+
+
+if(window.lucide){
+
+lucide.createIcons();
+
+}
+
+
+}
+
+catch(err){
+
+console.log(
+"LOAD CHANNEL ERROR",
+err
+);
+
+}
+
+
+}
+
+
+
+
+// DELETE
+
+
+async function deleteChannel(id){
+
+
+if(!confirm("حذف شود؟"))
+return;
+
+
+
+await fetch(
+
+`${API}/chat/${id}`,
+
+{
+
+method:"DELETE"
+
+}
+
+);
+
+
+
+loadChannels();
+
+
+}
+
+
+
+
+// ADMIN SEND MESSAGE
+
+
+if(sendAdminBtn){
+
+
+sendAdminBtn.onclick=async()=>{
+
+
+const text =
+adminInput.value.trim();
+
+
+
+if(!text)
+return;
+
+
+
+const formData =
+new FormData();
+
+
+formData.append(
+"chatId",
+selectedChannelId
+);
+
+
+formData.append(
+"sender",
+"مدیر"
+);
+
+
+formData.append(
+"senderType",
+"admin"
+);
+
+
+formData.append(
+"text",
+text
+);
+
+
+
+const res =
+await fetch(
+
+`${API}/chat/message`,
+
+{
+
+method:"POST",
+
+body:formData
+
+}
+
+);
+
+
+
+const data =
+await res.json();
+
+
+
+console.log(
+data
+);
+
+
+
+adminInput.value="";
+
+
+};
+
+
+}
+
+
+
+
+// START
+
+
+loadUsers();
+
+loadChannels();
+
+
+});
+
+
+</script>
+
+
+<div id="toastBox"></div>
+
+<script>
+
+lucide.createIcons();
+
+
+</script>
+
+
+</body>
+
+</html>

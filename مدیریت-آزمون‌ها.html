@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+مدیریت آزمون‌ها
+</title>
+
+
+<link rel="stylesheet" href="./5.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+
+<body>
+
+
+<main class="admin-home-page">
+
+
+<header class="admin-home-header">
+
+
+<div class="admin-home-title">
+
+
+<div class="admin-home-logo">
+
+<i data-lucide="file-question"></i>
+
+</div>
+
+
+<div>
+
+<h1>
+مدیریت آزمون‌ها
+</h1>
+
+
+<p>
+مشاهده و کنترل آزمون‌های ثبت شده
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<a href="./index.html"
+class="admin-home-logout">
+
+<i data-lucide="arrow-right"></i>
+
+بازگشت
+
+</a>
+
+
+</header>
+
+
+
+
+
+<section class="admin-home-welcome">
+
+
+<div>
+
+<span>
+آزمون‌ها
+</span>
+
+
+<h2>
+لیست آزمون‌های سایت
+</h2>
+
+
+<p>
+در این بخش می‌توانید آزمون‌های ثبت شده را مدیریت کنید.
+</p>
+
+
+</div>
+
+
+
+<div class="admin-welcome-icon">
+
+<i data-lucide="clipboard-list"></i>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section 
+class="admin-home-sections"
+id="testsContainer">
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+<script src="./config.js"></script>
+<script>
+
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+lucide.createIcons();
+
+
+
+const testsContainer =
+document.getElementById(
+"testsContainer"
+);
+
+
+
+
+
+// ===============================
+// LOAD TESTS
+// ===============================
+
+
+async function loadTests(){
+
+
+showLoading();
+
+
+
+try{
+
+
+const response =
+await fetch(
+`${API_URL}/admin/tests`
+);
+
+
+
+if(!response.ok){
+
+throw new Error(
+"Server Error"
+);
+
+}
+
+
+
+const tests =
+await response.json();
+
+
+
+console.log(
+"ADMIN TESTS:",
+tests
+);
+
+
+
+
+
+// EMPTY
+
+if(!tests.length){
+
+showEmpty();
+
+return;
+
+}
+
+
+
+
+
+renderTests(tests);
+
+
+
+}
+catch(error){
+
+
+console.log(
+"ERROR:",
+error
+);
+
+
+
+showError();
+
+
+}
+
+
+
+}
+
+
+
+
+
+// ===============================
+// LOADING
+// ===============================
+
+
+function showLoading(){
+
+
+testsContainer.innerHTML = `
+
+
+<div class="state-card loading-state">
+
+
+<div class="loader-circle"></div>
+
+
+<h2>
+در حال دریافت آزمون‌ها
+</h2>
+
+
+<p>
+لطفاً صبر کنید...
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+
+// ===============================
+// EMPTY
+// ===============================
+
+
+function showEmpty(){
+
+
+testsContainer.innerHTML = `
+
+
+<div class="state-card empty-state">
+
+
+<i data-lucide="file-x"></i>
+
+
+<h2>
+آزمونی وجود ندارد
+</h2>
+
+
+<p>
+هنوز هیچ آزمونی در سایت ایجاد نشده است
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+lucide.createIcons();
+
+
+
+}
+
+
+
+
+
+// ===============================
+// ERROR
+// ===============================
+
+
+function showError(){
+
+
+testsContainer.innerHTML = `
+
+
+<div class="state-card error-state">
+
+
+<i data-lucide="wifi-off"></i>
+
+
+<h2>
+خطا در دریافت اطلاعات
+</h2>
+
+
+<p>
+ارتباط با سرور برقرار نشد
+</p>
+
+
+
+<button 
+onclick="loadTests()"
+class="retry-btn">
+
+<i data-lucide="refresh-cw"></i>
+
+تلاش دوباره
+
+</button>
+
+
+</div>
+
+
+`;
+
+
+
+lucide.createIcons();
+
+
+
+}
+
+
+
+
+
+// ===============================
+// RENDER TESTS
+// ===============================
+
+
+function renderTests(tests){
+
+
+testsContainer.innerHTML = "";
+
+
+
+tests.forEach(
+(test,index)=>{
+
+
+
+testsContainer.innerHTML += `
+
+
+<article 
+class="admin-home-card test-card"
+style="
+animation-delay:${index * 80}ms
+">
+
+
+
+<div class="admin-home-card-top">
+
+
+
+<div class="admin-home-card-icon">
+
+<i data-lucide="file-question"></i>
+
+</div>
+
+
+
+<span class="admin-home-card-label">
+
+${test.subject}
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="admin-home-card-content">
+
+
+<h2>
+
+${test.title}
+
+</h2>
+
+
+
+<div class="test-info">
+
+
+<div>
+
+<i data-lucide="list"></i>
+
+<span>
+${test.questionCount}
+سوال
+</span>
+
+</div>
+
+
+
+<div>
+
+<i data-lucide="clock"></i>
+
+<span>
+${test.duration}
+دقیقه
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<a
+
+href="./tests-manager.html?id=${test._id}"
+
+class="admin-home-card-btn"
+
+
+>
+
+مشاهده آزمون
+
+
+<i data-lucide="arrow-left"></i>
+
+
+</a>
+
+
+
+</article>
+
+
+`;
+
+
+
+}
+);
+
+
+
+lucide.createIcons();
+
+
+
+}
+
+
+
+
+
+loadTests();
+
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

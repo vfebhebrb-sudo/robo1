@@ -1,0 +1,3147 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+ساخت آزمون
+</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<style>/* ==========================================
+        RESET
+========================================== */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+:root{
+
+
+    --background:#111315;
+
+    --surface:#191c21;
+
+    --surface-hover:#22262d;
+
+    --text:#f9fafb;
+
+    --text-secondary:#9ca3af;
+
+    --border:#292e36;
+
+
+    --accent:#3b82f6;
+
+    --accent-soft:#172554;
+
+
+    --success:#22c55e;
+
+    --success-soft:#052e16;
+
+
+    --danger:#ef4444;
+
+
+    --shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+
+}
+
+
+
+
+
+/* ==========================================
+        BODY
+========================================== */
+
+
+body{
+
+
+    min-height:100vh;
+
+
+    background:
+
+
+    radial-gradient(
+        circle at top right,
+        rgba(59,130,246,.12),
+        transparent 30%
+    ),
+
+
+    var(--background);
+
+
+
+    color:var(--text);
+
+
+    font-family:"Vazirmatn",sans-serif;
+
+
+    direction:rtl;
+
+
+    padding:20px;
+
+
+}
+
+
+
+
+button,
+input,
+textarea,
+select{
+
+    font-family:inherit;
+
+}
+
+
+
+
+button{
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+/* ==========================================
+        MAIN WRAPPER
+========================================== */
+
+
+.exam-builder{
+
+
+    max-width:1250px;
+
+
+    margin:auto;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+        HEADER
+========================================== */
+
+
+.builder-header{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    padding:20px;
+
+
+    margin-bottom:20px;
+
+
+    background:var(--surface);
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:22px;
+
+
+    box-shadow:var(--shadow);
+
+
+}
+
+
+
+
+.header-title{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+}
+
+
+
+
+.header-icon{
+
+
+    width:55px;
+
+
+    height:55px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    border-radius:16px;
+
+
+    background:var(--accent-soft);
+
+
+    color:var(--accent);
+
+
+}
+
+
+
+
+.header-icon svg{
+
+    width:26px;
+
+}
+
+
+
+
+.header-title h1{
+
+
+    font-size:20px;
+
+    font-weight:800;
+
+
+}
+
+
+
+.header-title p{
+
+
+    font-size:12px;
+
+
+    color:var(--text-secondary);
+
+}
+
+
+
+
+.back-btn{
+
+
+    height:42px;
+
+
+    padding:0 18px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:8px;
+
+
+    background:var(--surface-hover);
+
+
+    color:var(--text);
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:12px;
+
+
+}
+
+
+
+
+
+/* ==========================================
+        TWO COLUMN
+========================================== */
+
+
+.builder-layout{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    1fr 300px;
+
+
+    gap:20px;
+
+
+    align-items:start;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        BOX
+========================================== */
+
+
+.box,
+.answer-panel{
+
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.04),
+        rgba(255,255,255,.015)
+    );
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:22px;
+
+
+    padding:22px;
+
+
+    margin-bottom:20px;
+
+
+    box-shadow:var(--shadow);
+
+
+}
+
+
+
+
+
+
+
+.box-title{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+.box-title svg{
+
+
+    width:20px;
+
+
+    color:var(--accent);
+
+
+}
+
+
+
+.box-title h2{
+
+
+    font-size:15px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+        FORM
+========================================== */
+
+
+.form-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    2fr 1fr 1fr 1fr;
+
+
+    gap:14px;
+
+
+}
+
+
+
+
+.field{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:8px;
+
+
+}
+
+
+
+.field label{
+
+
+    font-size:11px;
+
+
+    color:var(--text-secondary);
+
+
+}
+
+
+
+
+.field input,
+.field select,
+.field textarea{
+
+
+    width:100%;
+
+
+    background:#101214;
+
+
+    color:var(--text);
+
+
+    border:1px solid var(--border);
+
+
+    outline:none;
+
+
+    border-radius:12px;
+
+
+    padding:12px;
+
+
+    transition:.25s;
+
+
+}
+
+
+
+.field input,
+.field select{
+
+
+    height:42px;
+
+
+}
+
+
+
+
+.field textarea{
+
+
+    min-height:120px;
+
+
+    resize:none;
+
+
+}
+
+
+
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+
+
+    border-color:var(--accent);
+
+
+    box-shadow:
+    0 0 0 3px rgba(59,130,246,.15);
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        OPTIONS
+========================================== */
+
+
+.options-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:1fr 1fr;
+
+
+    gap:12px;
+
+
+}
+
+
+
+.option{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+}
+
+
+
+
+.option span{
+
+
+    width:32px;
+
+
+    height:32px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    background:var(--accent-soft);
+
+
+    color:#93c5fd;
+
+
+    border-radius:9px;
+
+
+    font-size:12px;
+
+
+}
+
+
+
+
+.option input{
+
+
+    flex:1;
+
+
+    height:40px;
+
+
+    background:#101214;
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:10px;
+
+
+    color:white;
+
+
+    padding:0 12px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        ANSWER SELECT
+========================================== */
+
+
+.correct-box{
+
+
+    margin-top:18px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+    padding:15px;
+
+
+    border-radius:14px;
+
+
+    background:rgba(34,197,94,.08);
+
+
+    border:1px solid rgba(34,197,94,.2);
+
+
+}
+
+
+
+.correct-box select{
+
+
+    background:#101214;
+
+
+    color:#4ade80;
+
+
+    border:1px solid #166534;
+
+
+    padding:8px 15px;
+
+
+    border-radius:10px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        BUTTON
+========================================== */
+
+
+.add-btn,
+.publish-btn{
+
+
+    width:100%;
+
+
+    height:45px;
+
+
+    margin-top:18px;
+
+
+    border-radius:12px;
+
+
+    background:
+
+
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+
+    color:white;
+
+
+    font-weight:700;
+
+
+    border:none;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    gap:8px;
+
+
+}
+
+
+
+
+.add-btn:hover,
+.publish-btn:hover{
+
+
+    opacity:.85;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        QUESTION LIST
+========================================== */
+
+
+.question-list{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:10px;
+
+
+}
+
+
+
+.question-item{
+
+
+    padding:14px;
+
+
+    border-radius:14px;
+
+
+    background:#101214;
+
+
+    border:1px solid var(--border);
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================
+        ANSWER PANEL
+========================================== */
+
+
+.answer-panel{
+
+
+    position:sticky;
+
+
+    top:20px;
+
+
+}
+
+
+
+.panel-header{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.panel-header svg{
+
+
+    color:var(--accent);
+
+
+}
+
+
+
+
+.answer-info{
+
+
+    font-size:12px;
+
+
+    color:var(--text-secondary);
+
+
+    padding-bottom:15px;
+
+
+    border-bottom:1px solid var(--border);
+
+
+}
+
+
+
+
+
+
+
+.answer-sheet{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:10px;
+
+
+    margin-top:15px;
+
+
+}
+
+
+
+
+.answer-row{
+
+
+    display:grid;
+
+
+    grid-template-columns:35px repeat(4,1fr);
+
+
+    gap:8px;
+
+
+    align-items:center;
+
+
+}
+
+
+
+
+.answer-number{
+
+
+    font-size:12px;
+
+
+    color:var(--text-secondary);
+
+
+}
+
+
+
+
+.answer-option{
+
+
+    height:32px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    border-radius:9px;
+
+
+    background:#101214;
+
+
+    border:1px solid var(--border);
+
+
+    font-size:11px;
+
+
+}
+
+
+
+
+
+.answer-option.active{
+
+
+    background:#166534;
+
+
+    color:#bbf7d0;
+
+
+    border-color:#22c55e;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+
+@media(max-width:950px){
+
+
+.builder-layout{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+.answer-panel{
+
+
+    position:relative;
+
+
+}
+
+
+}
+
+
+
+
+@media(max-width:600px){
+
+
+.form-grid,
+.options-grid{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+body{
+
+padding:10px;
+
+}
+
+
+
+.builder-header{
+
+
+flex-direction:column;
+
+gap:15px;
+
+
+}
+
+
+.back-btn{
+
+
+width:100%;
+
+}
+
+
+
+}
+
+.answer-options button.active{
+
+    background:#22c55e;
+
+    color:white;
+
+    border-color:#22c55e;
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+        ANSWER PANEL
+========================================== */
+
+
+.answer-panel{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:18px;
+
+    box-shadow:var(--shadow);
+
+    height:fit-content;
+
+    position:sticky;
+
+    top:20px;
+
+}
+
+
+
+
+
+/* HEADER */
+
+.panel-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding-bottom:15px;
+
+    margin-bottom:15px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+
+
+.panel-header svg{
+
+    width:22px;
+
+    height:22px;
+
+    color:var(--accent);
+
+}
+
+
+
+.panel-header h2{
+
+    font-size:15px;
+
+    font-weight:800;
+
+    color:var(--text);
+
+}
+
+
+
+
+
+/* COUNT */
+
+
+.answer-info{
+
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+
+padding:12px 14px;
+
+
+background:var(--surface-hover);
+
+
+border:1px solid var(--border);
+
+
+border-radius:14px;
+
+
+font-size:12px;
+
+
+color:var(--text-secondary);
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+.answer-info strong{
+
+
+color:var(--accent);
+
+
+font-size:16px;
+
+
+}
+
+
+
+
+
+
+/* ANSWER LIST */
+
+
+.answer-sheet{
+
+
+display:flex;
+
+flex-direction:column;
+
+gap:9px;
+
+max-height:650px;
+
+overflow-y:auto;
+
+padding-left:3px;
+
+}
+
+
+
+
+.answer-sheet::-webkit-scrollbar{
+
+width:5px;
+
+}
+
+
+.answer-sheet::-webkit-scrollbar-thumb{
+
+background:#3b4048;
+
+border-radius:20px;
+
+}
+
+
+
+
+
+
+
+/* ROW */
+
+
+.answer-row{
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+
+padding:9px;
+
+
+background:#16191e;
+
+
+border:1px solid var(--border);
+
+
+border-radius:15px;
+
+
+transition:.25s ease;
+
+
+}
+
+
+
+
+
+.answer-row:hover{
+
+
+background:var(--surface-hover);
+
+transform:translateX(-3px);
+
+
+}
+
+
+
+
+
+
+
+/* NUMBER */
+
+
+.question-number{
+
+
+width:34px;
+
+height:34px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+border-radius:12px;
+
+
+background:#242931;
+
+
+border:1px solid #343a43;
+
+
+font-size:12px;
+
+font-weight:800;
+
+
+color:var(--text);
+
+
+}
+
+
+
+
+
+
+
+/* OPTIONS */
+
+
+.answer-options{
+
+
+display:flex;
+
+gap:6px;
+
+}
+
+
+
+
+
+.answer-options button{
+
+
+width:32px;
+
+height:32px;
+
+
+border-radius:10px;
+
+
+border:1px solid #343a43;
+
+
+background:#30353c;
+
+
+color:#d1d5db;
+
+
+font-size:11px;
+
+
+font-weight:700;
+
+
+cursor:pointer;
+
+
+transition:.2s ease;
+
+
+}
+
+
+
+
+
+.answer-options button:hover{
+
+
+background:#454b55;
+
+
+transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+/* SELECTED ANSWER */
+
+
+.answer-options button.active{
+
+
+background:#22c55e;
+
+
+border-color:#22c55e;
+
+
+color:white;
+
+
+box-shadow:
+
+0 5px 18px rgba(34,197,94,.25);
+
+
+}
+
+
+
+
+
+/* QUESTION LIST */
+
+
+.test-item{
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+
+padding:14px;
+
+
+background:var(--surface);
+
+
+border:1px solid var(--border);
+
+
+border-radius:16px;
+
+
+transition:.25s;
+
+
+}
+
+
+
+
+
+.test-item:hover{
+
+
+background:var(--surface-hover);
+
+
+}
+
+
+
+
+
+.test-item strong{
+
+
+display:block;
+
+font-size:12px;
+
+margin-bottom:5px;
+
+
+}
+
+
+
+
+
+.test-item span{
+
+
+font-size:11px;
+
+color:var(--text-secondary);
+
+
+}
+
+
+
+
+
+.test-item div:last-child{
+
+
+padding:6px 10px;
+
+
+border-radius:10px;
+
+
+background:#1f2937;
+
+
+color:#22c55e;
+
+
+font-size:11px;
+
+
+font-weight:700;
+
+
+}
+
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:900px){
+
+
+.answer-panel{
+
+
+position:relative;
+
+top:auto;
+
+
+}
+
+
+.answer-options button{
+
+
+width:30px;
+
+height:30px;
+
+
+}
+
+
+}
+
+
+
+
+
+/* ==========================================
+        RTL ANSWER PANEL
+========================================== */
+
+
+.answer-panel{
+
+    direction:rtl;
+
+    text-align:right;
+
+    height: 700px;
+
+    margin-bottom: 0px;
+}
+
+
+
+.panel-header{
+
+    flex-direction:row-reverse;
+
+    justify-content:flex-start;
+
+}
+
+
+
+.answer-info{
+
+    direction:rtl;
+
+}
+
+
+
+.answer-row{
+
+    direction:rtl;
+
+    flex-direction:row;
+
+}
+
+
+
+.question-number{
+
+    order:2;
+
+}
+
+
+
+.answer-options{
+
+    order:1;
+
+    direction:rtl;
+
+}
+
+
+
+
+
+.answer-options button{
+
+    direction:rtl;
+
+}
+
+
+
+
+
+
+.test-item{
+
+    direction:rtl;
+
+    text-align:right;
+    height: 738px;
+    margin-bottom: 0px;
+}
+
+
+
+.test-item > div:first-child{
+
+    text-align:right;
+
+}
+
+
+
+.answer-sheet{
+
+    direction:rtl;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*{
+
+    border-radius:10px !important;
+
+}
+
+
+</style>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="exam-builder">
+
+
+
+<!-- ==================================
+     HEADER
+================================== -->
+
+
+<header class="builder-header">
+
+
+<div class="header-title">
+
+
+<div class="header-icon">
+
+<i data-lucide="file-plus"></i>
+
+</div>
+
+
+<div>
+
+<h1>
+ساخت آزمون جدید
+</h1>
+
+
+<p>
+ایجاد سوال و تنظیم پاسخنامه
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<button class="back-btn">
+
+<i data-lucide="arrow-right"></i>
+
+بازگشت
+
+</button>
+
+
+</header>
+
+
+
+
+
+<div class="builder-layout">
+
+
+
+
+
+<!-- ==================================
+     MAIN CONTENT
+================================== -->
+
+
+<main class="main-content">
+
+
+
+
+
+<!-- اطلاعات آزمون -->
+
+
+<section class="box">
+
+
+<div class="box-title">
+
+<i data-lucide="clipboard-list"></i>
+
+<h2>
+اطلاعات آزمون
+</h2>
+
+</div>
+
+
+
+<div class="form-grid">
+
+
+
+<div class="field">
+
+<label>
+عنوان آزمون
+</label>
+
+
+<input 
+id="examTitle"
+type="text"
+placeholder="مثلاً آزمون جامع ریاضی">
+
+
+</div>
+
+
+
+
+
+<div class="field">
+
+
+<label>
+درس
+</label>
+
+
+<select id="examSubject">
+
+
+<option value="">
+انتخاب درس
+</option>
+
+
+<option>
+ریاضی
+</option>
+
+
+<option>
+فیزیک
+</option>
+
+
+<option>
+شیمی
+</option>
+
+
+<option>
+زیست
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="field">
+
+
+<label>
+تعداد سوال
+</label>
+
+
+<input
+
+id="testCount"
+
+type="number"
+
+placeholder="مثلاً 50"
+
+>
+
+
+</div>
+
+
+
+
+
+<div class="field">
+
+
+<label>
+زمان آزمون
+</label>
+
+
+<input
+
+id="examDuration"
+
+type="number"
+
+placeholder="دقیقه"
+
+>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<!-- ==================================
+     QUESTION BUILDER
+================================== -->
+
+
+<section class="box">
+
+
+
+<div class="box-title">
+
+
+<i data-lucide="circle-plus"></i>
+
+
+<h2>
+ساخت سوال
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="question-number">
+
+
+سوال شماره
+
+<span id="currentQuestionNumber">
+
+1
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="field">
+
+
+<label>
+صورت سوال
+</label>
+
+
+<textarea
+
+id="questionText"
+
+placeholder="متن سوال">
+
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="options-grid">
+
+
+
+<div class="option">
+
+<span>
+1
+</span>
+
+<input
+
+id="option1"
+
+placeholder="گزینه اول"
+
+>
+
+</div>
+
+
+
+
+<div class="option">
+
+<span>
+2
+</span>
+
+<input
+
+id="option2"
+
+placeholder="گزینه دوم"
+
+>
+
+</div>
+
+
+
+
+
+<div class="option">
+
+<span>
+3
+</span>
+
+<input
+
+id="option3"
+
+placeholder="گزینه سوم"
+
+>
+
+</div>
+
+
+
+
+<div class="option">
+
+<span>
+4
+</span>
+
+<input
+
+id="option4"
+
+placeholder="گزینه چهارم"
+
+>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="correct-box">
+
+
+<label>
+
+پاسخ صحیح:
+
+</label>
+
+
+
+<select id="correctAnswer">
+
+
+<option value="">
+انتخاب کنید
+</option>
+
+
+<option value="1">
+گزینه 1
+</option>
+
+
+<option value="2">
+گزینه 2
+</option>
+
+
+<option value="3">
+گزینه 3
+</option>
+
+
+<option value="4">
+گزینه 4
+</option>
+
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+
+
+<button
+
+id="addQuestionBtn"
+
+class="add-btn"
+
+>
+
+
+<i data-lucide="plus"></i>
+
+افزودن سوال
+
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ==================================
+     QUESTIONS LIST
+================================== -->
+
+
+<section class="box">
+
+
+<div class="box-title">
+
+
+<i data-lucide="list-checks"></i>
+
+
+<h2>
+لیست سوالات
+</h2>
+
+
+</div>
+
+
+
+
+<div
+
+id="testList"
+
+class="question-list">
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ==================================
+     PUBLISH
+================================== -->
+
+
+<div class="actions">
+
+
+<button
+
+id="publishExamBtn"
+
+class="publish-btn"
+
+>
+
+
+<i data-lucide="save"></i>
+
+ثبت آزمون
+
+
+</button>
+
+
+</div>
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+<!-- ==================================
+     ANSWER SHEET
+================================== -->
+
+
+<aside class="answer-panel">
+
+
+
+<div class="panel-header">
+
+
+<i data-lucide="check-square"></i>
+
+
+<h2>
+پاسخنامه
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="answer-info">
+
+
+تعداد سوال:
+
+<strong id="answerCount">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div
+
+id="answerSheet"
+
+class="answer-sheet">
+
+
+<!-- JS تولید میکند -->
+
+
+</div>
+
+
+
+
+
+
+</aside>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script src="./config.js"></script>
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+// =======================================
+// VARIABLES
+// =======================================
+
+
+let questions = [];
+
+
+
+// INPUTS
+
+const testCount =
+document.getElementById("testCount");
+
+
+const questionText =
+document.getElementById("questionText");
+
+
+const options = [
+
+document.getElementById("option1"),
+
+document.getElementById("option2"),
+
+document.getElementById("option3"),
+
+document.getElementById("option4")
+
+];
+
+
+const correctAnswer =
+document.getElementById("correctAnswer");
+
+
+
+// BUTTONS
+
+const addQuestionBtn =
+document.getElementById("addQuestionBtn");
+
+
+const publishBtn =
+document.getElementById("publishExamBtn");
+
+
+
+// BOXES
+
+const testList =
+document.getElementById("testList");
+
+
+const answerSheet =
+document.getElementById("answerSheet");
+
+
+const answerCount =
+document.getElementById("answerCount");
+
+
+
+
+
+// =======================================
+// CREATE ANSWER SHEET
+// =======================================
+
+
+function createAnswerSheet(){
+
+
+let count =
+Number(testCount.value);
+
+
+
+answerSheet.innerHTML="";
+
+
+
+answerCount.textContent =
+count || 0;
+
+
+
+if(!count)
+return;
+
+
+
+
+for(let i=1;i<=count;i++){
+
+
+
+const row =
+document.createElement("div");
+
+
+
+row.className =
+"answer-row";
+
+
+row.id =
+`answer-${i}`;
+
+
+
+row.innerHTML=`
+
+<span class="question-number">
+
+${i}
+
+</span>
+
+
+
+<div class="answer-options">
+
+
+<button data-option="1">
+۱
+</button>
+
+
+<button data-option="2">
+۲
+</button>
+
+
+<button data-option="3">
+۳
+</button>
+
+
+<button data-option="4">
+۴
+</button>
+
+
+
+</div>
+
+`;
+
+
+
+answerSheet.appendChild(row);
+
+
+
+}
+
+
+
+}
+
+
+
+
+testCount.addEventListener(
+"input",
+createAnswerSheet
+);
+
+
+
+
+
+
+
+// =======================================
+// SELECT ANSWER FROM SHEET
+// =======================================
+
+
+answerSheet.addEventListener(
+"click",
+(e)=>{
+
+
+if(
+e.target.tagName==="BUTTON"
+){
+
+
+const parent =
+e.target.parentElement;
+
+
+
+parent
+.querySelectorAll("button")
+.forEach(btn=>{
+
+btn.classList.remove("active");
+
+});
+
+
+
+e.target.classList.add("active");
+
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// =======================================
+// ADD QUESTION
+// =======================================
+
+
+addQuestionBtn.addEventListener(
+"click",
+()=>{
+
+
+
+const text =
+questionText.value.trim();
+
+
+
+const opts =
+options.map(
+item=>item.value.trim()
+);
+
+
+
+const correct =
+Number(
+correctAnswer.value
+);
+
+
+
+
+
+if(
+!text ||
+opts.includes("") ||
+!correct
+){
+
+
+alert(
+"لطفاً اطلاعات سوال را کامل کنید"
+);
+
+
+return;
+
+
+}
+
+
+
+
+
+const number =
+questions.length+1;
+
+
+
+
+questions.push({
+
+
+number,
+
+
+question:text,
+
+
+options:opts,
+
+
+correctAnswer:correct
+
+
+
+});
+
+
+
+
+renderQuestions();
+
+
+
+updateAnswerSheet();
+
+
+
+clearForm();
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// =======================================
+// SHOW QUESTIONS
+// =======================================
+
+
+
+function renderQuestions(){
+
+
+
+testList.innerHTML="";
+
+
+
+questions.forEach(
+(q,index)=>{
+
+
+
+const item =
+document.createElement("div");
+
+
+
+item.className =
+"test-item";
+
+
+
+item.innerHTML=`
+
+<div>
+
+<strong>
+سوال ${index+1}
+</strong>
+
+
+<span>
+${q.question.substring(0,70)}
+</span>
+
+
+</div>
+
+
+
+<div>
+
+گزینه ${q.correctAnswer}
+
+</div>
+
+`;
+
+
+
+testList.appendChild(item);
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// =======================================
+// UPDATE ANSWER SHEET
+// =======================================
+
+
+
+function updateAnswerSheet(){
+
+
+
+questions.forEach(
+(q)=>{
+
+
+
+const row =
+document.getElementById(
+`answer-${q.number}`
+);
+
+
+
+if(!row)
+return;
+
+
+
+const buttons =
+row.querySelectorAll(
+"button"
+);
+
+
+
+buttons.forEach(
+btn=>{
+
+
+btn.classList.remove(
+"active"
+);
+
+
+
+if(
+Number(btn.dataset.option)
+===
+q.correctAnswer
+){
+
+
+btn.classList.add(
+"active"
+);
+
+
+}
+
+
+
+});
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// =======================================
+// CLEAR FORM
+// =======================================
+
+
+function clearForm(){
+
+
+questionText.value="";
+
+
+options.forEach(
+item=>{
+
+item.value="";
+
+});
+
+
+correctAnswer.value="";
+
+
+}
+
+
+
+
+
+
+
+
+
+// =======================================
+// REGISTER EXAM
+// =======================================
+
+
+
+publishBtn.addEventListener(
+"click",
+async()=>{
+
+
+
+const data={
+
+
+
+title:
+document.getElementById(
+"examTitle"
+).value.trim(),
+
+
+
+subject:
+document.getElementById(
+"examSubject"
+).value,
+
+
+
+duration:
+Number(
+document.getElementById(
+"examDuration"
+).value
+),
+
+
+
+questions:
+
+
+questions.map(q=>({
+
+
+question:
+q.question,
+
+
+options:
+q.options,
+
+
+correctAnswer:
+q.correctAnswer-1
+
+
+
+}))
+
+
+
+};
+
+
+
+
+
+console.log(
+"EXAM DATA:",
+data
+);
+
+
+
+
+
+try{
+
+
+const response =
+await fetch(
+
+`${API_URL}/admin/tests/create`,
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":
+"application/json"
+
+},
+
+
+body:
+JSON.stringify(data)
+
+
+}
+
+);
+
+
+
+const result =
+await response.json();
+
+
+
+console.log(result);
+
+
+
+alert(
+"آزمون با موفقیت ثبت شد ✅"
+);
+
+
+
+}
+
+
+
+catch(error){
+
+
+console.log(error);
+
+
+
+alert(
+"خطا در ثبت آزمون ❌"
+);
+
+
+}
+
+
+
+});
+
+
+
+});
+
+</script>
+
+<script>
+
+lucide.createIcons();
+
+</script>
+
+
+</body>
+
+</html>

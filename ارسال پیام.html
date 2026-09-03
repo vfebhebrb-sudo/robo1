@@ -1,0 +1,2914 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+مدیریت کانال
+</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+    /* =====================================================
+   GAPGPT CHAT THEME
+===================================================== */
+
+
+:root {
+
+    /* ==============================
+       GRAY DARK THEME
+    ============================== */
+
+    --background: #111315;
+
+    --surface: #191c21;
+
+    --surface-hover: #22262d;
+
+    --border: #292e36;
+
+    --text: #f9fafb;
+
+    --muted: #9ca3af;
+
+
+    /* Accent */
+
+    --accent: #3b82f6;
+
+    --accent-soft: #172554;
+
+
+    /* Status */
+
+    --success: #22c55e;
+
+    --danger: #ef4444;
+
+
+    /* Messages */
+
+    --user-message: #22262d;
+
+    --admin-message: #172554;
+
+
+    /* Shadows */
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, .35);
+
+
+    /* Compatibility */
+
+    --bg: var(--background);
+
+    --panel: rgba(25, 28, 33, .88);
+
+    --panel-soft: rgba(255, 255, 255, .06);
+
+    --primary: var(--accent);
+
+    --primary-hover: #60a5fa;
+
+}
+
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+
+*{
+
+    box-sizing:border-box;
+
+    font-family:
+    Vazirmatn,
+    sans-serif;
+
+}
+
+
+
+body{
+
+
+    margin:0;
+
+
+    background:
+
+
+    radial-gradient(
+        circle at top,
+        #182235,
+        #080b12 55%
+    );
+
+
+    color:var(--text);
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+
+.chat-page{
+
+
+    width:100%;
+
+
+    height:100vh;
+
+
+    position:relative;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+
+.chat-header{
+
+
+    position:fixed;
+
+
+    top:20px;
+
+
+    left:20px;
+
+
+    right:20px;
+
+
+
+    height:75px;
+
+
+
+    background:
+
+    var(--panel);
+
+
+
+    backdrop-filter:
+
+    blur(25px);
+
+
+
+    border:
+
+    1px solid var(--border);
+
+
+
+    border-radius:25px;
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:space-between;
+
+
+    padding:0 25px;
+
+
+
+    z-index:20;
+
+
+}
+
+
+
+
+
+
+.channel-profile{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+}
+
+
+
+.avatar{
+
+
+    width:48px;
+
+
+    height:48px;
+
+
+
+    border-radius:18px;
+
+
+    background:
+
+    var(--primary);
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+}
+
+
+
+.avatar svg{
+
+
+    width:25px;
+
+
+}
+
+
+
+.channel-text h2{
+
+
+    margin:0;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+.channel-text span{
+
+
+    font-size:13px;
+
+
+    color:#22c55e;
+
+
+}
+
+
+
+
+
+
+
+.header-actions{
+
+
+    display:flex;
+
+
+    gap:10px;
+
+
+}
+
+
+
+.header-actions button{
+
+
+    width:42px;
+
+
+    height:42px;
+
+
+    border-radius:50%;
+
+
+    border:1px solid var(--border);
+
+
+    background:
+
+    var(--panel-soft);
+
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+.header-actions svg{
+
+
+    width:18px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   MESSAGE AREA
+===================================================== */
+
+
+.messages{
+
+
+    height:100vh;
+
+
+
+    padding:
+
+    120px 25px 150px;
+
+
+
+    overflow-y:auto;
+
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:18px;
+
+
+
+}
+
+
+
+.messages::-webkit-scrollbar{
+
+    width:0;
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+
+.message{
+
+
+    display:flex;
+
+
+    gap:12px;
+
+
+    max-width:75%;
+
+
+    animation:
+
+    messageShow .25s ease;
+
+
+}
+
+
+
+@keyframes messageShow{
+
+
+from{
+
+
+    opacity:0;
+
+
+    transform:translateY(15px);
+
+
+}
+
+
+
+to{
+
+
+    opacity:1;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+.message-avatar{
+
+
+    width:38px;
+
+
+    height:38px;
+
+
+    border-radius:50%;
+
+
+    background:
+
+    var(--panel-soft);
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+}
+
+
+
+
+
+.message-avatar svg{
+
+
+    width:18px;
+
+
+}
+
+
+
+
+
+
+
+.message-content{
+
+
+    padding:12px 16px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    var(--admin-message);
+
+
+
+}
+
+
+
+.message-content p{
+
+
+    margin:0;
+
+
+    line-height:1.8;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+.message-content span{
+
+
+    display:block;
+
+
+    margin-top:5px;
+
+
+    font-size:11px;
+
+
+    color:var(--muted);
+
+
+}
+
+
+
+
+
+.message.user{
+
+
+    margin-right:auto;
+
+
+    flex-direction:row-reverse;
+
+
+}
+
+
+
+
+.message.user .message-content{
+
+
+    background:
+
+    var(--user-message);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   FOOTER MESSAGE BOX
+===================================================== */
+
+/* =====================================================
+   ULTRA COMPACT MESSAGE BOX
+===================================================== */
+
+
+.message-box{
+
+    position:fixed;
+
+    bottom:12px;
+
+    left:20px;
+
+    right:20px;
+
+
+    background:
+    rgba(20,27,40,.88);
+
+
+    backdrop-filter:
+    blur(12px);
+
+
+    border:
+    1px solid rgba(255,255,255,.07);
+
+
+    border-radius:16px;
+
+
+    padding:5px;
+
+
+    z-index:30;
+
+}
+
+
+
+
+
+
+.input-area{
+
+
+    height:50px;
+
+
+    display:flex;
+
+    align-items:center;
+
+
+    gap:6px;
+
+
+    padding:4px 8px;
+
+
+    background:
+
+    rgba(255,255,255,.035);
+
+
+    border-radius:14px;
+
+
+}
+
+
+
+
+
+
+
+#messageInput{
+
+
+    height:32px;
+
+
+    font-size:13px;
+
+
+    padding:0 5px;
+
+
+}
+
+
+
+
+
+.send-icon{
+
+
+    width:32px;
+
+
+    height:32px;
+
+
+    min-width:32px;
+
+
+}
+
+
+
+
+
+.send-icon img{
+
+
+    width:16px;
+
+
+}
+
+
+
+
+
+.emoji-btn,
+.attach{
+
+
+    width:28px;
+
+
+    height:28px;
+
+
+    min-width:28px;
+
+
+}
+
+
+
+.emoji-btn svg,
+.attach svg{
+
+
+    width:16px;
+
+
+    height:16px;
+
+
+}
+
+
+
+
+.divider{
+
+
+    height:18px;
+
+
+}
+
+
+
+
+
+
+.selected-file{
+
+
+    padding:5px 8px;
+
+
+    margin-bottom:5px;
+
+
+    border-radius:12px;
+
+
+}
+
+
+
+.selected-file-icon{
+
+
+    width:28px;
+
+
+    height:28px;
+
+
+}
+
+
+
+.selected-file-icon svg{
+
+
+    width:14px;
+
+
+}
+
+
+
+
+
+.selected-file-info strong{
+
+
+    font-size:11px;
+
+
+}
+
+
+
+.selected-file-info span{
+
+
+    font-size:10px;
+
+
+}
+
+
+
+/* =====================================================
+ FILE
+===================================================== */
+
+
+.selected-file{
+
+
+    display:none;
+
+
+    align-items:center;
+
+
+    gap:12px;
+
+
+    background:
+
+    var(--panel-soft);
+
+
+
+    padding:10px;
+
+
+    border-radius:18px;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+.selected-file.show{
+
+
+    display:flex;
+
+
+}
+
+
+
+.selected-file-icon{
+
+
+    width:40px;
+
+
+    height:40px;
+
+
+    background:
+
+    var(--primary);
+
+
+    border-radius:12px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+}
+
+
+
+.selected-file-info{
+
+
+    flex:1;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+}
+
+
+
+
+.selected-file-info span{
+
+
+    color:var(--muted);
+
+
+    font-size:12px;
+
+
+}
+
+
+
+
+
+.remove-file{
+
+
+    background:none;
+
+
+    border:0;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+ INPUT
+===================================================== */
+
+
+.input-area{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:12px;
+
+
+    background:#111827;
+
+
+    border-radius:25px;
+
+
+    padding:8px 12px;
+
+
+}
+
+
+
+
+#messageInput{
+
+
+    flex:1;
+
+
+    background:none;
+
+
+    border:0;
+
+
+    outline:none;
+
+
+    color:white;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+#messageInput::placeholder{
+
+
+    color:#64748b;
+
+
+}
+
+
+
+
+
+
+
+
+.send-icon{
+
+
+    width:45px;
+
+
+    height:45px;
+
+
+    border-radius: 35%;
+
+
+    border:0;
+
+
+    background:
+
+    var(--primary);
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+.send-icon img{
+
+
+    width:23px;
+
+
+}
+
+
+
+
+
+
+
+.emoji-btn,
+.attach{
+
+
+    width:38px;
+
+
+    height:38px;
+
+
+    border-radius:50%;
+
+
+    border:0;
+
+
+    background:none;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+.divider{
+
+
+    width:1px;
+
+
+    height:25px;
+
+
+    background:
+
+    var(--border);
+
+
+}
+
+
+
+
+
+
+
+.emoji-btn svg, .attach svg {
+        width: 20px;
+    height: 20px;
+    margin-top: 8px;
+}
+
+
+@media(max-width:600px){
+
+
+.message-box{
+
+    left:6px;
+
+    right:6px;
+
+    bottom:6px;
+
+    border-radius:14px;
+
+}
+
+
+.input-area{
+
+    height:40px;
+
+}
+
+
+.send-icon{
+
+    width:30px;
+
+    height:30px;
+
+}
+
+
+#messageInput{
+
+    font-size:12px;
+
+}
+
+
+}
+/* =====================================================
+ EMOJI
+===================================================== */
+
+
+.emoji-picker{
+
+
+    position:absolute;
+
+
+    bottom:80px;
+
+
+    right:80px;
+
+
+    width:290px;
+
+
+    padding:15px;
+
+
+    border-radius:20px;
+
+
+    background:#111827;
+
+
+    border:1px solid var(--border);
+
+
+    display:none;
+
+
+    grid-template-columns:
+
+    repeat(5,1fr);
+
+
+
+    gap:10px;
+
+
+}
+
+
+
+
+
+.emoji-picker.show{
+
+
+    display:grid;
+
+
+}
+
+
+
+.emoji-picker button{
+
+
+    border:0;
+
+
+    background:none;
+
+
+    font-size:23px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+ MOBILE
+===================================================== */
+
+
+@media(max-width:600px){
+
+
+
+.chat-header{
+
+
+    top:10px;
+
+
+    left:10px;
+
+
+    right:10px;
+
+
+    height:65px;
+
+
+}
+
+
+
+.channel-text h2{
+
+
+    font-size:15px;
+
+
+}
+
+
+
+.messages{
+
+
+    padding-left:12px;
+
+
+    padding-right:12px;
+
+
+}
+
+
+
+.message{
+
+
+    max-width:90%;
+
+
+}
+
+
+
+.message-box{
+
+
+    left:10px;
+
+
+    right:10px;
+
+
+    bottom:10px;
+
+
+}
+
+
+
+.emoji-picker{
+
+
+    right:20px;
+
+
+    width:230px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.message{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:10px;
+
+margin-bottom:15px;
+
+direction:ltr;
+
+}
+
+
+
+.message.user{
+
+justify-content:flex-end;
+
+}
+
+
+
+.message.user .avatar-box{
+
+order:2;
+
+}
+
+
+
+.message.user .message-wrapper{
+
+align-items:flex-end;
+
+}
+
+
+
+.avatar-box{
+
+width:38px;
+
+height:38px;
+
+border-radius:40%;
+
+background:#1f2937;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-shrink:0;
+
+}
+
+
+
+.avatar-box i{
+
+width:20px;
+
+height:20px;
+
+color:white;
+
+}
+
+
+
+.message-wrapper{
+
+display:flex;
+
+flex-direction:column;
+
+max-width:70%;
+
+direction:rtl;
+
+}
+
+
+
+.sender-name{
+
+font-size:12px;
+
+color:#aaa;
+
+margin-bottom:4px;
+
+}
+
+
+
+.message-content{
+
+padding:10px 14px;
+
+border-radius:14px;
+
+background:#111827;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+
+
+.message-content p{
+
+margin:0;
+
+font-size:14px;
+
+line-height:1.8;
+
+}
+
+
+
+.message-time{
+
+display:block;
+
+font-size:11px;
+
+color:#aaa;
+
+margin-top:5px;
+
+}
+
+
+
+
+/* مدیر */
+
+.message.admin .message-content{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#162447,
+
+#243b55
+
+);
+
+}
+
+
+
+/* هوش مصنوعی */
+
+.message.ai .message-content{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#312e81,
+
+#4c1d95
+
+);
+
+}
+
+
+
+/* پیام خود کاربر */
+
+.message.user .message-content{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#075985,
+
+#0369a1
+
+);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================
+   ADMIN MESSAGE
+============================ */
+
+
+.message.admin{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    direction:ltr;
+
+}
+
+
+
+.message.admin .message-wrapper{
+
+    direction:rtl;
+
+    max-width:70%;
+
+}
+
+
+
+.message.admin .avatar-box{
+
+    order:2;
+
+}
+
+
+
+.message.admin .message-wrapper{
+
+    order:1;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   FINAL MESSAGE ALIGNMENT
+========================= */
+
+
+.messages{
+    width:100%;
+}
+
+
+/* ساختار اصلی */
+
+.message{
+    width:100%;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    direction:ltr;
+}
+
+
+/* =========================
+   پیام مدیر - سمت راست
+========================= */
+
+.message.outgoing{
+    justify-content:flex-end;
+}
+
+
+.message.outgoing .message-wrapper{
+    order:1;
+    align-items:flex-end;
+}
+
+
+.message.outgoing .avatar-box{
+    order:2;
+}
+
+
+
+/* =========================
+   پیام دریافتی - سمت چپ
+========================= */
+
+
+.message.incoming{
+    justify-content:flex-start;
+}
+
+
+.message.incoming .avatar-box{
+    order:0;
+}
+
+
+.message.incoming .message-wrapper{
+    order:1;
+    align-items:flex-start;
+}
+
+
+
+
+/* باکس متن */
+
+.message-wrapper{
+
+    max-width:70%;
+    display:flex;
+    flex-direction:column;
+    direction:rtl;
+
+}
+
+
+
+.message-content{
+
+    padding:12px 16px;
+    border-radius:18px;
+
+}
+
+
+
+/* مدیر */
+
+.message.outgoing.admin .message-content{
+
+    background:#119006;
+
+}
+
+
+
+/* کاربر */
+
+.message.incoming.user .message-content{
+
+    background:linear-gradient(
+        90deg,
+        #173e7d,
+        #17448d
+    );
+
+}
+
+
+
+/* AI */
+
+.message.incoming.ai .message-content{
+
+    background:linear-gradient(
+        135deg,
+        #312e81,
+        #1e1b4b
+    );
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   FULL WIDTH MESSAGE AREA
+========================= */
+
+.messages{
+    width:100%;
+    align-items:stretch;
+}
+
+
+
+.message{
+    width:100%;
+    max-width:100%;
+}
+
+
+/* پیام مدیر سمت راست */
+
+.message.outgoing{
+    justify-content:flex-end;
+}
+
+
+/* پیام دریافتی سمت چپ */
+
+.message.incoming{
+    justify-content:flex-start;
+}
+</style>
+
+</head>
+
+
+<body>
+
+<div class="chat-page">
+
+    <!-- =====================================================
+         CHAT HEADER
+    ===================================================== -->
+
+    <header class="chat-header">
+
+        <div class="chat-header-inner">
+
+            <!-- PROFILE -->
+
+            <div class="channel-profile">
+
+                <div class="avatar">
+                    <i id="chatIcon"></i>
+                </div>
+
+                <div class="channel-text">
+
+                    <h2 id="chatName"></h2>
+
+                    <span id="chatStatus"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CHAT CONTENT
+    ===================================================== -->
+
+    <main
+        class="messages"
+        id="messages"
+    >
+
+        <!-- پیام‌ها توسط JS اینجا قرار می‌گیرند -->
+
+        <!-- پیام مدیر -->
+
+        <div class="message outgoing admin">
+
+            <div class="message-avatar">
+
+                <i data-lucide="bot"></i>
+
+            </div>
+
+
+            <div class="message-content">
+
+                <p>
+                    سلام 👋
+                    <br>
+                    به کانال برنامه کنکور خوش آمدید.
+                </p>
+
+                <span>
+                    10:30
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- پیام کاربر -->
+
+        <div class="message incoming user">
+
+            <div class="message-content">
+
+                <p>
+                    سلام استاد
+                </p>
+
+                <span>
+                    10:32
+                </span>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         MESSAGE BOX
+    ===================================================== -->
+
+    <footer
+        class="message-box"
+        id="messageBox"
+    >
+
+        <!-- =============================================
+             FILE PREVIEW
+        ============================================== -->
+
+        <div
+            class="selected-file"
+            id="selectedFile"
+        >
+
+            <div class="selected-file-icon">
+
+                <i data-lucide="file"></i>
+
+            </div>
+
+
+            <div class="selected-file-info">
+
+                <strong id="selectedFileName">
+                    نام فایل
+                </strong>
+
+                <span id="selectedFileSize">
+                    0 KB
+                </span>
+
+            </div>
+
+
+            <button
+                class="remove-file"
+                id="removeFile"
+                type="button"
+            >
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- =============================================
+             INPUT AREA
+        ============================================== -->
+
+        <div class="input-area">
+
+
+            <!-- SEND -->
+
+            <button
+                class="send-icon"
+                id="sendBtn"
+                type="button"
+            >
+
+                <img
+                    src="../01/d23f70af-6a30-4f7b-993d-1cfac3346844.png"
+                    alt="ارسال"
+                >
+
+            </button>
+
+
+            <span class="divider"></span>
+
+
+            <!-- EMOJI -->
+
+            <button
+                class="emoji-btn"
+                id="emojiBtn"
+                type="button"
+            >
+
+                <i data-lucide="smile"></i>
+
+            </button>
+
+
+            <!-- EMOJI PICKER -->
+
+            <div
+                class="emoji-picker"
+                id="emojiPicker"
+            >
+
+                <button type="button">😀</button>
+                <button type="button">😂</button>
+                <button type="button">😍</button>
+                <button type="button">🥰</button>
+                <button type="button">😎</button>
+                <button type="button">😭</button>
+                <button type="button">😡</button>
+                <button type="button">👍</button>
+                <button type="button">👎</button>
+                <button type="button">❤️</button>
+                <button type="button">🔥</button>
+                <button type="button">✨</button>
+                <button type="button">🎉</button>
+                <button type="button">🤍</button>
+                <button type="button">👏</button>
+                <button type="button">🙏</button>
+
+            </div>
+
+
+            <!-- MESSAGE INPUT -->
+
+            <input
+                id="messageInput"
+                type="text"
+                placeholder="پیام خود را بنویسید..."
+                autocomplete="off"
+            >
+
+
+            <!-- ATTACH -->
+
+            <button
+                class="attach"
+                id="attachBtn"
+                type="button"
+            >
+
+                <i data-lucide="paperclip"></i>
+
+            </button>
+
+
+            <input
+                type="file"
+                id="fileInput"
+                hidden
+            >
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+
+<script src="./config.js"></script>
+
+<script>
+    // =====================================================
+// ADMIN CHAT JS
+// GAPGPT STYLE
+// =====================================================
+
+
+const API =
+API_URL;
+
+// =====================================================
+// ELEMENTS
+// =====================================================
+
+
+const messages =
+document.getElementById("messages");
+
+
+const input =
+document.getElementById("messageInput");
+
+
+const sendBtn =
+document.getElementById("sendBtn");
+
+
+const emojiBtn =
+document.getElementById("emojiBtn");
+
+
+const emojiPicker =
+document.getElementById("emojiPicker");
+
+
+const attachBtn =
+document.getElementById("attachBtn");
+
+
+const fileInput =
+document.getElementById("fileInput");
+
+
+const selectedFile =
+document.getElementById("selectedFile");
+
+
+const selectedFileName =
+document.getElementById("selectedFileName");
+
+
+const selectedFileSize =
+document.getElementById("selectedFileSize");
+
+
+const removeFile =
+document.getElementById("removeFile");
+
+
+
+// =====================================================
+// CURRENT USER
+// =====================================================
+
+const savedUser =
+    localStorage.getItem("currentUser");
+
+
+const currentUser =
+    savedUser
+    ? JSON.parse(savedUser)
+    : null;
+
+
+console.log(
+    "🔥 CURRENT USER:",
+    currentUser
+);
+// =====================================================
+// STATE
+// =====================================================
+
+
+const chatId =
+localStorage.getItem("adminChatId");
+
+
+
+let selectedFileData=null;
+
+
+let loadedMessages =
+new Set();
+
+
+
+let polling=null;
+
+
+
+
+
+// =====================================================
+// ESCAPE
+// =====================================================
+
+
+function escapeHTML(text){
+
+
+const div =
+document.createElement("div");
+
+
+div.textContent=text || "";
+
+
+return div.innerHTML;
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// FORMAT TIME
+// =====================================================
+
+
+function formatTime(date){
+
+
+const d =
+new Date(date || Date.now());
+
+
+return (
+
+String(d.getHours())
+.padStart(2,"0")
+
++
+
+":"
+
++
+
+String(d.getMinutes())
+.padStart(2,"0")
+
+);
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// ADD MESSAGE
+// =====================================================
+function addMessage(
+    text,
+    type,
+    time,
+    sender="کاربر"
+){
+
+    const div = document.createElement("div");
+
+
+let direction = "";
+
+if(type === "admin"){
+    direction = "outgoing";
+}
+
+if(type === "user"){
+    direction = "incoming";
+}
+
+if(type === "ai"){
+    direction = "incoming";
+}
+
+
+div.className = `message ${direction} ${type}`;
+
+
+let icon = "user";
+
+let name = sender;
+
+
+// پیام دریافتی
+if(type === "incoming"){
+
+    icon = "user";
+    name = sender;
+
+}
+
+
+// پیام خودم
+if(type === "outgoing"){
+
+    icon = "user";
+    name = sender;
+
+}
+
+
+// پیام هوش مصنوعی
+if(type === "ai"){
+
+    icon = "bot";
+    name = "هوش مصنوعی";
+
+}
+
+
+
+    div.innerHTML = `
+
+
+    <div class="avatar-box">
+
+        <i data-lucide="${icon}"></i>
+
+    </div>
+
+
+
+    <div class="message-wrapper">
+
+
+        <span class="sender-name">
+            ${name}
+        </span>
+
+
+
+        <div class="message-content">
+
+            <p>
+            ${escapeHTML(text)}
+            </p>
+
+
+            <span class="message-time">
+            ${formatTime(time)}
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+
+    `;
+
+
+
+    messages.appendChild(div);
+
+
+
+    if(window.lucide){
+
+        lucide.createIcons();
+
+    }
+
+
+
+    messages.scrollTop =
+    messages.scrollHeight;
+
+
+}
+
+
+
+
+// =====================================================
+// LOAD MESSAGES
+// =====================================================
+
+
+async function loadMessages(){
+
+
+if(!chatId)
+return;
+
+
+
+try{
+
+
+const res =
+await fetch(
+`${API}/chat/messages/${chatId}`
+);
+
+
+
+const data =
+await res.json();
+
+
+
+const list =
+data.messages || [];
+
+
+
+list.forEach(msg=>{
+
+
+if(
+loadedMessages.has(msg._id)
+)
+return;
+
+
+
+loadedMessages.add(msg._id);
+
+
+let type = "incoming";
+
+
+if(msg.senderType === "admin"){
+
+    type = "outgoing";
+
+}
+
+
+if(msg.senderType === "ai"){
+
+    type = "ai";
+
+}
+
+
+
+addMessage(
+
+    msg.text,
+
+    type,
+
+    msg.createdAt,
+
+    msg.senderName || msg.sender
+
+);
+
+
+});
+
+
+
+}
+
+catch(err){
+
+
+console.log(
+"LOAD MESSAGE ERROR",
+err
+);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+// =====================================================
+// SEND MESSAGE
+// =====================================================
+
+
+async function sendMessage(){
+
+
+const text =
+input.value.trim();
+
+
+
+if(!text)
+return;
+
+
+
+// نمایش فوری
+
+
+addMessage(
+    text,
+    "outgoing",
+    new Date(),
+    null,
+    currentUser?.name || "کاربر",
+    "user"
+);
+
+
+input.value="";
+
+
+
+
+try{
+
+
+
+const res =
+await fetch(
+
+`${API}/chat/message`,
+
+{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":
+"application/json"
+
+
+},
+
+
+body:JSON.stringify({
+
+    chatId: chatId,
+
+    sender:"مدیر",
+
+    senderName:"مدیر برنامه کنکور",
+
+    senderType:"admin",
+
+    text:text
+
+})
+
+
+}
+
+);
+
+
+
+const data =
+await res.json();
+
+
+console.log(
+"SEND:",
+data
+);
+
+
+
+}
+
+
+catch(e){
+
+
+console.log(
+"SEND ERROR",
+e
+);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+// =====================================================
+// BUTTON
+// =====================================================
+
+
+sendBtn.onclick =
+sendMessage;
+
+
+
+input.addEventListener(
+"keydown",
+e=>{
+
+
+if(
+e.key==="Enter"
+){
+
+sendMessage();
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+// =====================================================
+// EMOJI
+// =====================================================
+
+
+emojiBtn.onclick =
+e=>{
+
+
+e.stopPropagation();
+
+
+emojiPicker.classList.toggle(
+"show"
+);
+
+
+};
+
+
+
+
+
+emojiPicker.onclick =
+e=>{
+
+
+if(
+e.target.tagName==="BUTTON"
+){
+
+
+input.value +=
+e.target.innerText;
+
+
+input.focus();
+
+
+
+}
+
+
+
+};
+
+
+
+
+document.onclick =
+()=>{
+
+
+emojiPicker.classList.remove(
+"show"
+);
+
+
+};
+
+
+
+
+
+
+
+
+
+// =====================================================
+// FILE SELECT
+// =====================================================
+
+
+attachBtn.onclick =
+()=>{
+
+
+fileInput.click();
+
+
+};
+
+
+
+
+
+fileInput.onchange =
+()=>{
+
+
+const file =
+fileInput.files[0];
+
+
+if(!file)
+return;
+
+
+
+selectedFileData=file;
+
+
+
+selectedFileName.innerText =
+file.name;
+
+
+
+selectedFileSize.innerText =
+
+(
+file.size/1024
+)
+.toFixed(1)
++
+" KB";
+
+
+
+selectedFile.classList.add(
+"show"
+);
+
+
+
+};
+
+
+
+
+
+
+// REMOVE FILE
+
+
+removeFile.onclick =
+()=>{
+
+
+selectedFileData=null;
+
+
+fileInput.value="";
+
+
+selectedFile.classList.remove(
+"show"
+);
+
+
+};
+
+
+
+
+
+
+
+
+
+// =====================================================
+// POLLING
+// =====================================================
+
+
+function startPolling(){
+
+
+
+if(polling)
+clearInterval(polling);
+
+
+
+polling =
+setInterval(()=>{
+
+
+loadMessages();
+
+
+
+},2000);
+
+
+
+}
+
+
+
+
+
+
+
+// =====================================================
+// START
+// =====================================================
+
+
+loadMessages();
+
+
+startPolling();
+</script>
+
+
+<script>
+
+
+lucide.createIcons();
+
+
+</script>
+
+
+</body>
+
+
+</html>

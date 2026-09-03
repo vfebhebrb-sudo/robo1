@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>ROBO AI CONTROL</title>
+
+<link rel="icon" href="./riseo-icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Vazirmatn",sans-serif;
+
+
+}
+
+body{
+   background-color: #111315;  
+}
+
+.robo-panel{
+margin-top: 150px;
+    width:min(1100px,95%);
+
+    margin:40px auto;
+
+    padding:25px;
+
+    display:grid;
+
+    grid-template-columns:280px 1fr 300px;
+
+    gap:25px;
+
+    align-items:center;
+
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #17191d,
+    #0f1114
+    );
+
+
+    border:
+
+    1px solid #292d35;
+
+
+    border-radius:28px;
+
+
+    box-shadow:
+
+    0 25px 70px rgba(0,0,0,.45);
+
+
+    animation:show .6s ease;
+
+}
+
+
+
+
+
+/* BRAND */
+
+
+.robo-brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+
+.logo{
+
+    width:75px;
+
+    height:75px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    border-radius:22px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #30343b,
+    #111827
+    );
+
+
+    color:white;
+
+
+    box-shadow:
+
+    0 10px 30px #0008;
+
+
+    animation:
+
+    floating 3s infinite;
+
+}
+
+
+
+.logo svg{
+
+    width:40px;
+
+    height:40px;
+
+}
+
+
+
+.title h1{
+
+    margin:0;
+
+    font-size:22px;
+
+    color:white;
+
+    font-weight:900;
+
+}
+
+
+
+.title span{
+
+    color:#8b95a5;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+
+
+/* API */
+
+
+.api-section label{
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#cbd5e1;
+
+    margin-bottom:12px;
+
+}
+
+
+
+
+.input-box{
+
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+.input-box input{
+
+
+    flex:1;
+
+
+    height:48px;
+
+
+    padding:0 15px;
+
+
+    border-radius:14px;
+
+
+    border:1px solid #303641;
+
+
+    background:#0b0d10;
+
+
+    color:white;
+
+
+    outline:none;
+
+}
+
+
+
+.input-box input:focus{
+
+    border-color:#64748b;
+
+}
+
+
+
+
+
+.input-box button{
+
+
+    width:100px;
+
+
+    border:none;
+
+
+    border-radius:14px;
+
+
+    background:#2563eb;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+}
+
+
+
+.input-box button:hover{
+
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+
+/* STATUS */
+
+
+.robo-status{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+
+.model{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+
+    background:#11151b;
+
+
+    padding:14px 18px;
+
+
+    border-radius:16px;
+
+
+}
+
+
+
+.model span{
+
+    color:#9ca3af;
+
+}
+
+
+.model strong{
+
+    color:white;
+
+}
+
+
+
+
+
+
+.ready{
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+
+    color:#22c55e;
+
+
+    font-weight:700;
+
+}
+
+
+
+.ready span{
+
+
+    width:11px;
+
+    height:11px;
+
+
+    border-radius:50%;
+
+
+    background:#22c55e;
+
+
+    animation:pulse 1.5s infinite;
+
+
+}
+
+
+
+
+
+
+
+.connection-box{
+
+
+    padding:15px;
+
+
+    border-radius:18px;
+
+
+    background:#11151b;
+
+
+    border:1px solid #242933;
+
+
+}
+
+
+
+.connection-title{
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+
+    color:#e5e7eb;
+
+    margin-bottom:8px;
+
+}
+
+
+
+#connectionStatus{
+
+
+    color:#9ca3af;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+
+@keyframes floating{
+
+    50%{
+
+        transform:translateY(-7px);
+
+    }
+
+}
+
+
+
+@keyframes pulse{
+
+    50%{
+
+        opacity:.3;
+
+        transform:scale(1.5);
+
+    }
+
+}
+
+
+
+@keyframes show{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+
+
+
+
+
+
+@media(max-width:900px){
+
+
+.robo-panel{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.robo-brand{
+
+    justify-content:center;
+
+}
+
+
+
+.input-box{
+
+    flex-direction:column;
+
+}
+
+
+
+.input-box button{
+
+    width:100%;
+
+    height:48px;
+
+}
+
+
+
+}
+</style>
+
+</head>
+
+
+<body>
+<div class="robo-panel" style="margin-top: 150px;">
+
+
+    <!-- LEFT BRAND -->
+
+    <div class="robo-brand">
+
+
+        <div class="logo">
+
+            <i data-lucide="bot"></i>
+
+        </div>
+
+
+        <div class="title">
+
+            <h1>
+                ROBO AI CONTROL
+            </h1>
+
+
+            <span>
+                GapGPT Connection Manager
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- API SECTION -->
+
+
+    <div class="api-section">
+
+
+        <label>
+
+            <i data-lucide="key-round"></i>
+
+            API KEY
+
+        </label>
+
+
+
+        <div class="input-box">
+
+
+            <input
+
+            id="apiKey"
+
+            type="password"
+
+            placeholder="کلید GapGPT را وارد کنید">
+
+
+
+            <button id="save">
+
+                ذخیره
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- STATUS SECTION -->
+
+
+    <div class="robo-status">
+
+
+        <div class="model">
+
+
+            <span>
+                Model
+            </span>
+
+
+            <strong>
+                gpt-4o
+            </strong>
+
+
+        </div>
+
+
+
+
+
+        <div class="ready">
+
+
+            <span></span>
+
+
+            ROBO READY
+
+
+        </div>
+
+
+
+
+
+        <div class="connection-box" id="connectionBox">
+
+
+            <div class="connection-title">
+
+
+                <i data-lucide="activity"></i>
+
+
+                وضعیت اتصال
+
+
+            </div>
+
+
+
+            <div id="connectionStatus">
+
+                در حال بررسی...
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+<div id="toast"></div>
+<script src="./config.js"></script>
+
+<script>
+
+
+lucide.createIcons();
+
+
+
+// ==============================
+// ELEMENTS
+// ==============================
+
+const apiKeyInput =
+document.getElementById("apiKey");
+
+
+const saveBtn =
+document.getElementById("save");
+
+
+const connectionStatus =
+document.getElementById("connectionStatus");
+
+
+const toast =
+document.getElementById("toast");
+
+
+
+
+// ==============================
+// TOAST
+// ==============================
+
+function showToast(
+    message,
+    type = "success"
+){
+
+
+    toast.innerHTML =
+        message;
+
+
+    toast.className =
+        "show " + type;
+
+
+
+    setTimeout(()=>{
+
+
+        toast.className =
+            "";
+
+
+    },3000);
+
+
+}
+
+
+
+
+// ==============================
+// LOAD ROBO SETTINGS
+// ==============================
+
+async function loadROBO(){
+
+
+    try{
+
+
+        const response =
+            await fetch(
+                API + "/ai-admin/settings"
+            );
+
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Server Error"
+            );
+
+        }
+
+
+
+        const data =
+            await response.json();
+
+
+
+        apiKeyInput.value =
+            data.apiKey || "";
+
+
+
+        connectionStatus.innerHTML =
+        `
+        <span class="success">
+        🟢 ROBO آماده است
+        </span>
+
+        <br>
+
+        🤖 Model:
+        ${data.model || "gpt-4o"}
+
+        `;
+
+
+
+    }
+    catch(error){
+
+
+        console.error(
+            "ROBO LOAD ERROR:",
+            error
+        );
+
+
+        connectionStatus.innerHTML =
+        `
+        <span class="error">
+        🔴 اتصال برقرار نیست
+        </span>
+        `;
+
+
+
+        showToast(
+            "اتصال به سرور برقرار نشد",
+            "error"
+        );
+
+
+    }
+
+
+}
+
+
+
+
+
+// ==============================
+// SAVE API KEY
+// ==============================
+
+saveBtn.addEventListener(
+"click",
+async()=>{
+
+
+    const key =
+        apiKeyInput.value.trim();
+
+
+
+    if(!key){
+
+
+        showToast(
+            "کلید API را وارد کنید",
+            "error"
+        );
+
+
+        return;
+
+    }
+
+
+
+    connectionStatus.innerHTML =
+    `
+    ⏳ در حال ذخیره کلید...
+    `;
+
+
+
+    try{
+
+
+        const response =
+            await fetch(
+
+                API + "/ai-admin/settings",
+
+                {
+
+                method:"POST",
+
+
+                headers:{
+
+                    "Content-Type":
+                    "application/json"
+
+                },
+
+
+                body:
+                JSON.stringify({
+
+                    apiKey:key
+
+                })
+
+
+                }
+
+            );
+
+
+
+
+        const data =
+            await response.json();
+
+
+
+        console.log(
+            "ROBO SAVE RESPONSE:",
+            data
+        );
+
+
+
+
+        if(
+            response.ok &&
+            data.success
+        ){
+
+
+            connectionStatus.innerHTML =
+            `
+            <span class="success">
+            🟢 کلید با موفقیت ذخیره شد
+            </span>
+
+            <br>
+
+            🤖 ROBO آماده استفاده است
+
+            `;
+
+
+
+            showToast(
+                "ROBO آپدیت شد 🤖",
+                "success"
+            );
+
+
+        }
+        else{
+
+
+            throw new Error(
+                data.message ||
+                "Save failed"
+            );
+
+
+        }
+
+
+
+    }
+    catch(error){
+
+
+        console.error(
+            "ROBO SAVE ERROR:",
+            error
+        );
+
+
+
+        connectionStatus.innerHTML =
+        `
+        <span class="error">
+        🔴 ذخیره کلید ناموفق بود
+        </span>
+        `;
+
+
+
+        showToast(
+            "کلید ذخیره نشد",
+            "error"
+        );
+
+
+    }
+
+
+
+});
+
+
+
+
+
+
+// START
+
+loadROBO();
+
+
+</script>
+
+
+</body>
+
+</html>

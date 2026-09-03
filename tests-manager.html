@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+مدیریت آزمون
+</title>
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+/* =========================================
+        ADMIN DASHBOARD
+========================================= */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+:root{
+
+    --background:#111315;
+
+    --surface:#191c21;
+
+    --surface-hover:#22262d;
+
+    --text:#f9fafb;
+
+    --text-secondary:#9ca3af;
+
+    --border:#292e36;
+
+    --accent:#3b82f6;
+
+    --accent-soft:#172554;
+
+    --green:#22c55e;
+
+    --shadow:
+    0 10px 30px rgba(0,0,0,.35);
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:"Vazirmatn",sans-serif;
+
+}
+
+
+
+/* =========================================
+        APP CONTAINER
+========================================= */
+
+
+.desktop-app{
+
+    width:100%;
+    min-height:100vh;
+
+    padding:10px;
+
+}
+
+
+
+
+
+/* =========================================
+        HEADER
+========================================= */
+
+
+.header{
+
+    width:100%;
+
+    height:70px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+
+    padding:0 22px;
+
+
+    background:var(--surface);
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:18px;
+
+
+    box-shadow:var(--shadow);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.header:hover{
+
+    border-color:var(--accent);
+
+}
+
+
+
+
+
+.header-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+
+.header-logo > svg{
+
+    width:28px;
+
+    height:28px;
+
+    color:var(--accent);
+
+}
+
+
+
+.header-logo h1{
+
+    font-size:19px;
+
+    font-weight:800;
+
+}
+
+
+
+.header-logo span{
+
+    display:block;
+
+    margin-top:3px;
+
+    font-size:13px;
+
+    color:var(--text-secondary);
+
+}
+
+
+
+
+
+.header-actions{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+
+.icon-btn{
+
+    width:42px;
+
+    height:42px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    border-radius:13px;
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+    border:1px solid var(--border);
+
+
+    color:var(--text-secondary);
+
+
+    cursor:pointer;
+
+
+    transition:.25s;
+
+
+}
+
+
+
+.icon-btn svg{
+
+    width:20px;
+
+    height:20px;
+
+}
+
+
+
+.icon-btn:hover{
+
+    color:var(--text);
+
+    background:var(--surface-hover);
+
+    border-color:var(--accent);
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        EXAM GRID
+========================================= */
+
+
+.exam-manage-grid{
+
+
+    margin-top:10px;
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    1fr 1fr 1fr;
+
+
+    gap:10px;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        CARD BASE
+========================================= */
+
+
+.exam-card{
+
+
+    background:var(--surface);
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:18px;
+
+
+    padding:20px;
+
+
+    box-shadow:var(--shadow);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.exam-card:hover{
+
+
+    border-color:var(--accent);
+
+}
+
+
+
+
+
+
+
+/* =========================================
+        TITLE
+========================================= */
+
+
+.card-title{
+
+
+    display:flex;
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.card-title svg{
+
+
+    width:22px;
+
+    height:22px;
+
+    color:var(--accent);
+
+}
+
+
+
+.card-title h3{
+
+
+    font-size:16px;
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+
+
+/* =========================================
+        INFO LIST
+========================================= */
+
+
+.info-list{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+
+    gap:10px;
+
+
+}
+
+
+
+.info-list div{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    padding:13px;
+
+
+    border-radius:14px;
+
+
+    background:#ffffff03;
+
+
+    border:1px solid var(--border);
+
+
+}
+
+
+
+.info-list span{
+
+
+    color:var(--text-secondary);
+
+
+    font-size:13px;
+
+
+}
+
+
+
+.info-list strong{
+
+
+    font-size:15px;
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        STATUS
+========================================= */
+
+
+.status{
+
+
+    height:70px;
+
+
+    border-radius:18px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+.status.active{
+
+
+    background:
+
+    rgba(34,197,94,.12);
+
+
+    color:var(--green);
+
+
+    border:1px solid rgba(34,197,94,.3);
+
+
+}
+
+
+
+.status.inactive{
+
+
+    background:
+
+    rgba(239,68,68,.12);
+
+
+    color:#ef4444;
+
+
+    border:1px solid rgba(239,68,68,.3);
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        ACTION BUTTONS
+========================================= */
+
+
+.action-buttons{
+
+
+    display:grid;
+
+
+    grid-template-columns:1fr 1fr;
+
+
+    gap:12px;
+
+
+}
+
+
+
+.action{
+
+
+    height:45px;
+
+
+    border:none;
+
+
+    border-radius:14px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    gap:8px;
+
+
+    color:white;
+
+
+    font-family:inherit;
+
+
+    font-weight:700;
+
+
+    cursor:pointer;
+
+
+    transition:.25s;
+
+
+}
+
+
+
+.action svg{
+
+
+    width:18px;
+
+}
+
+
+
+.action:hover{
+
+
+    transform:translateY(-3px);
+
+}
+
+
+
+.edit{
+
+    background:#2563eb;
+
+}
+
+
+.publish{
+
+    background:#16a34a;
+
+}
+
+
+.disable{
+
+    background:#d97706;
+
+}
+
+
+.delete{
+
+    background:#dc2626;
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        QUESTIONS
+========================================= */
+
+
+.questions-section{
+
+
+    margin-top:10px;
+
+
+    background:var(--surface);
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:18px;
+
+
+    padding:20px;
+
+
+    box-shadow:var(--shadow);
+
+
+}
+
+
+
+
+.section-header{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.section-header svg{
+
+
+    width:23px;
+
+    color:var(--accent);
+
+}
+
+
+
+.section-header h2{
+
+
+    font-size:18px;
+
+    font-weight:800;
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        QUESTION CARD
+========================================= */
+
+
+.question-card{
+
+
+    background:
+
+    rgba(255,255,255,.025);
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:18px;
+
+
+    padding:18px;
+
+
+    margin-bottom:14px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.question-card:hover{
+
+
+    background:var(--surface-hover);
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+
+.question-header{
+
+
+    display:flex;
+
+
+    justify-content:flex-start;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.question-number{
+
+
+    width:40px;
+
+
+    height:40px;
+
+
+    border-radius:50%;
+
+
+    background:var(--accent-soft);
+
+
+    color:#60a5fa;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+.question-text{
+
+
+    line-height:2;
+
+
+    margin-bottom:15px;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+
+
+.option{
+
+
+    padding:12px;
+
+
+    margin-bottom:8px;
+
+
+    border-radius:13px;
+
+
+    background:var(--background);
+
+
+    border:1px solid var(--border);
+
+
+    color:var(--text-secondary);
+
+
+}
+
+
+
+.correct-answer{
+
+
+    margin-top:15px;
+
+
+    padding:13px;
+
+
+    border-radius:14px;
+
+
+    background:
+
+    rgba(34,197,94,.12);
+
+
+    border:1px solid rgba(34,197,94,.25);
+
+
+    color:var(--green);
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        MOBILE
+========================================= */
+
+
+@media(max-width:900px){
+
+
+.exam-manage-grid{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+.header{
+
+
+    height:auto;
+
+
+    padding:15px;
+
+
+}
+
+
+
+.header-logo h1{
+
+
+    font-size:16px;
+
+}
+
+
+
+.action-buttons{
+
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.questions-section{
+
+
+    padding:15px;
+
+}
+
+
+}
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="desktop-app">
+
+
+<!-- =========================
+        HEADER
+========================= -->
+
+<header class="header">
+
+
+<div class="header-logo">
+
+
+<i data-lucide="file-question"></i>
+
+
+<div>
+
+<h1>
+مدیریت آزمون
+</h1>
+
+
+<span>
+کنترل، ویرایش و مدیریت آزمون
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="header-actions">
+
+
+<button class="icon-btn theme-btn">
+
+<i data-lucide="moon"></i>
+
+</button>
+
+
+
+<a href="./مدیریت-آزمون‌ها.html">
+
+<button class="icon-btn">
+
+<i data-lucide="arrow-right"></i>
+
+</button>
+
+</a>
+
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+<!-- =========================
+        EXAM INFO
+========================= -->
+
+
+<section class="exam-manage-grid">
+
+
+
+<div class="exam-card info-card">
+
+
+<div class="card-title">
+
+<i data-lucide="clipboard-list"></i>
+
+<h3>
+اطلاعات آزمون
+</h3>
+
+</div>
+
+
+
+<div class="info-list">
+
+
+<div>
+
+<span>
+عنوان
+</span>
+
+<strong id="title">
+-
+</strong>
+
+</div>
+
+
+
+<div>
+
+<span>
+درس
+</span>
+
+<strong id="subject">
+-
+</strong>
+
+</div>
+
+
+
+<div>
+
+<span>
+تعداد سوال
+</span>
+
+<strong id="count">
+-
+</strong>
+
+</div>
+
+
+
+<div>
+
+<span>
+زمان
+</span>
+
+<strong id="duration">
+-
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- STATUS -->
+
+
+<div class="exam-card status-card">
+
+
+<div class="card-title">
+
+<i data-lucide="activity"></i>
+
+<h3>
+وضعیت آزمون
+</h3>
+
+</div>
+
+
+
+<div id="status"
+class="status inactive">
+
+🔴 غیر فعال
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ACTION -->
+
+
+<div class="exam-card actions-card">
+
+
+<div class="card-title">
+
+<i data-lucide="settings"></i>
+
+<h3>
+عملیات
+</h3>
+
+</div>
+
+
+
+<div class="action-buttons">
+
+
+<button class="action edit">
+
+<i data-lucide="edit"></i>
+
+ویرایش
+
+</button>
+
+
+
+<button class="action publish">
+
+<i data-lucide="upload"></i>
+
+انتشار
+
+</button>
+
+
+
+<button class="action disable">
+
+<i data-lucide="pause"></i>
+
+غیرفعال
+
+</button>
+
+
+
+<button class="action delete">
+
+<i data-lucide="trash"></i>
+
+حذف
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =========================
+ QUESTIONS
+========================= -->
+
+
+<section class="questions-section">
+
+
+<div class="section-header">
+
+
+<i data-lucide="list-check"></i>
+
+
+<h2>
+سوالات آزمون
+</h2>
+
+
+</div>
+
+
+
+
+<div id="questions">
+
+
+<!-- JS -->
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+</div>
+<script src="./config.js"></script>
+
+
+
+<script>
+
+
+lucide.createIcons();
+
+
+
+
+// دارک مود
+
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+
+
+themeBtn.onclick=()=>{
+
+
+document.body.classList.toggle("dark");
+
+
+localStorage.setItem(
+
+"dark",
+
+document.body.classList.contains("dark")
+
+);
+
+
+};
+
+
+
+
+
+if(
+localStorage.getItem("dark")==="true"
+){
+
+document.body.classList.add("dark");
+
+}
+
+
+
+
+
+</script>
+
+
+<script>
+
+
+const API =
+`${API_URL}/admin/tests`;
+
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+
+const testId =
+params.get("id");
+
+
+
+const title =
+document.getElementById("title");
+
+const subject =
+document.getElementById("subject");
+
+const count =
+document.getElementById("count");
+
+const duration =
+document.getElementById("duration");
+
+
+const status =
+document.getElementById("status");
+
+
+const questions =
+document.getElementById("questions");
+
+
+
+
+let testData = null;
+
+
+
+
+
+async function loadTest(){
+
+
+try{
+
+
+const response =
+await fetch(
+`${API}/${testId}`
+);
+
+
+
+const test =
+await response.json();
+
+
+
+console.log(
+"TEST MANAGER:",
+test
+);
+
+
+
+testData = test;
+
+
+
+title.textContent =
+test.title;
+
+
+subject.textContent =
+test.subject;
+
+
+count.textContent =
+test.questionCount + " سوال";
+
+
+duration.textContent =
+test.duration + " دقیقه";
+
+
+
+
+
+if(test.isPublished){
+
+
+status.className =
+"status active";
+
+
+status.innerHTML =
+"🟢 فعال";
+
+
+
+}
+else{
+
+
+status.className =
+"status inactive";
+
+
+status.innerHTML =
+"🔴 غیرفعال";
+
+
+}
+
+
+
+
+
+
+renderQuestions();
+
+
+
+}
+
+
+
+catch(error){
+
+
+console.log(
+"خطا:",
+error
+);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+function renderQuestions(){
+
+
+
+questions.innerHTML="";
+
+
+
+testData.questions.forEach(
+(q,index)=>{
+
+
+
+questions.innerHTML += `
+
+
+
+<div class="question">
+
+
+
+<div class="question-top">
+
+
+<div class="number">
+
+${index+1}
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="question-text">
+
+${q.question}
+
+</div>
+
+
+
+
+${q.options.map(
+(option,i)=>{
+
+
+return `
+
+
+<div class="option">
+
+${i+1})
+${option}
+
+</div>
+
+
+`
+
+
+}).join("")}
+
+
+
+
+
+
+<div class="answer">
+
+پاسخ صحیح:
+گزینه ${q.correctAnswer+1}
+
+</div>
+
+
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// انتشار آزمون
+
+
+document
+.querySelector(".publish")
+.onclick =
+async()=>{
+
+
+await fetch(
+
+`${API}/publish/${testId}`,
+
+{
+
+method:"PUT"
+
+}
+
+);
+
+
+
+alert(
+"آزمون منتشر شد"
+);
+
+
+
+loadTest();
+
+
+
+};
+
+
+
+
+
+
+
+
+
+// غیرفعال کردن
+
+
+document
+.querySelector(".disable")
+.onclick =
+async()=>{
+
+
+await fetch(
+
+`${API}/unpublish/${testId}`,
+
+{
+
+method:"PUT"
+
+}
+
+);
+
+
+
+alert(
+"آزمون غیرفعال شد"
+);
+
+
+
+loadTest();
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+// حذف آزمون
+
+
+document
+.querySelector(".delete")
+.onclick =
+async()=>{
+
+
+const ok =
+confirm(
+"آیا مطمئن هستید؟"
+);
+
+
+
+if(!ok)
+return;
+
+
+
+await fetch(
+
+`${API}/delete/${testId}`,
+
+{
+
+method:"DELETE"
+
+}
+
+);
+
+
+
+alert(
+"آزمون حذف شد"
+);
+
+
+
+location.href =
+"مدیریت آزمون‌ها.html";
+
+
+
+};
+
+
+
+
+
+
+loadTest();
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
