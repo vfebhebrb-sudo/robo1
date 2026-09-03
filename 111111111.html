@@ -690,7 +690,6 @@ margin-top: 150px;
 
 <div id="toast"></div>
 <script src="./config.js"></script>
-
 <script>
 
 
@@ -720,13 +719,14 @@ document.getElementById("toast");
 
 
 
+
 // ==============================
 // TOAST
 // ==============================
 
 function showToast(
     message,
-    type = "success"
+    type="success"
 ){
 
 
@@ -745,11 +745,11 @@ function showToast(
         toast.className =
             "";
 
-
     },3000);
 
 
 }
+
 
 
 
@@ -765,9 +765,11 @@ async function loadROBO(){
 
 
         const response =
-            await fetch(
-                API + "/ai-admin/settings"
-            );
+        await fetch(
+
+            API_URL + "/ai-admin/settings"
+
+        );
 
 
 
@@ -782,7 +784,7 @@ async function loadROBO(){
 
 
         const data =
-            await response.json();
+        await response.json();
 
 
 
@@ -793,6 +795,7 @@ async function loadROBO(){
 
         connectionStatus.innerHTML =
         `
+
         <span class="success">
         🟢 ROBO آماده است
         </span>
@@ -807,6 +810,7 @@ async function loadROBO(){
 
 
     }
+
     catch(error){
 
 
@@ -816,11 +820,14 @@ async function loadROBO(){
         );
 
 
+
         connectionStatus.innerHTML =
         `
+
         <span class="error">
         🔴 اتصال برقرار نیست
         </span>
+
         `;
 
 
@@ -840,6 +847,9 @@ async function loadROBO(){
 
 
 
+
+
+
 // ==============================
 // SAVE API KEY
 // ==============================
@@ -850,7 +860,7 @@ async()=>{
 
 
     const key =
-        apiKeyInput.value.trim();
+    apiKeyInput.value.trim();
 
 
 
@@ -871,7 +881,7 @@ async()=>{
 
     connectionStatus.innerHTML =
     `
-    ⏳ در حال ذخیره کلید...
+    ⏳ در حال بررسی و ذخیره کلید...
     `;
 
 
@@ -880,47 +890,50 @@ async()=>{
 
 
         const response =
-            await fetch(
+        await fetch(
 
-                API + "/ai-admin/settings",
+            API_URL + "/ai-admin/settings",
 
-                {
+            {
 
-                method:"POST",
-
-
-                headers:{
-
-                    "Content-Type":
-                    "application/json"
-
-                },
+            method:"POST",
 
 
-                body:
-                JSON.stringify({
+            headers:{
 
-                    apiKey:key
+                "Content-Type":
+                "application/json"
 
-                })
+            },
 
 
-                }
+            body:
 
-            );
+            JSON.stringify({
+
+                apiKey:key
+
+            })
+
+
+            }
+
+        );
+
 
 
 
 
         const data =
-            await response.json();
+        await response.json();
 
 
 
         console.log(
-            "ROBO SAVE RESPONSE:",
+            "ROBO RESPONSE:",
             data
         );
+
 
 
 
@@ -933,31 +946,34 @@ async()=>{
 
             connectionStatus.innerHTML =
             `
+
             <span class="success">
             🟢 کلید با موفقیت ذخیره شد
             </span>
 
             <br>
 
-            🤖 ROBO آماده استفاده است
+            🤖 ROBO آنلاین است
 
             `;
 
 
 
             showToast(
-                "ROBO آپدیت شد 🤖",
+                "ROBO آپدیت شد",
                 "success"
             );
 
 
+
         }
+
         else{
 
 
             throw new Error(
                 data.message ||
-                "Save failed"
+                "Save Failed"
             );
 
 
@@ -965,7 +981,9 @@ async()=>{
 
 
 
+
     }
+
     catch(error){
 
 
@@ -978,15 +996,17 @@ async()=>{
 
         connectionStatus.innerHTML =
         `
+
         <span class="error">
-        🔴 ذخیره کلید ناموفق بود
+        🔴 ذخیره کلید شکست خورد
         </span>
+
         `;
 
 
 
         showToast(
-            "کلید ذخیره نشد",
+            "ذخیره کلید ناموفق بود",
             "error"
         );
 
@@ -1002,9 +1022,13 @@ async()=>{
 
 
 
+
+// ==============================
 // START
+// ==============================
 
 loadROBO();
+
 
 
 </script>
