@@ -1698,55 +1698,74 @@ loadTest();
 
 
 // حذف آزمون
-
+// حذف آزمون
 
 document
 .querySelector(".delete")
 .onclick =
 async()=>{
 
+    const ok = confirm(
+        "آیا مطمئن هستید؟"
+    );
 
-const ok =
-confirm(
-"آیا مطمئن هستید؟"
-);
-
-
-
-if(!ok)
-return;
+    if(!ok)
+        return;
 
 
+    try{
 
-await fetch(
-
-`${API}/delete/${testId}`,
-
-{
-
-method:"DELETE"
-
-}
-
-);
+        const response = await fetch(
+            `${API}/delete/${testId}`,
+            {
+                method:"DELETE"
+            }
+        );
 
 
-
-alert(
-"آزمون حذف شد"
-);
+        const result = await response.json();
 
 
+        console.log(
+            "DELETE RESULT:",
+            result
+        );
 
-location.href =
-"مدیریت آزمون‌ها.html";
+
+        if(!response.ok){
+
+            throw new Error(
+                result.message || "خطا در حذف آزمون"
+            );
+
+        }
 
 
+        alert(
+            "آزمون حذف شد"
+        );
+
+
+        location.href =
+        "./مدیریت-آزمون‌ها.html";
+
+
+    }
+    catch(error){
+
+        console.log(
+            "DELETE ERROR:",
+            error
+        );
+
+
+        alert(
+            error.message
+        );
+
+    }
 
 };
-
-
-
 
 
 

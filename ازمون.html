@@ -1814,6 +1814,257 @@ height:30px;
 
 
 
+/* =========================================
+   GEMINI TEST CHAT
+========================================= */
+
+.gemini-test-box {
+    width: 100%;
+    margin: 18px 0;
+    padding: 18px;
+
+    direction: rtl;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef1f4,
+            #e1e5ea
+        );
+
+    border: 1px solid #d2d7df;
+    border-radius: 16px;
+
+    box-shadow:
+        0 4px 14px rgba(30, 38, 50, .09);
+}
+
+
+.gemini-test-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+    margin-bottom: 14px;
+}
+
+
+.gemini-test-header h3 {
+    margin: 0;
+
+    color: #162033;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+.gemini-test-header p {
+    margin: 5px 0 0;
+
+    color: #667085;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+.gemini-status {
+    padding: 7px 12px;
+
+    color: #3b4658;
+
+    background: rgba(255,255,255,.55);
+
+    border: 1px solid #d2d7df;
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.gemini-status.loading {
+    color: #7a5b00;
+}
+
+
+.gemini-status.success {
+    color: #176b3a;
+}
+
+
+.gemini-status.error {
+    color: #a52222;
+}
+
+
+/* CHAT */
+
+.gemini-chat {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    min-height: 170px;
+    max-height: 360px;
+
+    padding: 12px;
+
+    overflow-y: auto;
+
+    background: rgba(255,255,255,.35);
+
+    border: 1px solid #d7dce3;
+    border-radius: 12px;
+}
+
+
+.gemini-message {
+    max-width: 85%;
+
+    padding: 11px 13px;
+
+    border-radius: 11px;
+
+    font-size: 13px;
+    line-height: 1.9;
+
+    white-space: pre-wrap;
+}
+
+
+.gemini-message.user {
+    align-self: flex-start;
+
+    color: #172033;
+
+    background: #e3e7ec;
+
+    border: 1px solid #cfd5dd;
+
+    border-bottom-left-radius: 4px;
+}
+
+
+.gemini-message.bot {
+    align-self: flex-end;
+
+    color: #172033;
+
+    background: rgba(255,255,255,.7);
+
+    border: 1px solid #d7dce3;
+
+    border-bottom-right-radius: 4px;
+}
+
+
+/* FORM */
+
+.gemini-test-form {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+}
+
+
+#geminiTestMessage {
+    flex: 1;
+
+    min-height: 48px;
+    max-height: 130px;
+
+    padding: 12px 14px;
+
+    resize: vertical;
+
+    direction: rtl;
+
+    color: #172033;
+
+    background: rgba(255,255,255,.65);
+
+    border: 1px solid #cfd5dd;
+    border-radius: 11px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    transition: .2s ease;
+}
+
+
+#geminiTestMessage:focus {
+    border-color: #aeb6c2;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 0 3px rgba(80, 90, 105, .08);
+}
+
+
+#geminiTestButton {
+    align-self: flex-end;
+
+    min-width: 145px;
+    min-height: 48px;
+
+    padding: 0 18px;
+
+    color: #fff;
+
+    background: #172033;
+
+    border: 0;
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+
+#geminiTestButton:hover {
+    transform: translateY(-1px);
+}
+
+
+#geminiTestButton:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+@media (max-width: 650px) {
+
+    .gemini-test-form {
+        flex-direction: column;
+    }
+
+    #geminiTestButton {
+        width: 100%;
+    }
+
+    .gemini-message {
+        max-width: 95%;
+    }
+
+}
 
 
 
@@ -1821,8 +2072,274 @@ height:30px;
 
 
 
+/* =========================================
+   JSON QUESTION IMPORT
+========================================= */
+
+.json-import-box {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(
+        135deg,
+        #eef1f4,
+        #e1e5ea
+    );
+    border: 1px solid #d2d7df;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(30, 38, 50, .09);
+
+    direction: rtl;
+}
 
 
+.json-import-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 14px;
+}
+
+
+.json-import-header h3 {
+    margin: 0 0 5px;
+    color: #162033;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+.json-import-header p {
+    margin: 0;
+    color: #667085;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+.json-import-status {
+    flex-shrink: 0;
+
+    padding: 7px 12px;
+
+    border-radius: 9px;
+
+    background: #d8dde4;
+    border: 1px solid #c3cad4;
+
+    color: #3b4658;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+.json-import-status.success {
+    background: #dcefe3;
+    border-color: #b9dcc5;
+    color: #267344;
+}
+
+
+.json-import-status.error {
+    background: #f4dddd;
+    border-color: #e4bcbc;
+    color: #a33a3a;
+}
+
+
+.json-import-textarea {
+    display: block;
+
+    width: 100%;
+    min-height: 240px;
+
+    padding: 14px;
+
+    resize: vertical;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d2d7df;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, .62);
+
+    color: #172033;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    direction: ltr;
+    text-align: left;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.json-import-textarea::placeholder {
+    color: #8a94a5;
+    opacity: .8;
+}
+
+
+.json-import-textarea:focus {
+    background: #f7f8fa;
+
+    border-color: #aeb6c2;
+
+    box-shadow:
+        0 0 0 3px rgba(120, 130, 145, .08);
+}
+
+
+.json-import-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-top: 12px;
+}
+
+
+.json-import-btn,
+.json-clear-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 40px;
+
+    padding: 0 15px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s ease,
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.json-import-btn {
+    border: 1px solid #b9c1cc;
+
+    background: #d8dde4;
+
+    color: #162033;
+}
+
+
+.json-import-btn:hover {
+    background: #cfd5dd;
+
+    border-color: #aeb7c3;
+
+    box-shadow:
+        0 4px 10px rgba(30, 38, 50, .08);
+
+    transform: translateY(-1px);
+}
+
+
+.json-clear-btn {
+    border: 1px solid #d2d7df;
+
+    background: rgba(255, 255, 255, .5);
+
+    color: #5e6879;
+}
+
+
+.json-clear-btn:hover {
+    background: #fff;
+
+    border-color: #c2c9d3;
+}
+
+
+.json-import-btn i,
+.json-clear-btn i {
+    width: 16px;
+    height: 16px;
+}
+
+
+.json-import-message {
+    display: none;
+
+    margin-top: 10px;
+
+    padding: 9px 11px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.7;
+}
+
+
+.json-import-message.show {
+    display: block;
+}
+
+
+.json-import-message.success {
+    background: #e1f0e6;
+    border: 1px solid #c2dfca;
+    color: #267344;
+}
+
+
+.json-import-message.error {
+    background: #f5e0e0;
+    border: 1px solid #e6c1c1;
+    color: #a33a3a;
+}
+
+
+@media (max-width: 700px) {
+
+    .json-import-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .json-import-status {
+        align-self: flex-start;
+    }
+
+    .json-import-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .json-import-btn,
+    .json-clear-btn {
+        width: 100%;
+    }
+
+}
 
 
 
@@ -1844,6 +2361,103 @@ height:30px;
 
 
 <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2343,6 +2957,126 @@ class="question-list">
 
 
 
+
+
+
+
+
+<!-- =========================================
+     GEMINI ANSWER SHEET ANALYZER
+========================================= -->
+
+<section class="gemini-test-box">
+
+    <div class="gemini-test-header">
+
+        <div>
+
+            <h3>
+                تحلیل پاسخنامه با Gemini
+            </h3>
+
+            <p>
+                فایل PDF پاسخنامه را انتخاب کنید تا تعداد سوالات و پاسخ‌های صحیح استخراج شود.
+            </p>
+
+        </div>
+
+
+        <div
+            class="gemini-status"
+            id="geminiStatus"
+        >
+            آماده
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         PDF UPLOAD
+    ====================================== -->
+
+    <div class="gemini-upload-area">
+
+        <input
+            type="file"
+            id="answerPdfInput"
+            accept="application/pdf,.pdf"
+            hidden
+        >
+
+
+        <button
+            type="button"
+            id="answerPdfButton"
+            class="gemini-upload-btn"
+        >
+
+            <i data-lucide="file-up"></i>
+
+            افزودن فایل PDF
+
+        </button>
+
+
+        <div
+            class="gemini-file-name"
+            id="answerPdfName"
+        >
+            هنوز فایلی انتخاب نشده
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         ANALYZE
+    ====================================== -->
+
+    <button
+        type="button"
+        id="analyzeAnswerPdfBtn"
+        class="gemini-analyze-btn"
+        disabled
+    >
+
+        <i data-lucide="sparkles"></i>
+
+        تحلیل پاسخنامه با Gemini
+
+    </button>
+
+
+    <!-- =====================================
+         STATUS
+    ====================================== -->
+
+    <div
+        class="gemini-pdf-status"
+        id="answerPdfStatus"
+    ></div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ==================================
      PUBLISH
 ================================== -->
@@ -2465,675 +3199,1770 @@ class="answer-sheet">
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========================================
+     JSON QUESTION IMPORT
+========================================= -->
+
+<section class="json-import-box">
+
+    <div class="json-import-header">
+
+        <div>
+            <h3>ورود سوالات با JSON</h3>
+
+            <p>
+                JSON سوالات را وارد کنید تا سوال‌ها و گزینه‌ها به‌صورت خودکار ساخته شوند.
+            </p>
+        </div>
+
+        <div
+            class="json-import-status"
+            id="jsonImportStatus"
+        >
+            آماده
+        </div>
+
+    </div>
+
+
+    <textarea
+        id="questionsJsonInput"
+        class="json-import-textarea"
+        placeholder='{
+  "questions": [
+    {
+      "number": 1,
+      "question": "متن سوال",
+      "options": [
+        "گزینه 1",
+        "گزینه 2",
+        "گزینه 3",
+        "گزینه 4"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+}'
+        spellcheck="false"
+    ></textarea>
+
+
+    <div class="json-import-actions">
+
+        <button
+            type="button"
+            id="importQuestionsJsonBtn"
+            class="json-import-btn"
+        >
+            <i data-lucide="file-json"></i>
+            تأیید و ساخت سوالات
+        </button>
+
+        <button
+            type="button"
+            id="clearQuestionsJsonBtn"
+            class="json-clear-btn"
+        >
+            <i data-lucide="trash-2"></i>
+            پاک کردن
+        </button>
+
+    </div>
+
+
+    <div
+        id="jsonImportMessage"
+        class="json-import-message"
+    ></div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./config.js"></script>
 
 <script>
 
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
 
-// =======================================
+// ======================================================
 // VARIABLES
-// =======================================
-
+// ======================================================
 
 let questions = [];
 
 
+// ======================================================
+// FIXED QUESTION DATA
+// ======================================================
 
-// INPUTS
+const FIXED_QUESTION_TEXT =
+    "متن سوال آزمون";
 
-const testCount =
-document.getElementById("testCount");
-
-
-const questionText =
-document.getElementById("questionText");
-
-
-const options = [
-
-document.getElementById("option1"),
-
-document.getElementById("option2"),
-
-document.getElementById("option3"),
-
-document.getElementById("option4")
-
+const FIXED_OPTIONS = [
+    "گزینه 1",
+    "گزینه 2",
+    "گزینه 3",
+    "گزینه 4"
 ];
 
 
+// ======================================================
+// INPUTS
+// ======================================================
+
+const testCount =
+    document.getElementById("testCount");
+
+const questionText =
+    document.getElementById("questionText");
+
+const options = [
+
+    document.getElementById("option1"),
+
+    document.getElementById("option2"),
+
+    document.getElementById("option3"),
+
+    document.getElementById("option4")
+
+];
+
 const correctAnswer =
-document.getElementById("correctAnswer");
+    document.getElementById("correctAnswer");
 
 
-
+// ======================================================
 // BUTTONS
+// ======================================================
 
 const addQuestionBtn =
-document.getElementById("addQuestionBtn");
-
+    document.getElementById("addQuestionBtn");
 
 const publishBtn =
-document.getElementById("publishExamBtn");
+    document.getElementById("publishExamBtn");
 
 
-
+// ======================================================
 // BOXES
+// ======================================================
 
 const testList =
-document.getElementById("testList");
-
+    document.getElementById("testList");
 
 const answerSheet =
-document.getElementById("answerSheet");
-
+    document.getElementById("answerSheet");
 
 const answerCount =
-document.getElementById("answerCount");
+    document.getElementById("answerCount");
 
 
+// ======================================================
+// GEMINI PDF ELEMENTS
+// ======================================================
+
+const answerPdfInput =
+    document.getElementById("answerPdfInput");
+
+const answerPdfButton =
+    document.getElementById("answerPdfButton");
+
+const answerPdfName =
+    document.getElementById("answerPdfName");
+
+const analyzeAnswerPdfBtn =
+    document.getElementById("analyzeAnswerPdfBtn");
+
+const answerPdfStatus =
+    document.getElementById("answerPdfStatus");
+
+const geminiStatus =
+    document.getElementById("geminiStatus");
 
 
+// ======================================================
+// FILL FIXED QUESTION FORM
+// ======================================================
 
-// =======================================
+function fillFixedQuestionForm() {
+
+    questionText.value =
+        FIXED_QUESTION_TEXT;
+
+
+    options.forEach((input, index) => {
+
+        input.value =
+            FIXED_OPTIONS[index];
+
+    });
+
+}
+
+
+// ======================================================
 // CREATE ANSWER SHEET
-// =======================================
+// ======================================================
+
+function createAnswerSheet() {
+
+    const count =
+        Number(testCount.value);
 
 
-function createAnswerSheet(){
+    // پاک کردن پاسخنامه قبلی
+    answerSheet.innerHTML = "";
 
 
-let count =
-Number(testCount.value);
+    // نمایش تعداد
+    answerCount.textContent =
+        count || 0;
 
 
+    // اگر تعداد نامعتبر بود
+    if (!count || count < 1) {
 
-answerSheet.innerHTML="";
+        questions = [];
 
+        renderQuestions();
 
+        clearForm();
 
-answerCount.textContent =
-count || 0;
+        return;
 
-
-
-if(!count)
-return;
-
-
+    }
 
 
-for(let i=1;i<=count;i++){
+    // ==================================================
+    // CREATE ANSWER ROWS
+    // ==================================================
+
+    for (let i = 1; i <= count; i++) {
+
+        const row =
+            document.createElement("div");
 
 
-
-const row =
-document.createElement("div");
-
+        row.className =
+            "answer-row";
 
 
-row.className =
-"answer-row";
+        row.id =
+            `answer-${i}`;
 
 
-row.id =
-`answer-${i}`;
+        row.innerHTML = `
+
+            <span class="question-number">
+                ${i}
+            </span>
+
+            <div class="answer-options">
+
+                <button
+                    type="button"
+                    data-option="1"
+                >
+                    ۱
+                </button>
+
+                <button
+                    type="button"
+                    data-option="2"
+                >
+                    ۲
+                </button>
+
+                <button
+                    type="button"
+                    data-option="3"
+                >
+                    ۳
+                </button>
+
+                <button
+                    type="button"
+                    data-option="4"
+                >
+                    ۴
+                </button>
+
+            </div>
+
+        `;
 
 
+        answerSheet.appendChild(row);
 
-row.innerHTML=`
-
-<span class="question-number">
-
-${i}
-
-</span>
+    }
 
 
+    // ==================================================
+    // CREATE QUESTIONS
+    // ==================================================
 
-<div class="answer-options">
-
-
-<button data-option="1">
-۱
-</button>
+    questions = [];
 
 
-<button data-option="2">
-۲
-</button>
+    for (let i = 1; i <= count; i++) {
+
+        questions.push({
+
+            number: i,
+
+            question:
+                FIXED_QUESTION_TEXT,
+
+            options: [
+                FIXED_OPTIONS[0],
+                FIXED_OPTIONS[1],
+                FIXED_OPTIONS[2],
+                FIXED_OPTIONS[3]
+            ],
+
+            correctAnswer: null
+
+        });
+
+    }
 
 
-<button data-option="3">
-۳
-</button>
+    // پر کردن فرم با متن ثابت
+    fillFixedQuestionForm();
 
 
-<button data-option="4">
-۴
-</button>
-
-
-
-</div>
-
-`;
-
-
-
-answerSheet.appendChild(row);
-
-
+    // نمایش سوالات
+    renderQuestions();
 
 }
 
 
-
-}
-
-
-
+// ======================================================
+// QUESTION COUNT CHANGE
+// ======================================================
 
 testCount.addEventListener(
-"input",
-createAnswerSheet
+    "input",
+    createAnswerSheet
 );
 
 
-
-
-
-
-
-// =======================================
-// SELECT ANSWER FROM SHEET
-// =======================================
-
+// ======================================================
+// SELECT ANSWER FROM ANSWER SHEET
+// ======================================================
 
 answerSheet.addEventListener(
-"click",
-(e)=>{
+    "click",
+    (event) => {
+
+        const button =
+            event.target.closest("button");
 
 
-if(
-e.target.tagName==="BUTTON"
-){
+        if (!button) {
+            return;
+        }
 
 
-const parent =
-e.target.parentElement;
+        const row =
+            button.closest(".answer-row");
 
 
-
-parent
-.querySelectorAll("button")
-.forEach(btn=>{
-
-btn.classList.remove("active");
-
-});
+        if (!row) {
+            return;
+        }
 
 
+        // حذف انتخاب قبلی
+        row
+            .querySelectorAll("button")
+            .forEach(btn => {
 
-e.target.classList.add("active");
+                btn.classList.remove(
+                    "active"
+                );
 
-
-
-}
-
-
-
-});
-
-
+            });
 
 
+        // فعال کردن گزینه انتخاب شده
+        button.classList.add("active");
 
 
+        // ==================================================
+        // SAVE ANSWER
+        // ==================================================
+
+        const questionNumber =
+            Number(
+                row.id.replace(
+                    "answer-",
+                    ""
+                )
+            );
 
 
+        const selectedAnswer =
+            Number(
+                button.dataset.option
+            );
 
-// =======================================
-// ADD QUESTION
-// =======================================
 
+        const question =
+            questions.find(
+                q =>
+                    q.number ===
+                    questionNumber
+            );
+
+
+        if (question) {
+
+            question.correctAnswer =
+                selectedAnswer;
+
+        }
+
+
+        renderQuestions();
+
+    }
+);
+
+
+// ======================================================
+// ADD QUESTION MANUALLY
+// ======================================================
 
 addQuestionBtn.addEventListener(
-"click",
-()=>{
+    "click",
+    () => {
+
+        const text =
+            questionText.value.trim();
 
 
+        const opts =
+            options.map(
+                input =>
+                    input.value.trim()
+            );
 
-const text =
-questionText.value.trim();
+
+        const correct =
+            Number(
+                correctAnswer.value
+            );
 
 
+        if (
+            !text ||
+            opts.some(
+                option => !option
+            ) ||
+            !correct
+        ) {
 
-const opts =
-options.map(
-item=>item.value.trim()
+            alert(
+                "لطفاً اطلاعات سوال را کامل کنید"
+            );
+
+            return;
+
+        }
+
+
+        const number =
+            questions.length + 1;
+
+
+        questions.push({
+
+            number,
+
+            question: text,
+
+            options: opts,
+
+            correctAnswer: correct
+
+        });
+
+
+        renderQuestions();
+
+        updateAnswerSheet();
+
+        clearForm();
+
+    }
 );
 
 
+// ======================================================
+// RENDER QUESTIONS
+// ======================================================
 
-const correct =
-Number(
-correctAnswer.value
-);
+function renderQuestions() {
 
-
-
-
-
-if(
-!text ||
-opts.includes("") ||
-!correct
-){
+    testList.innerHTML = "";
 
 
-alert(
-"لطفاً اطلاعات سوال را کامل کنید"
-);
+    questions.forEach(
+        (question, index) => {
+
+            const item =
+                document.createElement("div");
 
 
-return;
+            item.className =
+                "test-item";
 
+
+            item.innerHTML = `
+
+                <div>
+
+                    <strong>
+                        سوال ${index + 1}
+                    </strong>
+
+                    <span>
+                        ${question.question.substring(0, 70)}
+                    </span>
+
+                </div>
+
+                <div>
+
+                    ${
+                        question.correctAnswer
+                            ? `گزینه ${question.correctAnswer}`
+                            : "پاسخ انتخاب نشده"
+                    }
+
+                </div>
+
+            `;
+
+
+            testList.appendChild(item);
+
+        }
+    );
 
 }
 
 
-
-
-
-const number =
-questions.length+1;
-
-
-
-
-questions.push({
-
-
-number,
-
-
-question:text,
-
-
-options:opts,
-
-
-correctAnswer:correct
-
-
-
-});
-
-
-
-
-renderQuestions();
-
-
-
-updateAnswerSheet();
-
-
-
-clearForm();
-
-
-
-});
-
-
-
-
-
-
-
-
-
-// =======================================
-// SHOW QUESTIONS
-// =======================================
-
-
-
-function renderQuestions(){
-
-
-
-testList.innerHTML="";
-
-
-
-questions.forEach(
-(q,index)=>{
-
-
-
-const item =
-document.createElement("div");
-
-
-
-item.className =
-"test-item";
-
-
-
-item.innerHTML=`
-
-<div>
-
-<strong>
-سوال ${index+1}
-</strong>
-
-
-<span>
-${q.question.substring(0,70)}
-</span>
-
-
-</div>
-
-
-
-<div>
-
-گزینه ${q.correctAnswer}
-
-</div>
-
-`;
-
-
-
-testList.appendChild(item);
-
-
-
-});
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-// =======================================
+// ======================================================
 // UPDATE ANSWER SHEET
-// =======================================
+// ======================================================
+
+function updateAnswerSheet() {
+
+    questions.forEach(question => {
+
+        const row =
+            document.getElementById(
+                `answer-${question.number}`
+            );
 
 
-
-function updateAnswerSheet(){
-
-
-
-questions.forEach(
-(q)=>{
+        if (!row) {
+            return;
+        }
 
 
-
-const row =
-document.getElementById(
-`answer-${q.number}`
-);
+        const buttons =
+            row.querySelectorAll("button");
 
 
+        buttons.forEach(button => {
 
-if(!row)
-return;
-
-
-
-const buttons =
-row.querySelectorAll(
-"button"
-);
+            button.classList.remove(
+                "active"
+            );
 
 
+            if (
+                question.correctAnswer &&
+                Number(
+                    button.dataset.option
+                ) ===
+                Number(
+                    question.correctAnswer
+                )
+            ) {
 
-buttons.forEach(
-btn=>{
+                button.classList.add(
+                    "active"
+                );
 
+            }
 
-btn.classList.remove(
-"active"
-);
+        });
 
-
-
-if(
-Number(btn.dataset.option)
-===
-q.correctAnswer
-){
-
-
-btn.classList.add(
-"active"
-);
-
+    });
 
 }
 
 
-
-});
-
-
-
-});
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// =======================================
+// ======================================================
 // CLEAR FORM
-// =======================================
+// ======================================================
+
+function clearForm() {
+
+    // متن ثابت دوباره قرار می‌گیرد
+    fillFixedQuestionForm();
 
 
-function clearForm(){
-
-
-questionText.value="";
-
-
-options.forEach(
-item=>{
-
-item.value="";
-
-});
-
-
-correctAnswer.value="";
-
+    // پاسخ صحیح خالی می‌شود
+    correctAnswer.value = "";
 
 }
 
 
+// ======================================================
+// GEMINI PDF — OPEN FILE SELECTOR
+// ======================================================
+
+answerPdfButton.addEventListener(
+    "click",
+    () => {
+
+        answerPdfInput.click();
+
+    }
+);
 
 
+// ======================================================
+// GEMINI PDF — FILE SELECTED
+// ======================================================
+
+answerPdfInput.addEventListener(
+    "change",
+    () => {
+
+        const file =
+            answerPdfInput.files[0];
 
 
+        // اگر فایل انتخاب نشده
+        if (!file) {
+
+            answerPdfName.textContent =
+                "هنوز فایلی انتخاب نشده";
 
 
+            analyzeAnswerPdfBtn.disabled =
+                true;
 
-// =======================================
+
+            return;
+
+        }
+
+
+        // ==================================================
+        // CHECK PDF
+        // ==================================================
+
+        const isPdf =
+            file.type === "application/pdf" ||
+            file.name.toLowerCase().endsWith(".pdf");
+
+
+        if (!isPdf) {
+
+            alert(
+                "لطفاً فقط فایل PDF انتخاب کنید."
+            );
+
+
+            answerPdfInput.value = "";
+
+
+            answerPdfName.textContent =
+                "هنوز فایلی انتخاب نشده";
+
+
+            analyzeAnswerPdfBtn.disabled =
+                true;
+
+
+            return;
+
+        }
+
+
+        // ==================================================
+        // CHECK FILE SIZE
+        // ==================================================
+
+        const maxSize =
+            15 * 1024 * 1024;
+
+
+        if (file.size > maxSize) {
+
+            alert(
+                "حجم فایل نباید بیشتر از 15 مگابایت باشد."
+            );
+
+
+            answerPdfInput.value = "";
+
+
+            answerPdfName.textContent =
+                "هنوز فایلی انتخاب نشده";
+
+
+            analyzeAnswerPdfBtn.disabled =
+                true;
+
+
+            return;
+
+        }
+
+
+        // ==================================================
+        // SHOW FILE
+        // ==================================================
+
+        answerPdfName.textContent =
+            file.name;
+
+
+        analyzeAnswerPdfBtn.disabled =
+            false;
+
+
+        geminiStatus.textContent =
+            "فایل آماده است";
+
+
+        geminiStatus.className =
+            "gemini-status success";
+
+
+        answerPdfStatus.textContent =
+            "";
+
+        answerPdfStatus.className =
+            "gemini-pdf-status";
+
+    }
+);
+
+
+// ======================================================
+// GEMINI PDF — ANALYZE
+// ======================================================
+
+analyzeAnswerPdfBtn.addEventListener(
+    "click",
+    async () => {
+
+        const file =
+            answerPdfInput.files[0];
+
+
+        if (!file) {
+
+            alert(
+                "ابتدا یک فایل PDF انتخاب کنید."
+            );
+
+            return;
+
+        }
+
+
+        // ==================================================
+        // LOADING
+        // ==================================================
+
+        analyzeAnswerPdfBtn.disabled =
+            true;
+
+        answerPdfButton.disabled =
+            true;
+
+
+        geminiStatus.textContent =
+            "در حال تحلیل...";
+
+
+        geminiStatus.className =
+            "gemini-status loading";
+
+
+        answerPdfStatus.textContent =
+            "Gemini در حال بررسی پاسخنامه است...";
+
+
+        answerPdfStatus.className =
+            "gemini-pdf-status loading";
+
+
+        try {
+
+
+            // ==================================================
+            // FORM DATA
+            // ==================================================
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "answerSheet",
+                file
+            );
+
+
+            // ==================================================
+            // SEND PDF TO BACKEND
+            // ==================================================
+
+            const response =
+                await fetch(
+
+                    `${API_URL}/admin/ai/analyze-answer-pdf`,
+
+                    {
+                        method: "POST",
+
+                        body: formData
+                    }
+
+                );
+
+
+            const data =
+                await response.json();
+
+
+            console.log(
+                "GEMINI PDF RESULT:",
+                data
+            );
+
+
+            // ==================================================
+            // CHECK RESPONSE
+            // ==================================================
+
+            if (
+                !response.ok ||
+                !data.success
+            ) {
+
+                throw new Error(
+
+                    data.message ||
+                    "خطا در تحلیل پاسخنامه"
+
+                );
+
+            }
+
+
+            // ==================================================
+            // QUESTION COUNT
+            // ==================================================
+
+            const count =
+                Number(
+                    data.questionCount
+                );
+
+
+            if (
+                !Number.isInteger(count) ||
+                count < 1
+            ) {
+
+                throw new Error(
+                    "تعداد سوالات دریافت شده نامعتبر است"
+                );
+
+            }
+
+
+            // ==================================================
+            // ANSWER KEY
+            // ==================================================
+
+            if (
+                !Array.isArray(
+                    data.answerKey
+                ) ||
+                data.answerKey.length !== count
+            ) {
+
+                throw new Error(
+                    "پاسخنامه دریافت شده کامل نیست"
+                );
+
+            }
+
+
+            // ==================================================
+            // SET QUESTION COUNT
+            // ==================================================
+
+            testCount.value =
+                count;
+
+
+            // ساخت سوالات
+            createAnswerSheet();
+
+
+            // ==================================================
+            // APPLY GEMINI ANSWERS
+            // ==================================================
+
+            data.answerKey.forEach(item => {
+
+                const questionNumber =
+                    Number(
+                        item.questionNumber
+                    );
+
+
+                const correctAnswer =
+                    Number(
+                        item.correctAnswer
+                    );
+
+
+                // ------------------------------------------
+                // FIND QUESTION
+                // ------------------------------------------
+
+                const question =
+                    questions.find(
+                        q =>
+                            q.number ===
+                            questionNumber
+                    );
+
+
+                if (question) {
+
+                    question.correctAnswer =
+                        correctAnswer;
+
+                }
+
+
+                // ------------------------------------------
+                // FIND ANSWER ROW
+                // ------------------------------------------
+
+                const row =
+                    document.getElementById(
+                        `answer-${questionNumber}`
+                    );
+
+
+                if (!row) {
+                    return;
+                }
+
+
+                const buttons =
+                    row.querySelectorAll(
+                        "button"
+                    );
+
+
+                buttons.forEach(button => {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        Number(
+                            button.dataset.option
+                        ) ===
+                        correctAnswer
+                    ) {
+
+                        button.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
+
+            });
+
+
+            // ==================================================
+            // UPDATE QUESTION LIST
+            // ==================================================
+
+            renderQuestions();
+
+
+            // ==================================================
+            // UPDATE FORM
+            // ==================================================
+
+            fillFixedQuestionForm();
+
+
+            // ==================================================
+            // SUCCESS
+            // ==================================================
+
+            geminiStatus.textContent =
+                "تحلیل موفق ✓";
+
+
+            geminiStatus.className =
+                "gemini-status success";
+
+
+            answerPdfStatus.textContent =
+                `پاسخنامه با موفقیت تحلیل شد — ${count} سوال شناسایی شد.`;
+
+
+            answerPdfStatus.className =
+                "gemini-pdf-status success";
+
+
+            console.log(
+                "ANSWER KEY:",
+                data.answerKey
+            );
+
+        }
+
+
+        catch (error) {
+
+            console.error(
+                "GEMINI PDF ERROR:",
+                error
+            );
+
+
+            geminiStatus.textContent =
+                "خطا";
+
+
+            geminiStatus.className =
+                "gemini-status error";
+
+
+            answerPdfStatus.textContent =
+                "❌ " +
+                (
+                    error.message ||
+                    "خطا در تحلیل پاسخنامه"
+                );
+
+
+            answerPdfStatus.className =
+                "gemini-pdf-status error";
+
+        }
+
+
+        finally {
+
+            analyzeAnswerPdfBtn.disabled =
+                false;
+
+            answerPdfButton.disabled =
+                false;
+
+        }
+
+    }
+);
+
+
+// ======================================================
 // REGISTER EXAM
-// =======================================
-
-
-
-publishBtn.addEventListener(
-"click",
-async()=>{
-
-
-
-const data={
-
-
-
-title:
-document.getElementById(
-"examTitle"
-).value.trim(),
-
-
-
-subject:
-document.getElementById(
-"examSubject"
-).value,
-
-
-
-duration:
-Number(
-document.getElementById(
-"examDuration"
-).value
-),
-
-
-
-questions:
-
-
-questions.map(q=>({
-
-
-question:
-q.question,
-
-
-options:
-q.options,
-
-
-correctAnswer:
-q.correctAnswer-1
-
-
-
-}))
-
-
-
-};
-
-
-
-
-
-console.log(
-"EXAM DATA:",
-data
-);
-
-
-
-
-
-try{
-
-
-const response =
-await fetch(
-
-`${API_URL}/admin/tests/create`,
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":
-"application/json"
-
-},
-
-
-body:
-JSON.stringify(data)
-
-
-}
-
-);
-
-
-
-const result =
-await response.json();
-
-
-
-console.log(result);
-
-
-
-alert(
-"آزمون با موفقیت ثبت شد ✅"
-);
-
-
-
-}
-
-
-
-catch(error){
-
-
-console.log(error);
-
-
-
-alert(
-"خطا در ثبت آزمون ❌"
-);
-
-
-}
-
-
+// ======================================================
+publishExamBtn.addEventListener("click", async () => {
+
+    try {
+
+        if (!questions || questions.length === 0) {
+            throw new Error("هیچ سوالی برای ثبت آزمون وجود ندارد.");
+        }
+
+        const title = examTitle.value.trim();
+        const subject = examSubject.value.trim();
+        const duration = Number(examDuration.value);
+
+        if (!title) {
+            throw new Error("عنوان آزمون را وارد کنید.");
+        }
+
+        if (!subject) {
+            throw new Error("درس آزمون را وارد کنید.");
+        }
+
+        if (!duration || duration <= 0) {
+            throw new Error("مدت آزمون نامعتبر است.");
+        }
+
+        // بررسی پاسخ همه سوالات
+        const incompleteQuestion = questions.find(
+            q =>
+                !Number.isInteger(Number(q.correctAnswer)) ||
+                Number(q.correctAnswer) < 1 ||
+                Number(q.correctAnswer) > 4
+        );
+
+        if (incompleteQuestion) {
+            throw new Error(
+                `پاسخ صحیح سوال ${incompleteQuestion.number} مشخص نشده است.`
+            );
+        }
+
+        // ساخت payload مطابق بک‌اند
+        const payload = {
+            title,
+            subject,
+            duration,
+
+            questions: questions.map((q, index) => ({
+                question: q.question || "متن سوال آزمون",
+
+                options: Array.isArray(q.options)
+                    ? q.options
+                    : [
+                        "گزینه 1",
+                        "گزینه 2",
+                        "گزینه 3",
+                        "گزینه 4"
+                    ],
+
+                // فرانت 1 تا 4 دارد
+                // بک‌اند 0 تا 3 می‌خواهد
+                correctAnswer: Number(q.correctAnswer) - 1
+            }))
+        };
+
+        console.log("CREATE EXAM PAYLOAD:", payload);
+        console.log(
+            "QUESTIONS COUNT:",
+            payload.questions.length
+        );
+
+        const response = await fetch(
+            `${API_URL}/admin/tests/create`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            }
+        );
+
+        // متن خام پاسخ سرور را هم بگیریم
+        const responseText = await response.text();
+
+        console.log(
+            "CREATE EXAM STATUS:",
+            response.status
+        );
+
+        console.log(
+            "CREATE EXAM RESPONSE:",
+            responseText
+        );
+
+        let data = {};
+
+        try {
+            data = responseText
+                ? JSON.parse(responseText)
+                : {};
+        } catch {
+            data = {
+                message: responseText
+            };
+        }
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.message ||
+                data.error ||
+                `خطای سرور (${response.status})`
+            );
+        }
+
+        console.log(
+            "CREATE EXAM SUCCESS:",
+            data
+        );
+
+        alert("آزمون با موفقیت ثبت شد.");
+
+    } catch (error) {
+
+        console.error(
+            "CREATE EXAM ERROR:",
+            error
+        );
+
+        alert(
+            error.message ||
+            "خطا در ساخت آزمون"
+        );
+    }
 
 });
 
 
 
-});
+/* =========================================
+   JSON QUESTION IMPORT
+========================================= */
 
+const questionsJsonInput =
+    document.getElementById("questionsJsonInput");
+
+const importQuestionsJsonBtn =
+    document.getElementById("importQuestionsJsonBtn");
+
+const clearQuestionsJsonBtn =
+    document.getElementById("clearQuestionsJsonBtn");
+
+const jsonImportMessage =
+    document.getElementById("jsonImportMessage");
+
+const jsonImportStatus =
+    document.getElementById("jsonImportStatus");
+
+
+function showJsonMessage(message, type) {
+
+    jsonImportMessage.textContent = message;
+
+    jsonImportMessage.className =
+        `json-import-message show ${type}`;
+
+}
+
+
+function setJsonStatus(text, type = "") {
+
+    jsonImportStatus.textContent = text;
+
+    jsonImportStatus.className =
+        "json-import-status";
+
+    if(type) {
+        jsonImportStatus.classList.add(type);
+    }
+
+}
+
+
+/* =========================================
+   IMPORT JSON
+========================================= */
+
+importQuestionsJsonBtn.addEventListener(
+    "click",
+    () => {
+
+        const raw =
+            questionsJsonInput.value.trim();
+
+        if(!raw) {
+
+            showJsonMessage(
+                "ابتدا JSON سوالات را وارد کنید.",
+                "error"
+            );
+
+            setJsonStatus(
+                "خطا",
+                "error"
+            );
+
+            return;
+        }
+
+
+        let data;
+
+
+        /* ---------- Parse JSON ---------- */
+
+        try {
+
+            data = JSON.parse(raw);
+
+        } catch(error) {
+
+            console.error(
+                "JSON PARSE ERROR:",
+                error
+            );
+
+            showJsonMessage(
+                "ساختار JSON صحیح نیست.",
+                "error"
+            );
+
+            setJsonStatus(
+                "JSON نامعتبر",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* ---------- Questions ---------- */
+
+        if(
+            !data ||
+            !Array.isArray(data.questions)
+        ) {
+
+            showJsonMessage(
+                'ساختار باید شامل "questions" باشد.',
+                "error"
+            );
+
+            setJsonStatus(
+                "ساختار نامعتبر",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if(data.questions.length === 0) {
+
+            showJsonMessage(
+                "هیچ سوالی داخل JSON وجود ندارد.",
+                "error"
+            );
+
+            setJsonStatus(
+                "بدون سوال",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* ---------- Validate questions ---------- */
+
+        const importedQuestions = [];
+
+
+        for(
+            let i = 0;
+            i < data.questions.length;
+            i++
+        ) {
+
+            const item =
+                data.questions[i];
+
+
+            const number =
+                Number(
+                    item.number || i + 1
+                );
+
+
+            const question =
+                String(
+                    item.question || ""
+                ).trim();
+
+
+            const opts =
+                Array.isArray(item.options)
+                    ? item.options.map(
+                        option =>
+                            String(option).trim()
+                    )
+                    : [];
+
+
+            const correctAnswer =
+                Number(
+                    item.correctAnswer
+                );
+
+
+            /* ---------- Question ---------- */
+
+            if(!question) {
+
+                showJsonMessage(
+                    `متن سوال ${number} خالی است.`,
+                    "error"
+                );
+
+                setJsonStatus(
+                    "خطا",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* ---------- Options ---------- */
+
+            if(opts.length !== 4) {
+
+                showJsonMessage(
+                    `سوال ${number} باید دقیقاً ۴ گزینه داشته باشد.`,
+                    "error"
+                );
+
+                setJsonStatus(
+                    "خطا",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if(
+                opts.some(
+                    option => !option
+                )
+            ) {
+
+                showJsonMessage(
+                    `یکی از گزینه‌های سوال ${number} خالی است.`,
+                    "error"
+                );
+
+                setJsonStatus(
+                    "خطا",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* ---------- Correct Answer ---------- */
+
+            if(
+                !Number.isInteger(correctAnswer) ||
+                correctAnswer < 1 ||
+                correctAnswer > 4
+            ) {
+
+                showJsonMessage(
+                    `پاسخ صحیح سوال ${number} باید بین ۱ تا ۴ باشد.`,
+                    "error"
+                );
+
+                setJsonStatus(
+                    "خطا",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            importedQuestions.push({
+
+                number,
+
+                question,
+
+                options: opts,
+
+                correctAnswer
+
+            });
+
+        }
+
+
+        /* =====================================
+           REPLACE CURRENT QUESTIONS
+        ===================================== */
+
+        questions =
+            importedQuestions;
+
+
+        /* =====================================
+           TEST COUNT
+        ===================================== */
+
+        testCount.value =
+            questions.length;
+
+
+        /* =====================================
+           CREATE ANSWER SHEET
+        ===================================== */
+
+        createAnswerSheet();
+
+
+        /* =====================================
+           RESTORE IMPORTED QUESTIONS
+        ===================================== */
+
+        questions =
+            importedQuestions;
+
+
+        /* =====================================
+           ACTIVATE ANSWERS
+        ===================================== */
+
+        questions.forEach(
+            question => {
+
+                const row =
+                    document.getElementById(
+                        `answer-${question.number}`
+                    );
+
+
+                if(!row) return;
+
+
+                const buttons =
+                    row.querySelectorAll(
+                        "button"
+                    );
+
+
+                buttons.forEach(
+                    button => {
+
+                        button.classList.remove(
+                            "active"
+                        );
+
+
+                        if(
+                            Number(
+                                button.dataset.option
+                            ) ===
+                            question.correctAnswer
+                        ) {
+
+                            button.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================
+           RENDER
+        ===================================== */
+
+        renderQuestions();
+
+
+        fillFixedQuestionForm();
+
+
+        /* =====================================
+           SUCCESS
+        ===================================== */
+
+        showJsonMessage(
+            `${questions.length} سوال با موفقیت از JSON ساخته شد.`,
+            "success"
+        );
+
+
+        setJsonStatus(
+            `${questions.length} سوال آماده`,
+            "success"
+        );
+
+
+        console.log(
+            "IMPORTED QUESTIONS:",
+            questions
+        );
+
+    }
+);
+
+
+/* =========================================
+   CLEAR JSON
+========================================= */
+
+clearQuestionsJsonBtn.addEventListener(
+    "click",
+    () => {
+
+        questionsJsonInput.value = "";
+
+        jsonImportMessage.textContent = "";
+
+        jsonImportMessage.className =
+            "json-import-message";
+
+        setJsonStatus(
+            "آماده"
+        );
+
+    }
+);
+
+
+
+
+
+
+
+
+
+});
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
 

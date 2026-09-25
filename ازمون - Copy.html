@@ -1,0 +1,7078 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+ساخت آزمون
+</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<STyle>
+    
+/* =========================================
+   THEME VARIABLES
+========================================= */
+:root {
+
+    /* ---------- Main ---------- */
+
+    --files-bg: #dfe3e8;
+    --files-text: #172033;
+
+
+
+    /* ---------- Header ---------- */
+
+    --files-header-bg-start: #eef1f4;
+    --files-header-bg-end: #e1e5ea;
+
+    --files-header-border: #d2d7df;
+
+    --files-header-shadow:
+        0 4px 14px rgba(30,38,50,.09);
+
+
+
+    /* ---------- Header Title ---------- */
+
+    --files-title-color: #162033;
+
+    --files-title-icon-color: #3b4658;
+
+    --files-title-icon-bg-start: #d8dde4;
+    --files-title-icon-bg-end: #cdd3dc;
+
+    --files-title-icon-border: #c3cad4;
+
+
+
+    /* ---------- Search ---------- */
+
+    --files-search-bg-start: #e5e8ed;
+    --files-search-bg-end: #d9dee5;
+
+    --files-search-focus-bg: #eef1f5;
+
+    --files-search-border: #cbd2dc;
+
+    --files-search-focus-border: #aeb7c3;
+
+    --files-search-focus-ring:
+        0 0 0 3px rgba(70,80,95,.12);
+
+    --files-search-text: #293548;
+
+    --files-search-placeholder: #7c8797;
+
+    --files-search-icon: #697586;
+
+
+
+    /* ---------- User ---------- */
+
+    --files-user-name: #4b5565;
+
+    --files-user-icon: #7a8595;
+
+
+    --files-avatar-color: #566173;
+
+    --files-avatar-bg-start: #d8dde4;
+
+    --files-avatar-bg-end: #cbd2dc;
+
+    --files-avatar-border: #bec6d1;
+
+    --files-avatar-shadow:
+        inset 0 1px 2px rgba(255,255,255,.6);
+
+
+
+    /* ---------- Subject Cards ---------- */
+
+    --subject-card-bg: #edf0f4;
+
+    --subject-card-border: #d8dde5;
+
+    --subject-card-shadow:
+        0 8px 20px rgba(30,38,50,.10);
+
+
+
+    /* ---------- Subject Icon Colors ---------- */
+
+    --icon-calculus: #3b82f6;
+    --icon-calculus-bg: #dbeafe;
+
+
+    --icon-geometry: #ec4899;
+    --icon-geometry-bg: #fce7f3;
+
+
+    --icon-discrete: #8b5cf6;
+    --icon-discrete-bg: #ede9fe;
+
+
+    --icon-physics: #10b981;
+    --icon-physics-bg: #d1fae5;
+
+
+    --icon-chemistry: #f59e0b;
+    --icon-chemistry-bg: #fef3c7;
+
+
+    --icon-literature: #3b82f6;
+    --icon-literature-bg: #dbeafe;
+
+
+    --icon-arabic: #0891b2;
+    --icon-arabic-bg: #cffafe;
+
+
+    --icon-religion: #a21caf;
+    --icon-religion-bg: #fae8ff;
+
+
+    --icon-english: #ef4444;
+    --icon-english-bg: #fee2e2;
+
+
+    --icon-health: #65a30d;
+    --icon-health-bg: #ecfccb;
+
+
+    --icon-social: #2563eb;
+    --icon-social-bg: #dbeafe;
+
+
+    --icon-other: #64748b;
+    --icon-other-bg: #e2e8f0;
+
+
+    /* =========================================
+   SUBJECT ICON FIXED COLORS
+========================================= */
+
+
+--calculus-icon-bg:#eaf2ff;
+--calculus-icon:#2563eb;
+
+
+--geometry-icon-bg:#fdebf5;
+--geometry-icon:#ec4899;
+
+
+--discrete-icon-bg:#f0eaff;
+--discrete-icon:#7c3aed;
+
+
+--physics-icon-bg:#e7faf2;
+--physics-icon:#10b981;
+
+
+--chemistry-icon-bg:#fff4dc;
+--chemistry-icon:#f59e0b;
+
+
+--literature-icon-bg:#e9f1ff;
+--literature-icon:#2563eb;
+
+
+--arabic-icon-bg:#e5f8fc;
+--arabic-icon:#0891b2;
+
+
+--religion-icon-bg:#f8e8fc;
+--religion-icon:#a21caf;
+
+
+--english-icon-bg:#ffecec;
+--english-icon:#ef4444;
+
+
+--health-icon-bg:#effbdc;
+--health-icon:#65a30d;
+
+
+--social-icon-bg:#e9f1ff;
+--social-icon:#2563eb;
+
+
+--other-icon-bg:#eef1f5;
+--other-icon:#64748b;
+}
+
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+body.dark-theme {
+
+
+    /* ---------- Main ---------- */
+
+    --files-bg: #171b22;
+    --files-text: #e5e7eb;
+
+
+
+    /* ---------- Header ---------- */
+
+    --files-header-bg-start: #202631;
+    --files-header-bg-end: #1b2029;
+
+    --files-header-border: #303846;
+
+    --files-header-shadow:
+        0 5px 18px rgba(0,0,0,.25);
+
+
+
+    /* ---------- Title ---------- */
+
+    --files-title-color: #f1f5f9;
+
+    --files-title-icon-color: #cbd5e1;
+
+    --files-title-icon-bg-start: #303846;
+    --files-title-icon-bg-end: #252c37;
+
+    --files-title-icon-border: #3b4555;
+
+
+
+    /* ---------- Search ---------- */
+
+    --files-search-bg-start: #252c37;
+    --files-search-bg-end: #202631;
+
+    --files-search-focus-bg: #2b3442;
+
+    --files-search-border: #3a4555;
+
+    --files-search-focus-border: #64748b;
+
+    --files-search-focus-ring:
+        0 0 0 3px rgba(148,163,184,.12);
+
+
+    --files-search-text: #e2e8f0;
+
+    --files-search-placeholder: #94a3b8;
+
+    --files-search-icon: #94a3b8;
+
+
+
+    /* ---------- User ---------- */
+
+    --files-user-name: #cbd5e1;
+
+    --files-user-icon: #94a3b8;
+
+
+    --files-avatar-color: #cbd5e1;
+
+    --files-avatar-bg-start: #303846;
+
+    --files-avatar-bg-end: #252c37;
+
+    --files-avatar-border: #3b4555;
+
+
+    --files-avatar-shadow:
+        inset 0 1px 2px rgba(255,255,255,.05);
+
+
+
+    /* ---------- Cards ---------- */
+
+    --subject-card-bg: #202631;
+
+    --subject-card-border: #303846;
+
+    --subject-card-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+
+
+
+    /* ---------- Icon backgrounds ---------- */
+
+    --icon-calculus-bg:#1e3a5f;
+    --icon-geometry-bg:#4a2438;
+    --icon-discrete-bg:#35235c;
+    --icon-physics-bg:#164235;
+    --icon-chemistry-bg:#594116;
+    --icon-literature-bg:#1e3a5f;
+    --icon-arabic-bg:#164653;
+    --icon-religion-bg:#52205c;
+    --icon-english-bg:#5b2525;
+    --icon-health-bg:#344d18;
+    --icon-social-bg:#1e3a5f;
+    --icon-other-bg:#334155;
+
+
+
+  
+
+--calculus-icon-bg:#183153;
+--geometry-icon-bg:#4a2038;
+--discrete-icon-bg:#34205b;
+--physics-icon-bg:#123d32;
+--chemistry-icon-bg:#503b13;
+--literature-icon-bg:#183153;
+--arabic-icon-bg:#123d47;
+--religion-icon-bg:#4b174f;
+--english-icon-bg:#542020;
+--health-icon-bg:#304b12;
+--social-icon-bg:#183153;
+--other-icon-bg:#334155;
+
+
+
+}
+
+
+
+
+
+@font-face {
+
+    font-family: "PersianFont";
+
+    src:
+        url("./Tanha-FD-WOL.ttf")
+        format("woff2");
+
+    font-weight:400;
+
+    font-style:normal;
+
+}
+
+
+@font-face {
+
+    font-family: "EnglishFont";
+
+    src:
+        url("./Digi\ Sarvenaz.otf")
+        format("woff2");
+
+    font-weight:400;
+
+    font-style:normal;
+
+}
+
+
+
+
+body {
+
+    font-family:
+        "PersianFont",
+        sans-serif;
+
+}
+
+
+/* متن‌های انگلیسی */
+
+:lang(en) {
+
+    font-family:
+        "EnglishFont",
+        sans-serif;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ @font-face {
+    font-family: "Tanha FD-WOL";
+    src: url("./Tanha-FD-WOL.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    direction: rtl;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background: var(--files-bg);
+    color: var(--files-text);
+
+    font-family: "Tanha FD-WOL", sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+   HEADER — مستقل و جدا از CATEGORY NAV
+========================================================= */
+
+.site-header {
+    width: 100%;
+
+    position: relative;
+    z-index: 100;
+
+    background: transparent;
+
+    border: 0;
+    box-shadow: none;
+
+    padding-top: 14px;
+}
+
+
+/* =========================================================
+   HEADER INNER — کارت مستقل بالایی
+========================================================= */
+
+.header-inner {
+    width: min(1440px, calc(100% - 56px));
+    min-height: 76px;
+
+    margin: 0 auto;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--files-header-bg-start),
+            var(--files-header-bg-end)
+        );
+
+    border: 1px solid var(--files-header-border);
+    border-radius: 16px;
+
+    box-shadow:
+        var(--files-header-shadow);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    color: var(--files-title-color);
+
+    text-decoration: none;
+}
+
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--files-title-icon-bg-start),
+            var(--files-title-icon-bg-end)
+        );
+
+    border: 1px solid var(--files-title-icon-border);
+
+    color: var(--files-title-icon-color);
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.55),
+        0 3px 8px rgba(30,38,50,.06);
+}
+
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.15;
+}
+
+
+.brand-text strong {
+    color: var(--files-title-color);
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+
+    letter-spacing: -.3px;
+}
+
+
+.brand-text span {
+    margin-top: 5px;
+
+    color: var(--files-user-icon);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   HEADER SEARCH
+========================================================= */
+
+.header-search {
+    width: min(500px, 100%);
+    height: 44px;
+
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 15px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--files-search-bg-start),
+            var(--files-search-bg-end)
+        );
+
+    border: 1px solid var(--files-search-border);
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.header-search:focus-within {
+    background: var(--files-search-focus-bg);
+
+    border-color: var(--files-search-focus-border);
+
+    box-shadow: var(--files-search-focus-ring);
+}
+
+
+.header-search svg {
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+
+    fill: none;
+
+    stroke: var(--files-search-icon);
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.header-search input {
+    width: 100%;
+    height: 100%;
+
+    outline: none;
+    border: 0;
+
+    background: transparent;
+
+    color: var(--files-search-text);
+
+    font-family: inherit;
+    font-size: 12px;
+}
+
+
+.header-search input::placeholder {
+    color: var(--files-search-placeholder);
+}
+
+
+.header-search input::-webkit-search-cancel-button {
+    display: none;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.header-action {
+    width: 42px;
+    height: 42px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 11px;
+
+    background: transparent;
+
+    color: var(--files-user-icon);
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.header-action:hover {
+    background: var(--files-search-bg-start);
+    color: var(--files-title-icon-color);
+}
+
+
+.header-action:active {
+    transform: scale(.95);
+}
+
+
+.header-action svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   NOTIFICATION DOT
+========================================================= */
+
+.notification-dot {
+    width: 7px;
+    height: 7px;
+
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    border-radius: 50%;
+
+    background: #ef4444;
+
+    border: 2px solid var(--files-header-bg-start);
+}
+
+
+/* =========================================================
+   USER MENU
+========================================================= */
+
+.user-menu {
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 4px 8px 4px 9px;
+
+    border: 0;
+    border-radius: 13px;
+
+    background: transparent;
+
+    direction: rtl;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease;
+}
+
+
+.user-menu:hover {
+    background: var(--files-search-bg-start);
+}
+
+
+/* =========================================================
+   USER AVATAR
+========================================================= */
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--files-avatar-bg-start),
+            var(--files-avatar-bg-end)
+        );
+
+    border: 1px solid var(--files-avatar-border);
+
+    color: var(--files-avatar-color);
+
+    box-shadow: var(--files-avatar-shadow);
+}
+
+
+.user-avatar svg {
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.6;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   USER INFO
+========================================================= */
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    line-height: 1.15;
+}
+
+
+.user-info strong {
+    color: var(--files-user-name);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.user-info span {
+    margin-top: 4px;
+
+    color: var(--files-user-icon);
+
+    font-size: 9px;
+}
+
+
+.user-chevron {
+    width: 15px;
+    height: 15px;
+
+    margin-right: 2px;
+
+    fill: none;
+
+    stroke: var(--files-user-icon);
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   CATEGORY NAV
+   کارت دوم — کاملاً مستقل از HEADER
+========================================================= */
+
+.category-nav {
+    width: min(1440px, calc(100% - 56px));
+
+    height: 60px;
+
+    margin: 14px auto 0;
+        margin-top: 5px;
+    position: relative;
+    z-index: 90;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--files-header-bg-start),
+            var(--files-header-bg-end)
+        );
+
+    border: 1px solid var(--files-header-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        var(--files-header-shadow);
+
+    overflow: hidden;
+}
+
+
+/* حالت دارک */
+
+body.dark-theme .category-nav {
+    background: rgba(32,38,49,.72);
+
+    border-color: rgba(70,78,92,.65);
+}
+
+
+/* =========================================================
+   CATEGORY INNER
+========================================================= */
+
+.category-inner {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+
+    padding: 5px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+}
+
+
+/* =========================================================
+   CATEGORY ITEM
+========================================================= */
+
+.category-item {
+    min-width: 112px;
+    height: 48px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 17px;
+
+    border-radius: 11px;
+
+    color: var(--files-user-icon);
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+/* خط فعال */
+
+.category-item::after {
+    content: "";
+
+    width: calc(100% - 34px);
+    height: 2px;
+
+    position: absolute;
+
+    right: 17px;
+    bottom: 2px;
+
+    border-radius: 3px;
+
+    background: #3b82f6;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.category-item:hover {
+    color: var(--files-title-color);
+
+    background: rgba(59,130,246,.055);
+}
+
+
+.category-item:hover::after,
+.category-item.active::after {
+    transform: scaleX(1);
+}
+
+
+.category-item.active {
+    color: #2563eb;
+
+    background: rgba(59,130,246,.065);
+}
+
+
+/* =========================================================
+   CATEGORY ICON
+========================================================= */
+
+.category-icon {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    color: var(--files-user-icon);
+
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
+
+
+.category-item:hover .category-icon,
+.category-item.active .category-icon {
+    color: #2563eb;
+
+    background: #e8f0ff;
+}
+
+
+body.dark-theme .category-item:hover .category-icon,
+body.dark-theme .category-item.active .category-icon {
+    background: #1e3a5f;
+}
+
+
+.category-icon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   فاصله از CATEGORY هم حفظ می‌شود
+========================================================= */
+
+.main-content {
+    width: min(1440px, calc(100% - 56px));
+
+    margin: 0 auto;
+
+    padding: 24px 0 50px;
+        padding-bottom: 20px;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .header-inner,
+    .category-nav,
+    .main-content {
+        width: calc(100% - 36px);
+    }
+
+
+    .header-inner {
+        gap: 16px;
+    }
+
+
+    .header-search {
+        max-width: 380px;
+    }
+
+
+    .category-item {
+        min-width: 100px;
+
+        padding-inline: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 850px
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .brand-text {
+        display: none;
+    }
+
+
+    .header-search {
+        max-width: none;
+    }
+
+
+    .user-info,
+    .user-chevron {
+        display: none;
+    }
+
+
+    .user-menu {
+        padding: 4px;
+    }
+
+
+    .category-nav {
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+
+    .category-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .category-inner {
+        width: max-content;
+
+        min-width: 100%;
+
+        padding-inline: 12px;
+
+        justify-content: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .site-header {
+        padding-top: 10px;
+    }
+
+
+    .header-inner {
+        width: calc(100% - 24px);
+
+        min-height: 68px;
+
+        padding-inline: 12px;
+
+        gap: 8px;
+
+        border-radius: 13px;
+    }
+
+
+    .brand-mark {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+    }
+
+
+    .header-search {
+        height: 40px;
+
+        padding-inline: 12px;
+
+        border-radius: 10px;
+    }
+
+
+    .header-search svg {
+        width: 17px;
+        height: 17px;
+    }
+
+
+    .header-search input {
+        font-size: 11px;
+    }
+
+
+    .header-action {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .user-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    /* کارت دسته‌بندی مستقل */
+
+    .category-nav {
+        width: calc(100% - 24px);
+
+        height: 54px;
+
+        margin-top: 10px;
+
+        border-radius: 13px;
+    }
+
+
+    .category-item {
+        min-width: auto;
+
+        height: 44px;
+
+        padding-inline: 10px;
+
+        font-size: 11px;
+    }
+
+
+    .category-icon {
+        width: 27px;
+        height: 27px;
+    }
+
+
+    .category-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+
+    .main-content {
+        width: calc(100% - 24px);
+
+        padding-top: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 430px
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .header-inner {
+        gap: 5px;
+    }
+
+
+    .brand {
+        display: none;
+    }
+
+
+    .header-search {
+        flex: 1;
+    }
+
+
+    .header-actions {
+        gap: 0;
+    }
+
+
+    .category-inner {
+        padding-inline: 8px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: "Digi SarvenazL";
+    src: url("./Digi\ Sarvenaz.otf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+.a4 {
+    font-family: "Digi SarvenazL";
+    font-size: 38px;
+}
+
+.a4 p {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    direction: ltr;
+
+    letter-spacing: 1px;
+}
+
+.a4 p span {
+    display: inline-block;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+}
+
+
+/* R */
+.a4 p span:nth-child(1) {
+     color: #475569;
+}
+
+/* I */
+.a4 p span:nth-child(2) {
+    color: #475569;
+}
+
+/* S */
+.a4 p span:nth-child(3) {
+    color: #475569;
+}
+
+/* E */
+.a4 p span:nth-child(4) {
+   color: #ef4444;
+}
+
+/* O */
+.a4 p span:nth-child(5) {
+    color: #ef4444;
+}
+
+
+/* Hover ظریف */
+.a4:hover span {
+    transform: translateY(-2px);
+}
+
+.a4:hover span:nth-child(1),
+.a4:hover span:nth-child(5) {
+    filter: drop-shadow(0 3px 7px rgba(59,130,246,.25));
+}
+
+.a4:hover span:nth-child(3) {
+    filter: drop-shadow(0 3px 7px rgba(239,68,68,.22));
+}
+.a4 {
+    position: relative;
+    width: 100px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
+.a4 p {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    margin: 0;
+
+    transform: translateY(-50%);
+
+    font-size: 50px;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   RISEO — NEW EXAM BUILDER
+========================================================= */
+
+.exam-create-page {
+
+    --bg: #dfe3e8;
+    --surface: #eef1f4;
+    --surface-2: #e5e9ee;
+    --white: #ffffff;
+
+    --text: #162033;
+    --muted: #6d7788;
+    --light: #9099a8;
+
+    --border: #d1d6de;
+    --border-dark: #c2c9d3;
+
+    --icon: #d7dce3;
+
+    --shadow:
+        0 4px 14px rgba(30,38,50,.08);
+
+    --shadow-small:
+        0 2px 7px rgba(30,38,50,.055);
+
+    width: min(1440px, calc(100% - 40px));
+    margin: auto;
+
+    padding: 18px 0 45px;
+
+    color: var(--text);
+
+    direction: rtl;
+
+
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.exam-topbar {
+
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef1f4,
+            #e1e5ea
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 12px;
+}
+
+
+.exam-topbar-main,
+.exam-topbar-actions,
+.exam-brand,
+.exam-brand-icon,
+.exam-back,
+.preview-button,
+.save-state {
+
+    display: flex;
+    align-items: center;
+}
+
+
+.exam-topbar-main {
+    gap: 12px;
+}
+
+
+.exam-brand {
+    gap: 11px;
+}
+
+
+.exam-brand-icon {
+
+    width: 42px;
+    height: 42px;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--icon);
+
+    border: 1px solid var(--border-dark);
+
+    color: #445063;
+}
+
+
+.exam-brand-icon svg {
+    width: 20px;
+}
+
+
+.exam-eyebrow,
+.editor-kicker,
+.tool-label {
+
+    display: block;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .8px;
+
+    color: #8993a2;
+}
+
+
+.exam-brand h1 {
+
+    margin: 3px 0 0;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+
+.exam-back {
+
+    width: 38px;
+    height: 38px;
+
+    justify-content: center;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.45);
+
+    border-radius: 9px;
+
+    color: #4b5668;
+
+    cursor: pointer;
+}
+
+
+.exam-back:hover {
+    background: white;
+}
+
+
+.exam-topbar-actions {
+    gap: 8px;
+}
+
+
+.save-state {
+
+    gap: 6px;
+
+    height: 34px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.4);
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+.save-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #8791a0;
+}
+
+
+.preview-button {
+
+    height: 34px;
+
+    gap: 6px;
+
+    padding: 0 11px;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--border-dark);
+
+    background: #d8dde4;
+
+    color: #394456;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.exam-meta {
+
+    display: grid;
+
+    grid-template-columns: 190px 1fr;
+
+    gap: 20px;
+
+    align-items: center;
+
+    padding: 14px 17px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow-small);
+
+    margin-bottom: 14px;
+}
+
+
+.meta-intro {
+    border-left: 1px solid var(--border);
+    padding-left: 18px;
+}
+
+
+.meta-intro .meta-label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 9px;
+
+    color: #8b94a3;
+
+    font-weight: 800;
+}
+
+
+.meta-intro strong {
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+
+.meta-fields {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(220px, 1fr)
+        150px
+        105px
+        125px;
+
+    gap: 9px;
+}
+
+
+.meta-field label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    color: #667184;
+}
+
+
+.meta-field input,
+.meta-field select {
+
+    width: 100%;
+    height: 37px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.58);
+
+    padding: 0 10px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    color: var(--text);
+}
+
+
+.meta-field input:focus,
+.meta-field select:focus {
+
+    background: white;
+
+    border-color: #aeb6c2;
+
+    box-shadow:
+        0 0 0 3px rgba(100,110,125,.06);
+}
+
+
+.input-suffix {
+    position: relative;
+}
+
+
+.input-suffix input {
+    padding-left: 45px;
+}
+
+
+.input-suffix span {
+
+    position: absolute;
+
+    left: 9px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #8b94a2;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   WORKSPACE
+========================================================= */
+
+.exam-workspace {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        285px;
+
+    gap: 14px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   QUESTION EDITOR
+========================================================= */
+
+.question-editor {
+
+    background: #eef1f4;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+
+.editor-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 17px 19px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.editor-header h2 {
+
+    margin: 3px 0 0;
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+.question-position {
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    color: #8993a2;
+
+    font-size: 9px;
+}
+
+
+.question-position strong {
+
+    color: var(--text);
+
+    font-size: 11px;
+}
+
+
+.question-area {
+
+    padding: 18px 19px 14px;
+}
+
+
+.question-label {
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+}
+
+
+.label-number {
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    color: #9aa3b1;
+}
+
+
+.question-label label {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    color: #4f5a6c;
+}
+
+
+#questionText {
+
+    width: 100%;
+
+    min-height: 125px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.55);
+
+    padding: 13px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    line-height: 2;
+
+    color: var(--text);
+}
+
+
+#questionText:focus {
+
+    background: white;
+
+    border-color: #aeb6c2;
+}
+
+
+/* =========================================================
+   ANSWERS
+========================================================= */
+
+.answers-area {
+
+    padding: 5px 19px 18px;
+}
+
+
+.answers-heading {
+
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+
+.answers-heading h3 {
+
+    margin: 3px 0 0;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.answers-hint {
+
+    color: #919aa8;
+
+    font-size: 8px;
+}
+
+
+.answers-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.answer-row {
+
+    display: flex;
+    align-items: center;
+
+    height: 45px;
+
+    padding: 4px 7px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: rgba(255,255,255,.45);
+}
+
+
+.answer-index {
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 7px;
+
+    background: #d9dee5;
+
+    border: 1px solid #c6ccd5;
+
+    color: #465163;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.answer-row input {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    padding: 0 9px;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   CORRECT
+========================================================= */
+
+.correct-answer {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0 19px;
+
+    padding: 12px 0;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.correct-answer-title {
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #596476;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.correct-answer-title svg {
+
+    width: 16px;
+}
+
+
+.correct-answer select {
+
+    height: 34px;
+
+    min-width: 150px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.6);
+
+    padding: 0 9px;
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    outline: none;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.editor-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+    padding: 12px 19px;
+
+    background: #e5e9ed;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.add-question,
+.clear-question {
+
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.add-question {
+
+    flex: 1;
+
+    border: 1px solid #b7bfca;
+
+    background: #d4dae1;
+
+    color: var(--text);
+}
+
+
+.clear-question {
+
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.5);
+
+    color: #697487;
+}
+
+
+/* =========================================================
+   QUESTION NAVIGATOR
+========================================================= */
+
+.question-navigator {
+
+    position: sticky;
+
+    top: 15px;
+
+    background: #eef1f4;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+
+.navigator-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.navigator-header h2 {
+
+    margin: 3px 0 0;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+.question-counter {
+
+    min-width: 30px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: #d8dde4;
+
+    border: 1px solid var(--border-dark);
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+
+.question-map {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 6px;
+
+    padding: 13px;
+
+    max-height: 390px;
+
+    overflow-y: auto;
+}
+
+
+.question-map > * {
+
+    min-height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.navigator-footer {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 11px 14px;
+
+    border-top: 1px solid var(--border);
+
+    background: #e5e9ed;
+
+    font-size: 8px;
+
+    color: #788292;
+}
+
+
+.map-status {
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.map-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #7f8998;
+}
+
+
+.map-total strong {
+
+    color: var(--text);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
+.questions-overview,
+.exam-tools {
+
+    margin-top: 14px;
+
+    background: #eef1f4;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+
+.section-heading,
+.tools-heading {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.section-heading h2,
+.tools-heading h2 {
+
+    margin: 3px 0 0;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+.overview-info {
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #7c8695;
+
+    font-size: 8px;
+}
+
+
+.overview-info svg {
+    width: 15px;
+}
+
+
+/* =========================================================
+   TOOLS
+========================================================= */
+
+.tools-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 0;
+
+}
+
+
+.tool-card {
+
+    display: grid;
+
+    grid-template-columns: 40px 1fr;
+
+    gap: 12px;
+
+    padding: 17px;
+
+    min-width: 0;
+}
+
+
+.tool-card + .tool-card {
+
+    border-right: 1px solid var(--border);
+}
+
+
+.tool-icon {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #d9dee5;
+
+    border: 1px solid var(--border-dark);
+
+    color: #485365;
+}
+
+
+.tool-icon svg {
+    width: 18px;
+}
+
+
+.tool-top {
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.tool-top h3 {
+
+    margin: 3px 0 0;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.tool-content p {
+
+    margin: 7px 0 11px;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+    color: #798393;
+}
+
+
+.tool-status {
+
+    align-self: start;
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: #d9dee5;
+
+    border: 1px solid var(--border);
+
+    font-size: 8px;
+
+    color: #626d7e;
+}
+
+
+.tool-upload {
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px;
+
+    border: 1px dashed #c3cad3;
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.3);
+}
+
+
+.tool-upload-button {
+
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 0 9px;
+
+    border: 1px solid var(--border-dark);
+
+    border-radius: 7px;
+
+    background: #d9dee5;
+
+    color: #4b5667;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.tool-file-name {
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 8px;
+
+    color: #8b94a2;
+}
+
+
+.tool-primary {
+
+    width: 100%;
+
+    height: 35px;
+
+    margin-top: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    border: 1px solid #b9c1cc;
+
+    border-radius: 8px;
+
+    background: #d3d9e1;
+
+    color: #293447;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.tool-primary:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+}
+
+
+.tool-secondary {
+
+    height: 35px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.45);
+
+    color: #687385;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.json-editor {
+
+    width: 100%;
+
+    min-height: 145px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    padding: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.55);
+
+    color: #263143;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    line-height: 1.7;
+
+    direction: ltr;
+
+    text-align: left;
+
+    outline: none;
+}
+
+
+.json-actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 7px;
+}
+
+
+/* =========================================================
+   PUBLISH
+========================================================= */
+
+.publish-area {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 14px;
+
+    padding: 13px 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9edf1,
+            #dde2e8
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.publish-info {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.publish-icon {
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #d4dae1;
+
+    border: 1px solid var(--border-dark);
+}
+
+
+.publish-info strong {
+
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.publish-info span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 8px;
+
+    color: #7c8695;
+}
+
+
+.publish-exam {
+
+    min-width: 155px;
+
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid #aeb7c3;
+
+    border-radius: 9px;
+
+    background: #cdd3db;
+
+    color: #162033;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .exam-meta {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .meta-intro {
+
+        border-left: 0;
+
+        border-bottom: 1px solid var(--border);
+
+        padding: 0 0 10px;
+    }
+
+    .meta-fields {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+    .exam-workspace {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            240px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .exam-create-page {
+
+        width: calc(100% - 20px);
+
+        padding-top: 10px;
+    }
+
+    .exam-topbar {
+
+        align-items: flex-start;
+
+    }
+
+    .exam-topbar-actions {
+
+        display: none;
+    }
+
+    .exam-workspace {
+
+        grid-template-columns: 1fr;
+    }
+
+    .question-navigator {
+
+        position: static;
+
+        order: -1;
+    }
+
+    .question-map {
+
+        grid-template-columns:
+            repeat(8, 1fr);
+
+        max-height: none;
+    }
+
+    .tools-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .tool-card + .tool-card {
+
+        border-right: 0;
+
+        border-top: 1px solid var(--border);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .meta-fields {
+
+        grid-template-columns: 1fr;
+    }
+
+    .answers-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .editor-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .correct-answer {
+
+        align-items: stretch;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .correct-answer select {
+
+        width: 100%;
+    }
+
+    .publish-area {
+
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .publish-exam {
+
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   QUESTION OVERVIEW BOX
+========================================= */
+
+#testList {
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0,1fr));
+
+    gap:12px;
+
+    padding:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef1f4,
+            #e1e5ea
+        );
+
+    border:1px solid #d2d7df;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 4px 14px rgba(30,38,50,.08);
+
+    direction:rtl;
+
+}
+
+
+/* هر سوال */
+
+.test-item {
+
+    min-height:120px;
+
+    padding:14px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+
+    background:
+        rgba(255,255,255,.55);
+
+
+    border:
+        1px solid #d4dae2;
+
+
+    border-radius:14px;
+
+
+    cursor:pointer;
+
+
+    transition:
+        .25s ease;
+
+
+    position:relative;
+
+}
+
+
+/* hover */
+
+.test-item:hover {
+
+    transform:translateY(-3px);
+
+    border-color:#b8c2d0;
+
+    box-shadow:
+        0 8px 18px rgba(30,38,50,.12);
+
+}
+
+
+
+/* شماره سوال */
+
+.test-item-number {
+
+    width:38px;
+
+    height:38px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    border-radius:12px;
+
+
+    background:#d8dde4;
+
+
+    color:#172033;
+
+
+    font-size:14px;
+
+    font-weight:800;
+
+}
+
+
+
+/* متن */
+
+.test-item-content {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+
+.test-item-content strong {
+
+    font-size:14px;
+
+    color:#162033;
+
+}
+
+
+.test-item-content span {
+
+    font-size:12px;
+
+    color:#596273;
+
+    line-height:1.7;
+
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:2;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+
+}
+
+
+
+/* پاسخ */
+
+.test-item-answer {
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+
+    font-size:12px;
+
+    color:#667085;
+
+
+    padding-top:8px;
+
+    border-top:
+        1px solid #d9dee5;
+
+}
+
+
+
+.test-item-answer.answered {
+
+    color:#1f7a4d;
+
+}
+
+
+
+.test-item.active {
+
+
+    border-color:#7c8798;
+
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #e9edf2
+        );
+
+
+
+}
+
+
+/* Empty */
+
+.questions-empty {
+
+    grid-column:1/-1;
+
+    height:150px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    color:#667085;
+
+}
+
+
+
+/* ریسپانسیو */
+
+@media(max-width:1200px){
+
+    #testList{
+
+        grid-template-columns:
+            repeat(4,1fr);
+
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    #testList{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    #testList{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ANSWER SHEET / QUESTION MAP
+========================================= */
+
+#answerSheet {
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap:12px;
+
+    padding:16px;
+
+    direction:rtl;
+
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef1f4,
+            #e1e5ea
+        );
+
+
+    border:
+        1px solid #d2d7df;
+
+
+    border-radius:5px;
+
+
+    box-shadow:
+        0 4px 14px rgba(30,38,50,.08);
+
+
+    overflow:hidden;
+
+}
+
+
+
+/* کارت شماره سوال */
+
+.question-map-item {
+
+    width:100%;
+
+    aspect-ratio:1 / 1;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    padding:0;
+
+
+    border-radius:14px;
+
+
+    background:
+        rgba(255,255,255,.65);
+
+
+    border:
+        1px solid #d3d9e2;
+
+
+    color:#172033;
+
+
+    font-size:15px;
+
+    font-weight:800;
+
+
+    cursor:pointer;
+
+
+    transition:.25s ease;
+
+}
+
+
+
+.question-map-item:hover {
+
+    transform:translateY(-3px);
+
+    background:#fff;
+
+    box-shadow:
+        0 8px 18px rgba(30,38,50,.12);
+
+}
+
+
+
+/* فعال */
+
+.question-map-item.active {
+
+    border-color:#7b8798;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #e3e8ee
+        );
+
+}
+
+
+
+/* پاسخ داده شده */
+
+.question-map-item.completed {
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf7f0,
+            #dcecdf
+        );
+
+
+    border-color:#b8d9c2;
+
+    color:#616a62;
+
+}
+
+
+
+/* تبلت */
+
+@media(max-width:900px){
+
+    #answerSheet{
+
+        grid-template-columns:
+            repeat(5, minmax(0,1fr));
+
+    }
+
+}
+
+
+
+/* موبایل */
+
+@media(max-width:600px){
+
+    #answerSheet{
+
+        grid-template-columns:
+            repeat(4, minmax(0,1fr));
+
+    }
+
+}
+
+
+
+
+.question-map-item {
+
+    width:100%;
+
+    aspect-ratio:1 / 1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:0;
+
+
+    border-radius:8px;   /* قبلاً 14px بود */
+
+
+    background:
+        rgba(255,255,255,.65);
+
+
+    border:
+        1px solid #d3d9e2;
+
+
+    color:#172033;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+
+.question-navigator {
+    position: relative;
+}
+
+
+/* =========================================================
+   RISEO GLOBAL ROOT SYNC OVERRIDE
+   Connect old sections to :root theme system
+========================================================= */
+
+
+/* ---------- Exam Builder ---------- */
+
+.exam-create-page {
+
+    color: var(--files-text);
+
+}
+
+
+/* همه کارت‌های اصلی */
+
+.exam-topbar,
+.exam-meta,
+.question-editor,
+.question-navigator,
+.questions-overview,
+.exam-tools,
+.publish-area,
+#testList,
+#answerSheet {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--files-header-bg-start),
+            var(--files-header-bg-end)
+        ) !important;
+
+    border-color: var(--files-header-border) !important;
+
+    box-shadow: var(--files-header-shadow) !important;
+
+}
+
+
+/* ---------- Text Colors ---------- */
+
+.exam-create-page h1,
+.exam-create-page h2,
+.exam-create-page h3,
+.exam-create-page strong,
+.exam-create-page label,
+.test-item-content strong {
+
+    color: var(--files-title-color);
+
+}
+
+
+.exam-create-page span,
+.exam-create-page p,
+.tool-content p,
+.answers-hint,
+.overview-info {
+
+    color: var(--files-user-icon);
+
+}
+
+
+/* ---------- Inputs ---------- */
+
+
+.meta-field input,
+.meta-field select,
+#questionText,
+.answer-row,
+.correct-answer select,
+.json-editor {
+
+    background:
+        var(--files-search-bg-start) !important;
+
+    border-color:
+        var(--files-search-border) !important;
+
+    color:
+        var(--files-search-text) !important;
+
+}
+
+
+
+.meta-field input:focus,
+.meta-field select:focus,
+#questionText:focus,
+.json-editor:focus {
+
+    background:
+        var(--files-search-focus-bg) !important;
+
+    border-color:
+        var(--files-search-focus-border) !important;
+
+    box-shadow:
+        var(--files-search-focus-ring) !important;
+
+}
+
+
+/* ---------- Buttons ---------- */
+
+
+.preview-button,
+.exam-back,
+.save-state,
+.add-question,
+.clear-question,
+.tool-secondary,
+.tool-primary,
+.publish-exam,
+.tool-upload-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--files-title-icon-bg-start),
+            var(--files-title-icon-bg-end)
+        ) !important;
+
+    border-color:
+        var(--files-title-icon-border) !important;
+
+    color:
+        var(--files-title-icon-color) !important;
+
+}
+
+
+/* ---------- Icon Boxes ---------- */
+
+
+.exam-brand-icon,
+.tool-icon,
+.publish-icon,
+.answer-index,
+.question-counter,
+.test-item-number {
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--files-title-icon-bg-start),
+            var(--files-title-icon-bg-end)
+        ) !important;
+
+
+    border-color:
+        var(--files-title-icon-border) !important;
+
+
+    color:
+        var(--files-title-icon-color) !important;
+
+}
+
+
+/* ---------- Answer / Question Cards ---------- */
+
+
+.answer-row,
+.test-item,
+.question-map-item {
+
+    background:
+        rgba(255,255,255,.45) !important;
+
+    border-color:
+        var(--files-header-border) !important;
+
+}
+
+
+.question-map-item:hover,
+.test-item:hover {
+
+    background:
+        var(--files-search-focus-bg) !important;
+
+}
+
+
+/* Active */
+
+.test-item.active,
+.question-map-item.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--files-search-focus-bg),
+            var(--files-header-bg-end)
+        ) !important;
+
+    border-color:
+        var(--files-search-focus-border) !important;
+
+}
+
+
+/* ---------- Bottom Areas ---------- */
+
+
+.editor-actions,
+.navigator-footer {
+
+    background:
+        var(--files-search-bg-end) !important;
+
+    border-color:
+        var(--files-header-border) !important;
+
+}
+
+
+
+/* ---------- Scroll Area ---------- */
+
+
+.question-map::-webkit-scrollbar {
+
+    width:8px;
+
+}
+
+
+.question-map::-webkit-scrollbar-thumb {
+
+    background:
+        var(--files-header-border);
+
+    border-radius:20px;
+
+}
+
+
+/* ---------- Dark Mode Fix ---------- */
+
+
+body.dark-theme .answer-row,
+body.dark-theme .test-item,
+body.dark-theme .question-map-item {
+
+    background:
+        rgba(255,255,255,.04) !important;
+
+}
+
+
+body.dark-theme .preview-button,
+body.dark-theme .tool-primary,
+body.dark-theme .publish-exam {
+
+    background:
+        var(--files-title-icon-bg-start) !important;
+
+    color:
+        var(--files-title-color) !important;
+
+}
+
+
+
+/* ---------- Remove hard coded white ---------- */
+
+
+.exam-create-page * {
+
+    scrollbar-color:
+        var(--files-header-border)
+        transparent;
+
+}
+</STyle>
+
+
+
+
+</head>
+
+
+
+<body class="dark-theme">
+
+
+
+
+
+
+
+
+
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+        <div class="a4">
+            <p>
+                <span>R</span><span>I</span><span>S</span><span>E</span><span>O</span>
+            </p>
+        </div>
+
+
+            <!-- Search -->
+            <div class="header-search">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="m21 21-4.35-4.35
+                           M10.8 18a7.2 7.2 0 1 1 0-14.4
+                           7.2 7.2 0 0 1 0 14.4Z"
+                    />
+                </svg>
+
+                <input
+                    type="search"
+                    placeholder="جستجو در درس‌ها، فایل‌ها و..."
+                    aria-label="جستجو"
+                >
+
+            </div>
+
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             CATEGORY NAVIGATION
+        ========================================== -->
+
+        <nav
+            class="category-nav"
+            aria-label="دسته‌بندی اصلی"
+        >
+
+
+        <p>
+            <span></span>
+        </p>
+
+
+
+        </nav>
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="exam-create-page">
+
+    <!-- =========================================
+         TOP BAR
+    ========================================= -->
+
+    <header class="exam-topbar">
+
+        <div class="exam-topbar-main">
+
+            <button class="exam-back">
+                <i data-lucide="arrow-right"></i>
+            </button>
+
+            <div class="exam-brand">
+
+                <div class="exam-brand-icon">
+                    <i data-lucide="file-pen-line"></i>
+                </div>
+
+                <div>
+                    <span class="exam-eyebrow">
+                        RISEO / EXAM BUILDER
+                    </span>
+
+                    <h1>
+                        ساخت آزمون جدید
+                    </h1>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="exam-topbar-actions">
+
+            <div class="save-state">
+                <span class="save-dot"></span>
+                پیش‌نویس
+            </div>
+
+            <button class="preview-button">
+                <i data-lucide="eye"></i>
+                پیش‌نمایش
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         EXAM META BAR
+    ========================================= -->
+
+    <section class="exam-meta">
+
+        <div class="meta-intro">
+
+            <span class="meta-label">
+                اطلاعات آزمون
+            </span>
+
+            <strong>
+                مشخصات اصلی آزمون را تنظیم کنید
+            </strong>
+
+        </div>
+
+
+        <div class="meta-fields">
+
+            <div class="meta-field meta-title">
+
+                <label>
+                    عنوان آزمون
+                </label>
+
+                <input
+                    id="examTitle"
+                    type="text"
+                    placeholder="مثلاً آزمون جامع ریاضی"
+                >
+
+            </div>
+
+
+            <div class="meta-field">
+
+                <label>
+                    درس
+                </label>
+
+                <select id="examSubject">
+
+                    <option value="">
+                        انتخاب درس
+                    </option>
+
+                    <option>
+                        ریاضی
+                    </option>
+
+                    <option>
+                        فیزیک
+                    </option>
+
+                    <option>
+                        شیمی
+                    </option>
+
+                    <option>
+                        زیست
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="meta-field small">
+
+                <label>
+                    تعداد سوال
+                </label>
+
+                <input
+                    id="testCount"
+                    type="number"
+                    placeholder="50"
+                >
+
+            </div>
+
+
+            <div class="meta-field small">
+
+                <label>
+                    زمان
+                </label>
+
+                <div class="input-suffix">
+
+                    <input
+                        id="examDuration"
+                        type="number"
+                        placeholder="90"
+                    >
+
+                    <span>
+                        دقیقه
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         WORKSPACE
+    ========================================= -->
+
+    <main class="exam-workspace">
+
+
+        <!-- =====================================
+             LEFT / MAIN EDITOR
+        ===================================== -->
+
+        <section class="question-editor">
+
+
+            <!-- EDITOR HEADER -->
+
+            <div class="editor-header">
+
+                <div>
+
+                    <div class="editor-kicker">
+                        QUESTION EDITOR
+                    </div>
+
+                    <h2>
+                        ویرایش سوال
+                    </h2>
+
+                </div>
+
+
+                <div class="question-position">
+
+                    <span>
+                        سوال
+                    </span>
+
+                    <strong id="currentQuestionNumber">
+                        1
+                    </strong>
+
+                    <span>
+                        از
+                    </span>
+
+                    <strong>
+                        50
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUESTION TEXT -->
+
+            <div class="question-area">
+
+                <div class="question-label">
+
+                    <span class="label-number">
+                        01
+                    </span>
+
+                    <label>
+                        صورت سوال
+                    </label>
+
+                </div>
+
+
+                <textarea
+                    id="questionText"
+                    placeholder="صورت سوال را اینجا بنویسید..."
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- OPTIONS -->
+
+            <div class="answers-area">
+
+                <div class="answers-heading">
+
+                    <div>
+
+                        <span class="editor-kicker">
+                            ANSWERS
+                        </span>
+
+                        <h3>
+                            گزینه‌های پاسخ
+                        </h3>
+
+                    </div>
+
+                    <span class="answers-hint">
+                        یک گزینه را به عنوان پاسخ صحیح انتخاب کنید
+                    </span>
+
+                </div>
+
+
+                <div class="answers-grid">
+
+
+                    <div class="answer-row">
+
+                        <div class="answer-index">
+                            ۱
+                        </div>
+
+                        <input
+                            id="option1"
+                            placeholder="متن گزینه اول"
+                        >
+
+                    </div>
+
+
+                    <div class="answer-row">
+
+                        <div class="answer-index">
+                            ۲
+                        </div>
+
+                        <input
+                            id="option2"
+                            placeholder="متن گزینه دوم"
+                        >
+
+                    </div>
+
+
+                    <div class="answer-row">
+
+                        <div class="answer-index">
+                            ۳
+                        </div>
+
+                        <input
+                            id="option3"
+                            placeholder="متن گزینه سوم"
+                        >
+
+                    </div>
+
+
+                    <div class="answer-row">
+
+                        <div class="answer-index">
+                            ۴
+                        </div>
+
+                        <input
+                            id="option4"
+                            placeholder="متن گزینه چهارم"
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CORRECT ANSWER -->
+
+            <div class="correct-answer">
+
+                <div class="correct-answer-title">
+
+                    <i data-lucide="circle-check"></i>
+
+                    <span>
+                        پاسخ صحیح
+                    </span>
+
+                </div>
+
+
+                <select id="correctAnswer">
+
+                    <option value="">
+                        انتخاب پاسخ صحیح
+                    </option>
+
+                    <option value="1">
+                        گزینه ۱
+                    </option>
+
+                    <option value="2">
+                        گزینه ۲
+                    </option>
+
+                    <option value="3">
+                        گزینه ۳
+                    </option>
+
+                    <option value="4">
+                        گزینه ۴
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- EDITOR ACTIONS -->
+
+            <div class="editor-actions">
+
+                <button
+                    id="addQuestionBtn"
+                    class="add-question"
+                >
+
+                    <i data-lucide="plus"></i>
+
+                    افزودن سوال
+
+                </button>
+
+
+                <button class="clear-question">
+
+                    <i data-lucide="rotate-ccw"></i>
+
+                    پاک کردن
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             RIGHT / QUESTION NAVIGATOR
+        ===================================== -->
+
+        <aside class="question-navigator">
+
+
+            <div class="navigator-header">
+
+                <div>
+
+                    <span class="editor-kicker">
+                        QUESTIONS
+                    </span>
+
+                    <h2>
+                        سوالات آزمون
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="question-counter"
+                    id="answerCount"
+                >
+                    0
+                </span>
+
+            </div>
+
+
+            <div
+                id="answerSheet"
+                class="question-map"
+            >
+
+                <!-- JS -->
+
+            </div>
+
+
+            <div class="navigator-footer">
+
+                <div class="map-status">
+                    <span class="map-dot"></span>
+                    سوالات تکمیل‌شده
+                </div>
+
+                <div class="map-total">
+                    <strong>
+                        0
+                    </strong>
+                    سوال
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         QUESTION LIST
+    ========================================= -->
+
+    <section class="questions-overview">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="editor-kicker">
+                    OVERVIEW
+                </span>
+
+                <h2>
+                    نمای کلی سوالات
+                </h2>
+
+            </div>
+
+
+            <div class="overview-info">
+
+                <i data-lucide="list-checks"></i>
+
+                <span>
+                    لیست سوالات ساخته‌شده
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="testList"
+            class="questions-table"
+        >
+
+            <!-- JS -->
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         AI / IMPORT TOOLS
+    ========================================= -->
+
+    <section class="exam-tools">
+
+
+        <div class="tools-heading">
+
+            <div>
+
+                <span class="editor-kicker">
+                    SMART TOOLS
+                </span>
+
+                <h2>
+                    ابزارهای ورود و تحلیل
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+            <!-- GEMINI -->
+
+            <article class="tool-card gemini-tool">
+
+                <div class="tool-icon">
+                    <i data-lucide="sparkles"></i>
+                </div>
+
+
+                <div class="tool-content">
+
+                    <div class="tool-top">
+
+                        <div>
+
+                            <span class="tool-label">
+                                AI ANALYZER
+                            </span>
+
+                            <h3>
+                                تحلیل پاسخنامه
+                            </h3>
+
+                        </div>
+
+                        <span
+                            id="geminiStatus"
+                            class="tool-status"
+                        >
+                            آماده
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        فایل PDF پاسخنامه را وارد کنید تا پاسخ‌های صحیح به‌صورت خودکار استخراج شوند.
+                    </p>
+
+
+                    <div class="tool-upload">
+
+                        <input
+                            type="file"
+                            id="answerPdfInput"
+                            accept="application/pdf,.pdf"
+                            hidden
+                        >
+
+                        <button
+                            type="button"
+                            id="answerPdfButton"
+                            class="tool-upload-button"
+                        >
+
+                            <i data-lucide="upload"></i>
+
+                            انتخاب PDF
+
+                        </button>
+
+
+                        <span
+                            id="answerPdfName"
+                            class="tool-file-name"
+                        >
+                            فایلی انتخاب نشده
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="analyzeAnswerPdfBtn"
+                        class="tool-primary"
+                        disabled
+                    >
+
+                        <i data-lucide="sparkles"></i>
+
+                        تحلیل با Gemini
+
+                    </button>
+
+
+                    <div
+                        id="answerPdfStatus"
+                        class="tool-message"
+                    ></div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- JSON -->
+
+            <article class="tool-card json-tool">
+
+                <div class="tool-icon">
+                    <i data-lucide="braces"></i>
+                </div>
+
+
+                <div class="tool-content">
+
+                    <div class="tool-top">
+
+                        <div>
+
+                            <span class="tool-label">
+                                DATA IMPORT
+                            </span>
+
+                            <h3>
+                                ورود سوالات با JSON
+                            </h3>
+
+                        </div>
+
+
+                        <span
+                            id="jsonImportStatus"
+                            class="tool-status"
+                        >
+                            آماده
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        ساختار JSON سوالات را وارد کنید تا سوال‌ها و پاسخنامه به‌صورت خودکار ساخته شوند.
+                    </p>
+
+
+                    <textarea
+                        id="questionsJsonInput"
+                        class="json-editor"
+                        spellcheck="false"
+                        placeholder='{
+  "questions": [
+    {
+      "number": 1,
+      "question": "متن سوال",
+      "options": [
+        "گزینه 1",
+        "گزینه 2",
+        "گزینه 3",
+        "گزینه 4"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+}'
+                    ></textarea>
+
+
+                    <div class="json-actions">
+
+                        <button
+                            type="button"
+                            id="importQuestionsJsonBtn"
+                            class="tool-primary"
+                        >
+
+                            <i data-lucide="file-json"></i>
+
+                            ساخت سوالات
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="clearQuestionsJsonBtn"
+                            class="tool-secondary"
+                        >
+
+                            <i data-lucide="trash-2"></i>
+
+                            پاک کردن
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="jsonImportMessage"
+                        class="tool-message"
+                    ></div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         BOTTOM ACTION
+    ========================================= -->
+
+    <section class="publish-area">
+
+        <div class="publish-info">
+
+            <div class="publish-icon">
+                <i data-lucide="check"></i>
+            </div>
+
+            <div>
+
+                <strong>
+                    آزمون آماده ثبت است؟
+                </strong>
+
+                <span>
+                    قبل از ثبت، تعداد سوالات و پاسخ‌های صحیح را بررسی کنید.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="publishExamBtn"
+            class="publish-exam"
+        >
+
+            <i data-lucide="save"></i>
+
+            ثبت آزمون
+
+        </button>
+
+    </section>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="./config.js"></script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       STATE
+    ===================================================== */
+
+    let questions = [];
+
+    let activeQuestionNumber = 1;
+
+
+    /* =====================================================
+       FIXED QUESTION DATA
+    ===================================================== */
+
+    const FIXED_QUESTION_TEXT =
+        "متن سوال آزمون";
+
+    const FIXED_OPTIONS = [
+        "گزینه 1",
+        "گزینه 2",
+        "گزینه 3",
+        "گزینه 4"
+    ];
+
+
+    /* =====================================================
+       HELPERS
+    ===================================================== */
+
+    const $ = (id) =>
+        document.getElementById(id);
+
+
+    /* =====================================================
+       INPUTS
+    ===================================================== */
+
+    const examTitle =
+        $("examTitle");
+
+    const examSubject =
+        $("examSubject");
+
+    const testCount =
+        $("testCount");
+
+    const examDuration =
+        $("examDuration");
+
+    const questionText =
+        $("questionText");
+
+    const options = [
+        $("option1"),
+        $("option2"),
+        $("option3"),
+        $("option4")
+    ];
+
+    const correctAnswer =
+        $("correctAnswer");
+
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+
+    const addQuestionBtn =
+        $("addQuestionBtn");
+
+    const publishBtn =
+        $("publishExamBtn");
+
+
+    /* =====================================================
+       QUESTION AREAS
+    ===================================================== */
+
+    const testList =
+        $("testList");
+
+    const answerSheet =
+        $("answerSheet");
+
+    const answerCount =
+        $("answerCount");
+
+    const currentQuestionNumber =
+        $("currentQuestionNumber");
+
+
+    /* =====================================================
+       GEMINI
+    ===================================================== */
+
+    const answerPdfInput =
+        $("answerPdfInput");
+
+    const answerPdfButton =
+        $("answerPdfButton");
+
+    const answerPdfName =
+        $("answerPdfName");
+
+    const analyzeAnswerPdfBtn =
+        $("analyzeAnswerPdfBtn");
+
+    const answerPdfStatus =
+        $("answerPdfStatus");
+
+    const geminiStatus =
+        $("geminiStatus");
+
+
+    /* =====================================================
+       JSON IMPORT
+    ===================================================== */
+
+    const questionsJsonInput =
+        $("questionsJsonInput");
+
+    const importQuestionsJsonBtn =
+        $("importQuestionsJsonBtn");
+
+    const clearQuestionsJsonBtn =
+        $("clearQuestionsJsonBtn");
+
+    const jsonImportMessage =
+        $("jsonImportMessage");
+
+    const jsonImportStatus =
+        $("jsonImportStatus");
+
+
+    /* =====================================================
+       CHECK REQUIRED ELEMENTS
+    ===================================================== */
+
+    const requiredElements = [
+        examTitle,
+        examSubject,
+        testCount,
+        examDuration,
+        questionText,
+        correctAnswer,
+        addQuestionBtn,
+        publishBtn,
+        testList,
+        answerSheet,
+        answerCount,
+        answerPdfInput,
+        answerPdfButton,
+        answerPdfName,
+        analyzeAnswerPdfBtn,
+        answerPdfStatus,
+        geminiStatus,
+        questionsJsonInput,
+        importQuestionsJsonBtn,
+        clearQuestionsJsonBtn,
+        jsonImportMessage,
+        jsonImportStatus
+    ];
+
+    if (
+        requiredElements.some(
+            element => !element
+        )
+    ) {
+
+        console.error(
+            "RISEO EXAM BUILDER: بعضی از عناصر HTML پیدا نشدند."
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       FIXED QUESTION FORM
+    ===================================================== */
+
+    function fillFixedQuestionForm() {
+
+        questionText.value =
+            FIXED_QUESTION_TEXT;
+
+        options.forEach(
+            (input, index) => {
+
+                input.value =
+                    FIXED_OPTIONS[index];
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CLEAR EDITOR
+    ===================================================== */
+
+    function clearEditor() {
+
+        fillFixedQuestionForm();
+
+        correctAnswer.value = "";
+
+    }
+
+
+    /* =====================================================
+       UPDATE ACTIVE QUESTION NUMBER
+    ===================================================== */
+
+    function updateActiveQuestionNumber() {
+
+        if (!currentQuestionNumber) {
+            return;
+        }
+
+        currentQuestionNumber.textContent =
+            activeQuestionNumber || 1;
+
+    }
+
+
+    /* =====================================================
+       LOAD QUESTION INTO EDITOR
+    ===================================================== */
+
+    function loadQuestion(number) {
+
+        const question =
+            questions.find(
+                q =>
+                    Number(q.number) ===
+                    Number(number)
+            );
+
+        if (!question) {
+            return;
+        }
+
+        activeQuestionNumber =
+            Number(question.number);
+
+        questionText.value =
+            question.question || "";
+
+        options.forEach(
+            (input, index) => {
+
+                input.value =
+                    question.options?.[index] ||
+                    "";
+
+            }
+        );
+
+        correctAnswer.value =
+            question.correctAnswer
+                ? String(question.correctAnswer)
+                : "";
+
+        updateActiveQuestionNumber();
+
+        updateNavigatorActiveState();
+
+        updateQuestionListActiveState();
+
+    }
+
+
+    /* =====================================================
+       SAVE EDITOR INTO ACTIVE QUESTION
+    ===================================================== */
+
+    function saveEditorToActiveQuestion() {
+
+        const question =
+            questions.find(
+                q =>
+                    Number(q.number) ===
+                    Number(activeQuestionNumber)
+            );
+
+        if (!question) {
+            return;
+        }
+
+        const text =
+            questionText.value.trim();
+
+        const opts =
+            options.map(
+                input =>
+                    input.value.trim()
+            );
+
+        const correct =
+            Number(correctAnswer.value);
+
+        question.question =
+            text || FIXED_QUESTION_TEXT;
+
+        question.options =
+            opts.map(
+                (value, index) =>
+                    value || FIXED_OPTIONS[index]
+            );
+
+        question.correctAnswer =
+            Number.isInteger(correct) &&
+            correct >= 1 &&
+            correct <= 4
+                ? correct
+                : null;
+
+        renderQuestions();
+
+        updateAnswerSheet();
+
+    }
+
+
+    /* =====================================================
+       CREATE QUESTIONS
+    ===================================================== */
+
+    function createQuestions(count) {
+
+        questions = [];
+
+        for (
+            let i = 1;
+            i <= count;
+            i++
+        ) {
+
+            questions.push({
+
+                number: i,
+
+                question:
+                    FIXED_QUESTION_TEXT,
+
+                options: [
+                    FIXED_OPTIONS[0],
+                    FIXED_OPTIONS[1],
+                    FIXED_OPTIONS[2],
+                    FIXED_OPTIONS[3]
+                ],
+
+                correctAnswer: null
+
+            });
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CREATE ANSWER SHEET / QUESTION NAVIGATOR
+    ===================================================== */
+
+    function createAnswerSheet() {
+
+        const count =
+            Number(testCount.value);
+
+
+        answerSheet.innerHTML = "";
+
+
+        answerCount.textContent =
+            count || 0;
+
+
+        if (
+            !Number.isInteger(count) ||
+            count < 1
+        ) {
+
+            questions = [];
+
+            activeQuestionNumber = 1;
+
+            updateActiveQuestionNumber();
+
+            renderQuestions();
+
+            clearEditor();
+
+            return;
+
+        }
+
+
+        createQuestions(count);
+
+
+        for (
+            let i = 1;
+            i <= count;
+            i++
+        ) {
+
+            const item =
+                document.createElement("button");
+
+
+            /*
+             * Navigator جدید
+             * مستقل از CSS قبلی
+             */
+
+            item.type =
+                "button";
+
+            item.className =
+                "question-map-item";
+
+            item.dataset.question =
+                String(i);
+
+            item.textContent =
+                i;
+
+            answerSheet.appendChild(item);
+
+        }
+
+
+        activeQuestionNumber = 1;
+
+        updateActiveQuestionNumber();
+
+        renderQuestions();
+
+        updateAnswerSheet();
+
+        loadQuestion(1);
+
+    }
+
+
+    /* =====================================================
+       TEST COUNT CHANGE
+    ===================================================== */
+
+    testCount.addEventListener(
+        "input",
+        () => {
+
+            const value =
+                Number(testCount.value);
+
+            if (
+                !Number.isInteger(value) ||
+                value < 1
+            ) {
+
+                answerSheet.innerHTML = "";
+
+                answerCount.textContent = "0";
+
+                questions = [];
+
+                activeQuestionNumber = 1;
+
+                updateActiveQuestionNumber();
+
+                renderQuestions();
+
+                return;
+            }
+
+            createAnswerSheet();
+
+        }
+    );
+
+
+    /* =====================================================
+       QUESTION NAVIGATOR CLICK
+    ===================================================== */
+
+    answerSheet.addEventListener(
+        "click",
+        event => {
+
+            const button =
+                event.target.closest(
+                    "[data-question]"
+                );
+
+            if (!button) {
+                return;
+            }
+
+            /*
+             * قبل از رفتن به سوال جدید،
+             * تغییرات سوال فعلی ذخیره شود.
+             */
+
+            saveEditorToActiveQuestion();
+
+
+            const number =
+                Number(
+                    button.dataset.question
+                );
+
+            if (!number) {
+                return;
+            }
+
+            loadQuestion(number);
+
+        }
+    );
+
+
+    /* =====================================================
+       NAVIGATOR STATE
+    ===================================================== */
+
+    function updateAnswerSheet() {
+
+        const items =
+            answerSheet.querySelectorAll(
+                "[data-question]"
+            );
+
+
+        items.forEach(item => {
+
+            const number =
+                Number(
+                    item.dataset.question
+                );
+
+
+            const question =
+                questions.find(
+                    q =>
+                        Number(q.number) ===
+                        number
+                );
+
+
+            item.classList.remove(
+                "active",
+                "completed"
+            );
+
+
+            if (
+                number ===
+                Number(activeQuestionNumber)
+            ) {
+
+                item.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            if (
+                question &&
+                Number.isInteger(
+                    Number(
+                        question.correctAnswer
+                    )
+                )
+            ) {
+
+                item.classList.add(
+                    "completed"
+                );
+
+            }
+
+        });
+
+
+        /*
+         * تعداد سوالات
+         */
+
+        answerCount.textContent =
+            questions.length;
+
+
+        /*
+         * تعداد تکمیل‌شده
+         */
+
+        updateCompletedCounter();
+
+    }
+
+
+    /* =====================================================
+       COMPLETED COUNTER
+    ===================================================== */
+
+    function updateCompletedCounter() {
+
+        const completed =
+            questions.filter(
+                q =>
+                    Number.isInteger(
+                        Number(
+                            q.correctAnswer
+                        )
+                    )
+            ).length;
+
+
+        /*
+         * اگر در footer عنصر مناسب وجود داشت
+         */
+
+        const footerStrong =
+            document.querySelector(
+                ".map-total strong"
+            );
+
+
+        if (footerStrong) {
+
+            footerStrong.textContent =
+                completed;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       ACTIVE NAVIGATOR ITEM
+    ===================================================== */
+
+    function updateNavigatorActiveState() {
+
+        const items =
+            answerSheet.querySelectorAll(
+                "[data-question]"
+            );
+
+
+        items.forEach(item => {
+
+            item.classList.toggle(
+                "active",
+                Number(
+                    item.dataset.question
+                ) ===
+                Number(
+                    activeQuestionNumber
+                )
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       ADD QUESTION
+    ===================================================== */
+
+    addQuestionBtn.addEventListener(
+        "click",
+        () => {
+
+            const text =
+                questionText.value.trim();
+
+            const opts =
+                options.map(
+                    input =>
+                        input.value.trim()
+                );
+
+            const correct =
+                Number(
+                    correctAnswer.value
+                );
+
+
+            if (!text) {
+
+                alert(
+                    "صورت سوال را وارد کنید."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                opts.some(
+                    option => !option
+                )
+            ) {
+
+                alert(
+                    "لطفاً هر چهار گزینه را کامل کنید."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !Number.isInteger(correct) ||
+                correct < 1 ||
+                correct > 4
+            ) {
+
+                alert(
+                    "پاسخ صحیح سوال را انتخاب کنید."
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * اگر سوال فعال وجود دارد،
+             * آن را ویرایش می‌کنیم.
+             */
+
+            const existingQuestion =
+                questions.find(
+                    q =>
+                        Number(q.number) ===
+                        Number(activeQuestionNumber)
+                );
+
+
+            if (existingQuestion) {
+
+                existingQuestion.question =
+                    text;
+
+                existingQuestion.options =
+                    opts;
+
+                existingQuestion.correctAnswer =
+                    correct;
+
+                renderQuestions();
+
+                updateAnswerSheet();
+
+                showTemporaryMessage(
+                    "سوال با موفقیت به‌روزرسانی شد."
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * در حالت عادی سوال جدید
+             */
+
+            const number =
+                questions.length + 1;
+
+
+            questions.push({
+
+                number,
+
+                question: text,
+
+                options: opts,
+
+                correctAnswer: correct
+
+            });
+
+
+            testCount.value =
+                questions.length;
+
+
+            activeQuestionNumber =
+                number;
+
+
+            rebuildNavigator();
+
+            renderQuestions();
+
+            loadQuestion(number);
+
+        }
+    );
+
+
+    /* =====================================================
+       REBUILD NAVIGATOR
+    ===================================================== */
+
+    function rebuildNavigator() {
+
+        answerSheet.innerHTML = "";
+
+
+        questions.forEach(
+            question => {
+
+                const item =
+                    document.createElement("button");
+
+
+                item.type =
+                    "button";
+
+                item.className =
+                    "question-map-item";
+
+                item.dataset.question =
+                    String(question.number);
+
+                item.textContent =
+                    question.number;
+
+
+                answerSheet.appendChild(item);
+
+            }
+        );
+
+
+        updateAnswerSheet();
+
+    }
+
+
+    /* =====================================================
+       RENDER QUESTIONS LIST
+    ===================================================== */
+
+    function renderQuestions() {
+
+        testList.innerHTML = "";
+
+
+        if (!questions.length) {
+
+            const empty =
+                document.createElement("div");
+
+            empty.className =
+                "questions-empty";
+
+            empty.innerHTML = `
+                <i data-lucide="file-question"></i>
+                <span>هنوز سوالی ساخته نشده است.</span>
+            `;
+
+            testList.appendChild(empty);
+
+            refreshIcons();
+
+            return;
+
+        }
+
+
+        questions.forEach(
+            (question, index) => {
+
+                const item =
+                    document.createElement("article");
+
+
+                item.className =
+                    "test-item";
+
+
+                item.dataset.question =
+                    String(question.number);
+
+
+                const answerText =
+                    question.correctAnswer
+                        ? `گزینه ${question.correctAnswer}`
+                        : "پاسخ انتخاب نشده";
+
+
+                item.innerHTML = `
+
+                    <div class="test-item-number">
+                        ${String(index + 1).padStart(2, "0")}
+                    </div>
+
+                    <div class="test-item-content">
+
+                        <strong>
+                            سوال ${index + 1}
+                        </strong>
+
+                        <span>
+                            ${escapeHtml(
+                                (
+                                    question.question ||
+                                    FIXED_QUESTION_TEXT
+                                ).substring(0, 100)
+                            )}
+                        </span>
+
+                    </div>
+
+                    <div class="test-item-answer ${
+                        question.correctAnswer
+                            ? "answered"
+                            : ""
+                    }">
+
+                        ${
+                            question.correctAnswer
+                                ? `
+                                    <i data-lucide="circle-check"></i>
+                                    ${answerText}
+                                  `
+                                : `
+                                    <i data-lucide="circle-help"></i>
+                                    ${answerText}
+                                  `
+                        }
+
+                    </div>
+
+                `;
+
+
+                /*
+                 * کلیک روی آیتم سوال
+                 */
+
+                item.addEventListener(
+                    "click",
+                    () => {
+
+                        saveEditorToActiveQuestion();
+
+                        loadQuestion(
+                            question.number
+                        );
+
+                    }
+                );
+
+
+                testList.appendChild(item);
+
+            }
+        );
+
+
+        updateQuestionListActiveState();
+
+        refreshIcons();
+
+    }
+
+
+    /* =====================================================
+       QUESTION LIST ACTIVE STATE
+    ===================================================== */
+
+    function updateQuestionListActiveState() {
+
+        testList
+            .querySelectorAll(
+                "[data-question]"
+            )
+            .forEach(item => {
+
+                item.classList.toggle(
+                    "active",
+                    Number(
+                        item.dataset.question
+                    ) ===
+                    Number(
+                        activeQuestionNumber
+                    )
+                );
+
+            });
+
+    }
+
+
+    /* =====================================================
+       HTML ESCAPE
+    ===================================================== */
+
+    function escapeHtml(value) {
+
+        return String(value)
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+            .replace(
+                /</g,
+                "&lt;"
+            )
+            .replace(
+                />/g,
+                "&gt;"
+            )
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+
+    /* =====================================================
+       TEMP MESSAGE
+    ===================================================== */
+
+    function showTemporaryMessage(message) {
+
+        /*
+         * فعلاً alert نمی‌زنیم.
+         * یک پیام ساده در console هم ثبت می‌کنیم.
+         */
+
+        console.log(
+            "RISEO:",
+            message
+        );
+
+    }
+
+
+    /* =====================================================
+       REFRESH LUCIDE
+    ===================================================== */
+
+    function refreshIcons() {
+
+        if (
+            typeof lucide !==
+            "undefined" &&
+            typeof lucide.createIcons ===
+            "function"
+        ) {
+
+            lucide.createIcons();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       GEMINI FILE SELECTOR
+    ===================================================== */
+
+    answerPdfButton.addEventListener(
+        "click",
+        () => {
+
+            answerPdfInput.click();
+
+        }
+    );
+
+
+    /* =====================================================
+       GEMINI FILE CHANGE
+    ===================================================== */
+
+    answerPdfInput.addEventListener(
+        "change",
+        () => {
+
+            const file =
+                answerPdfInput.files[0];
+
+
+            if (!file) {
+
+                answerPdfName.textContent =
+                    "فایلی انتخاب نشده";
+
+                analyzeAnswerPdfBtn.disabled =
+                    true;
+
+                geminiStatus.textContent =
+                    "آماده";
+
+                geminiStatus.className =
+                    "tool-status";
+
+                return;
+
+            }
+
+
+            const isPdf =
+                file.type ===
+                    "application/pdf" ||
+                file.name
+                    .toLowerCase()
+                    .endsWith(".pdf");
+
+
+            if (!isPdf) {
+
+                alert(
+                    "لطفاً فقط فایل PDF انتخاب کنید."
+                );
+
+                resetPdfSelector();
+
+                return;
+
+            }
+
+
+            const maxSize =
+                15 * 1024 * 1024;
+
+
+            if (
+                file.size >
+                maxSize
+            ) {
+
+                alert(
+                    "حجم فایل نباید بیشتر از 15 مگابایت باشد."
+                );
+
+                resetPdfSelector();
+
+                return;
+
+            }
+
+
+            answerPdfName.textContent =
+                file.name;
+
+            analyzeAnswerPdfBtn.disabled =
+                false;
+
+
+            geminiStatus.textContent =
+                "فایل آماده است";
+
+            geminiStatus.className =
+                "tool-status success";
+
+
+            answerPdfStatus.textContent =
+                "";
+
+            answerPdfStatus.className =
+                "tool-message";
+
+        }
+    );
+
+
+    /* =====================================================
+       RESET PDF
+    ===================================================== */
+
+    function resetPdfSelector() {
+
+        answerPdfInput.value = "";
+
+        answerPdfName.textContent =
+            "فایلی انتخاب نشده";
+
+        analyzeAnswerPdfBtn.disabled =
+            true;
+
+        geminiStatus.textContent =
+            "آماده";
+
+        geminiStatus.className =
+            "tool-status";
+
+        answerPdfStatus.textContent =
+            "";
+
+        answerPdfStatus.className =
+            "tool-message";
+
+    }
+
+
+    /* =====================================================
+       GEMINI ANALYSIS
+    ===================================================== */
+
+    analyzeAnswerPdfBtn.addEventListener(
+        "click",
+        async () => {
+
+            const file =
+                answerPdfInput.files[0];
+
+
+            if (!file) {
+
+                alert(
+                    "ابتدا یک فایل PDF انتخاب کنید."
+                );
+
+                return;
+
+            }
+
+
+            analyzeAnswerPdfBtn.disabled =
+                true;
+
+            answerPdfButton.disabled =
+                true;
+
+
+            geminiStatus.textContent =
+                "در حال تحلیل...";
+
+            geminiStatus.className =
+                "tool-status loading";
+
+
+            answerPdfStatus.textContent =
+                "Gemini در حال بررسی پاسخنامه است...";
+
+            answerPdfStatus.className =
+                "tool-message loading";
+
+
+            try {
+
+                const formData =
+                    new FormData();
+
+
+                formData.append(
+                    "answerSheet",
+                    file
+                );
+
+
+                const response =
+                    await fetch(
+                        `${API_URL}/admin/ai/analyze-answer-pdf`,
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+
+                const responseText =
+                    await response.text();
+
+
+                let data = {};
+
+
+                try {
+
+                    data =
+                        responseText
+                            ? JSON.parse(
+                                responseText
+                            )
+                            : {};
+
+                } catch {
+
+                    data = {
+                        message:
+                            responseText
+                    };
+
+                }
+
+
+                console.log(
+                    "GEMINI PDF RESULT:",
+                    data
+                );
+
+
+                if (
+                    !response.ok ||
+                    !data.success
+                ) {
+
+                    throw new Error(
+                        data.message ||
+                        data.error ||
+                        "خطا در تحلیل پاسخنامه"
+                    );
+
+                }
+
+
+                const count =
+                    Number(
+                        data.questionCount
+                    );
+
+
+                if (
+                    !Number.isInteger(count) ||
+                    count < 1
+                ) {
+
+                    throw new Error(
+                        "تعداد سوالات دریافت شده نامعتبر است"
+                    );
+
+                }
+
+
+                if (
+                    !Array.isArray(
+                        data.answerKey
+                    ) ||
+                    data.answerKey.length !== count
+                ) {
+
+                    throw new Error(
+                        "پاسخنامه دریافت شده کامل نیست"
+                    );
+
+                }
+
+
+                /*
+                 * ساخت سوالات
+                 */
+
+                testCount.value =
+                    count;
+
+
+                createQuestions(count);
+
+
+                /*
+                 * اعمال کلید پاسخ
+                 */
+
+                data.answerKey.forEach(
+                    item => {
+
+                        const number =
+                            Number(
+                                item.questionNumber
+                            );
+
+                        const answer =
+                            Number(
+                                item.correctAnswer
+                            );
+
+
+                        const question =
+                            questions.find(
+                                q =>
+                                    Number(
+                                        q.number
+                                    ) ===
+                                    number
+                            );
+
+
+                        if (!question) {
+                            return;
+                        }
+
+
+                        if (
+                            Number.isInteger(answer) &&
+                            answer >= 1 &&
+                            answer <= 4
+                        ) {
+
+                            question.correctAnswer =
+                                answer;
+
+                        }
+
+                    }
+                );
+
+
+                /*
+                 * ساخت Navigator
+                 */
+
+                activeQuestionNumber =
+                    1;
+
+                rebuildNavigator();
+
+
+                /*
+                 * نمایش سوال اول
+                 */
+
+                loadQuestion(1);
+
+
+                renderQuestions();
+
+
+                /*
+                 * موفقیت
+                 */
+
+                geminiStatus.textContent =
+                    "تحلیل موفق ✓";
+
+                geminiStatus.className =
+                    "tool-status success";
+
+
+                answerPdfStatus.textContent =
+                    `پاسخنامه با موفقیت تحلیل شد — ${count} سوال شناسایی شد.`;
+
+                answerPdfStatus.className =
+                    "tool-message success";
+
+
+                console.log(
+                    "ANSWER KEY:",
+                    data.answerKey
+                );
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "GEMINI PDF ERROR:",
+                    error
+                );
+
+
+                geminiStatus.textContent =
+                    "خطا";
+
+                geminiStatus.className =
+                    "tool-status error";
+
+
+                answerPdfStatus.textContent =
+                    "❌ " +
+                    (
+                        error.message ||
+                        "خطا در تحلیل پاسخنامه"
+                    );
+
+
+                answerPdfStatus.className =
+                    "tool-message error";
+
+            }
+
+
+            finally {
+
+                analyzeAnswerPdfBtn.disabled =
+                    false;
+
+                answerPdfButton.disabled =
+                    false;
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       REGISTER EXAM
+    ===================================================== */
+
+    publishBtn.addEventListener(
+        "click",
+        async () => {
+
+            try {
+
+                /*
+                 * ابتدا تغییرات ادیتور ذخیره شود
+                 */
+
+                saveEditorToActiveQuestion();
+
+
+                if (
+                    !questions ||
+                    questions.length === 0
+                ) {
+
+                    throw new Error(
+                        "هیچ سوالی برای ثبت آزمون وجود ندارد."
+                    );
+
+                }
+
+
+                const title =
+                    examTitle.value.trim();
+
+                const subject =
+                    examSubject.value.trim();
+
+                const duration =
+                    Number(
+                        examDuration.value
+                    );
+
+
+                if (!title) {
+
+                    throw new Error(
+                        "عنوان آزمون را وارد کنید."
+                    );
+
+                }
+
+
+                if (!subject) {
+
+                    throw new Error(
+                        "درس آزمون را وارد کنید."
+                    );
+
+                }
+
+
+                if (
+                    !duration ||
+                    duration <= 0
+                ) {
+
+                    throw new Error(
+                        "مدت آزمون نامعتبر است."
+                    );
+
+                }
+
+
+                /*
+                 * بررسی همه سوالات
+                 */
+
+                const incompleteQuestion =
+                    questions.find(
+                        q =>
+                            !Number.isInteger(
+                                Number(
+                                    q.correctAnswer
+                                )
+                            ) ||
+                            Number(
+                                q.correctAnswer
+                            ) < 1 ||
+                            Number(
+                                q.correctAnswer
+                            ) > 4
+                    );
+
+
+                if (incompleteQuestion) {
+
+                    throw new Error(
+                        `پاسخ صحیح سوال ${incompleteQuestion.number} مشخص نشده است.`
+                    );
+
+                }
+
+
+                /*
+                 * ساخت Payload
+                 */
+
+                const payload = {
+
+                    title,
+
+                    subject,
+
+                    duration,
+
+                    questions:
+                        questions.map(
+                            q => ({
+
+                                question:
+                                    q.question ||
+                                    FIXED_QUESTION_TEXT,
+
+                                options:
+                                    Array.isArray(
+                                        q.options
+                                    )
+                                        ? q.options
+                                        : [
+                                            "گزینه 1",
+                                            "گزینه 2",
+                                            "گزینه 3",
+                                            "گزینه 4"
+                                        ],
+
+                                /*
+                                 * Frontend:
+                                 * 1 → 4
+                                 *
+                                 * Backend:
+                                 * 0 → 3
+                                 */
+
+                                correctAnswer:
+                                    Number(
+                                        q.correctAnswer
+                                    ) - 1
+
+                            })
+                        )
+
+                };
+
+
+                console.log(
+                    "CREATE EXAM PAYLOAD:",
+                    payload
+                );
+
+
+                publishBtn.disabled =
+                    true;
+
+
+                const originalPublishHtml =
+                    publishBtn.innerHTML;
+
+
+                publishBtn.innerHTML = `
+                    <i data-lucide="loader-circle"></i>
+                    در حال ثبت آزمون...
+                `;
+
+
+                refreshIcons();
+
+
+                const response =
+                    await fetch(
+                        `${API_URL}/admin/tests/create`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    payload
+                                )
+                        }
+                    );
+
+
+                const responseText =
+                    await response.text();
+
+
+                console.log(
+                    "CREATE EXAM STATUS:",
+                    response.status
+                );
+
+
+                console.log(
+                    "CREATE EXAM RESPONSE:",
+                    responseText
+                );
+
+
+                let data = {};
+
+
+                try {
+
+                    data =
+                        responseText
+                            ? JSON.parse(
+                                responseText
+                            )
+                            : {};
+
+                } catch {
+
+                    data = {
+                        message:
+                            responseText
+                    };
+
+                }
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        data.error ||
+                        `خطای سرور (${response.status})`
+                    );
+
+                }
+
+
+                console.log(
+                    "CREATE EXAM SUCCESS:",
+                    data
+                );
+
+
+                alert(
+                    "آزمون با موفقیت ثبت شد."
+                );
+
+
+                /*
+                 * بازگرداندن دکمه
+                 */
+
+                publishBtn.innerHTML =
+                    originalPublishHtml;
+
+                refreshIcons();
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "CREATE EXAM ERROR:",
+                    error
+                );
+
+
+                alert(
+                    error.message ||
+                    "خطا در ساخت آزمون"
+                );
+
+            }
+
+
+            finally {
+
+                publishBtn.disabled =
+                    false;
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       JSON STATUS
+    ===================================================== */
+
+    function showJsonMessage(
+        message,
+        type
+    ) {
+
+        jsonImportMessage.textContent =
+            message;
+
+        jsonImportMessage.className =
+            `tool-message show ${type}`;
+
+    }
+
+
+    function setJsonStatus(
+        text,
+        type = ""
+    ) {
+
+        jsonImportStatus.textContent =
+            text;
+
+        jsonImportStatus.className =
+            "tool-status";
+
+        if (type) {
+
+            jsonImportStatus.classList.add(
+                type
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       JSON IMPORT
+    ===================================================== */
+
+    importQuestionsJsonBtn.addEventListener(
+        "click",
+        () => {
+
+            const raw =
+                questionsJsonInput.value.trim();
+
+
+            if (!raw) {
+
+                showJsonMessage(
+                    "ابتدا JSON سوالات را وارد کنید.",
+                    "error"
+                );
+
+                setJsonStatus(
+                    "خطا",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            let data;
+
+
+            try {
+
+                data =
+                    JSON.parse(raw);
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "JSON PARSE ERROR:",
+                    error
+                );
+
+
+                showJsonMessage(
+                    "ساختار JSON صحیح نیست.",
+                    "error"
+                );
+
+
+                setJsonStatus(
+                    "JSON نامعتبر",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !data ||
+                !Array.isArray(
+                    data.questions
+                )
+            ) {
+
+                showJsonMessage(
+                    'ساختار باید شامل "questions" باشد.',
+                    "error"
+                );
+
+
+                setJsonStatus(
+                    "ساختار نامعتبر",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (
+                data.questions.length === 0
+            ) {
+
+                showJsonMessage(
+                    "هیچ سوالی داخل JSON وجود ندارد.",
+                    "error"
+                );
+
+
+                setJsonStatus(
+                    "بدون سوال",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            const importedQuestions = [];
+
+
+            /*
+             * اعتبارسنجی
+             */
+
+            for (
+                let i = 0;
+                i < data.questions.length;
+                i++
+            ) {
+
+                const item =
+                    data.questions[i];
+
+
+                const number =
+                    Number(
+                        item.number ||
+                        i + 1
+                    );
+
+
+                const question =
+                    String(
+                        item.question ||
+                        ""
+                    ).trim();
+
+
+                const opts =
+                    Array.isArray(
+                        item.options
+                    )
+                        ? item.options.map(
+                            option =>
+                                String(
+                                    option
+                                ).trim()
+                        )
+                        : [];
+
+
+                const correct =
+                    Number(
+                        item.correctAnswer
+                    );
+
+
+                if (
+                    !Number.isInteger(
+                        number
+                    ) ||
+                    number < 1
+                ) {
+
+                    showJsonMessage(
+                        `شماره سوال ${i + 1} نامعتبر است.`,
+                        "error"
+                    );
+
+                    setJsonStatus(
+                        "خطا",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!question) {
+
+                    showJsonMessage(
+                        `متن سوال ${number} خالی است.`,
+                        "error"
+                    );
+
+                    setJsonStatus(
+                        "خطا",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    opts.length !== 4
+                ) {
+
+                    showJsonMessage(
+                        `سوال ${number} باید دقیقاً ۴ گزینه داشته باشد.`,
+                        "error"
+                    );
+
+                    setJsonStatus(
+                        "خطا",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    opts.some(
+                        option => !option
+                    )
+                ) {
+
+                    showJsonMessage(
+                        `یکی از گزینه‌های سوال ${number} خالی است.`,
+                        "error"
+                    );
+
+                    setJsonStatus(
+                        "خطا",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    !Number.isInteger(
+                        correct
+                    ) ||
+                    correct < 1 ||
+                    correct > 4
+                ) {
+
+                    showJsonMessage(
+                        `پاسخ صحیح سوال ${number} باید بین ۱ تا ۴ باشد.`,
+                        "error"
+                    );
+
+                    setJsonStatus(
+                        "خطا",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                importedQuestions.push({
+
+                    number,
+
+                    question,
+
+                    options: opts,
+
+                    correctAnswer: correct
+
+                });
+
+            }
+
+
+            /*
+             * مرتب‌سازی شماره سوال
+             */
+
+            importedQuestions.sort(
+                (a, b) =>
+                    a.number - b.number
+            );
+
+
+            /*
+             * اطمینان از شماره‌گذاری متوالی
+             */
+
+            importedQuestions.forEach(
+                (question, index) => {
+
+                    question.number =
+                        index + 1;
+
+                }
+            );
+
+
+            /*
+             * جایگزینی سوالات
+             */
+
+            questions =
+                importedQuestions;
+
+
+            /*
+             * تعداد
+             */
+
+            testCount.value =
+                questions.length;
+
+
+            /*
+             * فعال کردن سوال اول
+             */
+
+            activeQuestionNumber =
+                1;
+
+
+            /*
+             * ساخت Navigator
+             */
+
+            rebuildNavigator();
+
+
+            /*
+             * بارگذاری سوال اول
+             */
+
+            loadQuestion(1);
+
+
+            /*
+             * لیست
+             */
+
+            renderQuestions();
+
+
+            /*
+             * موفقیت
+             */
+
+            showJsonMessage(
+                `${questions.length} سوال با موفقیت از JSON ساخته شد.`,
+                "success"
+            );
+
+
+            setJsonStatus(
+                `${questions.length} سوال آماده`,
+                "success"
+            );
+
+
+            console.log(
+                "IMPORTED QUESTIONS:",
+                questions
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CLEAR JSON
+    ===================================================== */
+
+    clearQuestionsJsonBtn.addEventListener(
+        "click",
+        () => {
+
+            questionsJsonInput.value =
+                "";
+
+            jsonImportMessage.textContent =
+                "";
+
+            jsonImportMessage.className =
+                "tool-message";
+
+            setJsonStatus(
+                "آماده"
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       INITIALIZE
+    ===================================================== */
+
+    function initialize() {
+
+        /*
+         * فرم اولیه
+         */
+
+        fillFixedQuestionForm();
+
+
+        /*
+         * اگر تعداد سوال از قبل وجود داشت
+         */
+
+        const initialCount =
+            Number(
+                testCount.value
+            );
+
+
+        if (
+            Number.isInteger(
+                initialCount
+            ) &&
+            initialCount > 0
+        ) {
+
+            createAnswerSheet();
+
+        }
+        else {
+
+            answerCount.textContent =
+                "0";
+
+            updateActiveQuestionNumber();
+
+        }
+
+
+        /*
+         * آیکون‌ها
+         */
+
+        refreshIcons();
+
+    }
+
+
+    initialize();
+
+});
+
+</script>
+
+<script>
+
+lucide.createIcons();
+
+</script>
+
+
+</body>
+
+</html>

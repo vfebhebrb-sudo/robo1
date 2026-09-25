@@ -22,9 +22,9 @@
 // API CONFIG
 // =====================================
 
-const API_URL =
-   "https://iran-go4q.onrender.com/api";
+const API_URL = "https://iran-1.onrender.com/api";
 
+// const API_URL = "http://localhost:3000/api";
 
 // بعد از آنلاین شدن بک‌اند Render فقط همین خط تغییر می‌کند
 // مثال:
