@@ -3,318 +3,697 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
+    <title>RISEO | پنل مدیریت</title>
 
-<title>
-پنل مدیریت
-</title>
+    <link
+        rel="stylesheet"
+        href="./مدیریت.css"
+    >
 
-
-<link rel="stylesheet" href="./مدیریت.css">
-
-
-<script src="https://unpkg.com/lucide@latest"></script>
-
+    <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
 
 
 <body>
-<main class="dashboard">
-
-
-<!-- HEADER -->
-
-<header class="top-header">
-
-
-<div class="brand">
-
-
-<div class="brand-logo">
-<i data-lucide="shield-check"></i>
-</div>
-
-
-<div>
-<h1>
-پنل مدیریت
-</h1>
-
-<span>
-Control Center
-</span>
-</div>
-
-
-</div>
 
 
 
 
-<div class="header-actions">
 
 
-<button>
-<i data-lucide="bell"></i>
+
+
+
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+        <div class="a4">
+            <p>
+                <span>R</span><span>I</span><span>S</span><span>E</span><span>O</span>
+            </p>
+        </div>
+
+
+            <!-- Search -->
+            <div class="header-search">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="m21 21-4.35-4.35
+                           M10.8 18a7.2 7.2 0 1 1 0-14.4
+                           7.2 7.2 0 0 1 0 14.4Z"
+                    />
+                </svg>
+
+                <input
+                    type="search"
+                    placeholder="جستجو در درس‌ها، فایل‌ها و..."
+                    aria-label="جستجو"
+                >
+
+            </div>
+
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+
+
+                <!-- Notifications -->
+                <button
+                    type="button"
+                    class="header-action"
+                    aria-label="اعلان‌ها"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                        />
+                        <path d="M10 21h4"/>
+
+                    </svg>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <!-- Theme -->
+              <button
+type="button"
+class="header-action"
+id="themeToggle"
+aria-label="تغییر حالت نمایش"
+
+>
+
+
+<svg
+    class="theme-icon theme-sun"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+>
+
+    <circle
+        cx="12"
+        cy="12"
+        r="4"
+    />
+
+    <path
+        d="
+            M12 2v2
+            M12 20v2
+            M4.93 4.93l1.42 1.42
+            M17.65 17.65l1.42 1.42
+            M2 12h2
+            M20 12h2
+            M4.93 19.07l1.42-1.42
+            M17.65 6.35l1.42-1.42
+        "
+    />
+
+</svg>
+
+
+<svg
+    class="theme-icon theme-moon"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+>
+
+    <path
+        d="
+            M21 12.79
+            A9 9 0 1 1
+            11.21 3
+            A7 7 0 0 0
+            21 12.79Z
+        "
+    />
+
+</svg>
+
+
 </button>
 
 
-<button>
-<i data-lucide="settings"></i>
-</button>
 
+                <!-- User -->
+                <!-- <button
+                    type="button"
+                    class="user-menu"
+                    aria-label="پروفایل کاربری"
+                >
 
+                    <div class="user-avatar">
 
-<div class="admin-avatar">
-A
-</div>
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
 
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="3.2"
+                            />
 
-</div>
+                            <path
+                                d="M5.5 20c.8-4 3-6 6.5-6s5.7 2 6.5 6"
+                            />
 
+                        </svg>
 
-</header>
+                    </div>
 
 
+                    <div class="user-info">
 
+                        <strong>
+                         
+                        </strong>
 
+                        <span>
+                            دانش‌آموز
+                        </span>
 
-<!-- WELCOME -->
+                    </div>
 
-<section class="welcome">
 
+                    <svg
+                        class="user-chevron"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="m7 10 5 5 5-5"/>
+                    </svg>
 
-<div>
+                </button> -->
 
-<span>
-خوش آمدید 👋
-</span>
+            </div>
 
+        </div>
 
-<h2>
-مدیریت سیستم از اینجا انجام می‌شود
-</h2>
 
+        <!-- =========================================
+             CATEGORY NAVIGATION
+        ========================================== -->
 
-<p>
-آزمون‌ها، کاربران و گزارش‌ها را کنترل کنید.
-</p>
+        <nav
+            class="category-nav"
+            aria-label="دسته‌بندی اصلی"
+        >
 
+            <div class="category-inner">
 
-</div>
 
+                <!-- Lessons -->
 
 
-<div class="quick-buttons">
 
+                <!-- Exams -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
 
-<a href="./ازمون - Copy.html">
-<i data-lucide="plus"></i>
-آزمون جدید
-</a>
+                    <span class="category-icon">
 
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
 
-<a href="./admin.html">
-<i data-lucide="users"></i>
-کاربران
-</a>
+                            <rect
+                                x="4"
+                                y="4"
+                                width="16"
+                                height="16"
+                                rx="2"
+                            />
 
+                            <path d="M8 9h8"/>
 
-</div>
+                            <path d="M8 13h6"/>
 
+                            <path d="M8 17h4"/>
 
-</section>
+                        </svg>
 
+                    </span>
 
+                    <span>
+                        آزمون‌ها
+                    </span>
 
+                </a>
 
 
+                <!-- Archive -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
 
-<!-- STATS -->
+                    <span class="category-icon">
 
-<section class="stats">
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
 
+                            <path d="M3 7h7l2 2h9v10H3z"/>
 
-<div class="stat">
+                            <path d="M3 7V5h7l2 2"/>
 
-<i data-lucide="users"></i>
+                        </svg>
 
-<div>
-<span>
-کاربران
-</span>
+                    </span>
 
-<strong>
-1250
-</strong>
-</div>
+                    <span>
+                        بایگانی
+                    </span>
 
-</div>
+                </a>
 
 
+                <!-- Schedule -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
 
+                    <span class="category-icon">
 
-<div class="stat">
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
 
-<i data-lucide="file-question"></i>
+                            <rect
+                                x="4"
+                                y="5"
+                                width="16"
+                                height="15"
+                                rx="2"
+                            />
 
-<div>
-<span>
-آزمون‌ها
-</span>
+                            <path d="M8 3v4"/>
 
-<strong>
-86
-</strong>
-</div>
+                            <path d="M16 3v4"/>
 
-</div>
+                            <path d="M4 10h16"/>
 
+                            <path d="M8 14h3"/>
 
+                            <path d="M8 17h5"/>
 
+                        </svg>
 
-<div class="stat">
+                    </span>
 
-<i data-lucide="chart-column"></i>
+                    <span>
+                        برنامه
+                    </span>
 
-<div>
-<span>
-شرکت‌ها
-</span>
+                </a>
 
-<strong>
-4300
-</strong>
-</div>
 
-</div>
+                <!-- Files -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
 
+                    <span class="category-icon">
 
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
 
+                            <path d="M5 4h14v16H5z"/>
 
-<div class="stat">
+                            <path d="M8 8h8"/>
 
-<i data-lucide="message-circle"></i>
+                            <path d="M8 12h8"/>
 
-<div>
-<span>
-پیام‌ها
-</span>
+                            <path d="M8 16h5"/>
 
-<strong>
-24
-</strong>
-</div>
+                        </svg>
 
-</div>
+                    </span>
 
+                    <span>
+                        فایل‌ها
+                    </span>
 
-</section>
+                </a>
 
 
+                <!-- Notifications -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
 
+                    <span class="category-icon">
 
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
 
+                            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
 
-<!-- MAIN -->
+                            <path d="M10 21h4"/>
 
-<section class="dashboard-grid">
+                        </svg>
 
+                    </span>
 
-<div class="panel">
+                    <span>
+                        اعلان‌ها
+                    </span>
 
+                </a>
 
-<h3>
-دسترسی سریع
-</h3>
+            </div>
 
+        </nav>
 
-<div class="quick-grid">
+    </header>
 
 
-<a href="./کانال.html">
-<i data-lucide="radio"></i>
-کانال‌ها
-</a>
 
 
-<a href="./مدیریت-آزمون‌ها.html">
-<i data-lucide="brain"></i>
-انشار ازمون 
-</a>
 
 
-<a href="./9.html">
-<i data-lucide="database"></i>
-تحلیل ازمون 
-</a>
 
 
-<a href="./111111111.html">
-<i data-lucide="settings"></i>
-تنظیمات
-</a>
 
 
-</div>
 
-</div>
 
+<!-- =========================================
+     ADMIN PANEL
+========================================= -->
 
+<main class="admin-panel">
 
+    <!-- =====================================
+         MANAGEMENT BOX
+    ====================================== -->
 
+    <section class="management-box">
 
-<div class="panel">
+        <div class="management-title">
 
+            <div>
+                <span>مرکز مدیریت</span>
+                <strong>مدیریت RISEO</strong>
+            </div>
 
-<h3>
-آخرین فعالیت‌ها
-</h3>
+        </div>
 
 
-<div class="activity">
+        <div class="management-items">
 
+            <!-- آزمون ها -->
+            <a
+                href="./مدیریت-آزمون‌ها.html"
+                class="management-item"
+            >
 
-<div>
-<span></span>
-آزمون زیست ساخته شد
-</div>
+                <div class="management-item-icon tests">
+                    <i data-lucide="file-check-2"></i>
+                </div>
 
+                <div class="management-item-text">
+                    <span>مدیریت</span>
+                    <strong>آزمون‌ها</strong>
+                </div>
 
-<div>
-<span></span>
-کاربر جدید ثبت نام کرد
-</div>
+                <i
+                    class="management-item-arrow"
+                    data-lucide="arrow-left"
+                ></i>
 
+            </a>
 
-<div>
-<span></span>
-گزارش جدید ایجاد شد
-</div>
 
+            <!-- کانال -->
+            <a
+                href="./کانال.html"
+                class="management-item"
+            >
 
-</div>
+                <div class="management-item-icon channel">
+                    <i data-lucide="radio"></i>
+                </div>
 
+                <div class="management-item-text">
+                    <span>انتشار</span>
+                    <strong>کانال</strong>
+                </div>
 
-</div>
+                <i
+                    class="management-item-arrow"
+                    data-lucide="arrow-left"
+                ></i>
 
+            </a>
 
-</section>
 
+            <!-- کاربران -->
+            <a
+                href="./admin.html"
+                class="management-item"
+            >
 
+                <div class="management-item-icon users">
+                    <i data-lucide="users"></i>
+                </div>
 
+                <div class="management-item-text">
+                    <span>مدیریت اعضا</span>
+                    <strong>کاربران</strong>
+                </div>
+
+                <i
+                    class="management-item-arrow"
+                    data-lucide="arrow-left"
+                ></i>
+
+            </a>
+
+
+
+                        <a
+                href="./ازمون - Copy.html"
+                class="management-item"
+            >
+
+                <div class="management-item-icon analysis">
+                    <i data-lucide="chart-no-axes-combined"></i>
+                </div>
+
+                <div class="management-item-text">
+                    <span>گزارش‌ها</span>
+                    <strong>ساخت ازمون</strong>
+                </div>
+
+                <i
+                    class="management-item-arrow"
+                    data-lucide="arrow-left"
+                ></i>
+
+            </a>
+
+
+            <!-- تحلیل -->
+            <a
+                href="./تحلیل ازمون/ازمون.html"
+                class="management-item"
+            >
+
+                <div class="management-item-icon analysis">
+                    <i data-lucide="chart-no-axes-combined"></i>
+                </div>
+
+                <div class="management-item-text">
+                    <span>گزارش‌ها</span>
+                    <strong>تحلیل</strong>
+                </div>
+
+                <i
+                    class="management-item-arrow"
+                    data-lucide="arrow-left"
+                ></i>
+
+            </a>
+
+
+            <!-- API -->
+            <a
+                href="./111111111.html"
+                class="management-item"
+            >
+
+                <div class="management-item-icon api">
+                    <i data-lucide="braces"></i>
+                </div>
+
+                <div class="management-item-text">
+                    <span>Developer</span>
+                    <strong>API & Robo</strong>
+                </div>
+
+                <i
+                    class="management-item-arrow"
+                    data-lucide="arrow-left"
+                ></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         LARGE CONTENT BOX
+    ====================================== -->
+
+    <section class="admin-large-box">
+
+        <div class="large-box-header">
+
+            <div>
+                <span>نمای کلی سامانه</span>
+                <strong>مدیریت و کنترل پروژه</strong>
+            </div>
+
+            <i data-lucide="layout-dashboard"></i>
+
+        </div>
+
+
+        <div class="large-box-content">
+
+            <!-- محتوای این قسمت بعداً اضافه می‌شود -->
+
+<i data-lucide="construction"></i>
+        </div>
+
+    </section>
 
 </main>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
 
-lucide.createIcons();
+    
+
+
+
+
+// =========================================
+// THEME TOGGLE
+// =========================================
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+// =========================================
+// APPLY SAVED THEME
+// =========================================
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add(
+        "dark-theme"
+    );
+
+}
+
+
+// =========================================
+// THEME BUTTON
+// =========================================
+
+if (themeToggle) {
+
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle(
+                "dark-theme"
+            );
+
+
+            const isDark =
+                document.body.classList.contains(
+                    "dark-theme"
+                );
+
+
+            localStorage.setItem(
+                "theme",
+                isDark
+                    ? "dark"
+                    : "light"
+            );
+
+        }
+    );
+
+}
+
+    lucide.createIcons();
 
 </script>
 

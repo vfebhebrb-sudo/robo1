@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>StudyPro | سامانه آموزشی</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+        <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Vazirmatn -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap"
+        rel="stylesheet"> -->
+
+        
+    <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0b0b0b">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./A.css">
+
+
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+        <div class="a4">
+            <p>
+                <span>R</span><span>I</span><span>S</span><span>E</span><span>O</span>
+            </p>
+        </div>
+
+
+            <!-- Search -->
+            <div class="header-search">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="m21 21-4.35-4.35
+                           M10.8 18a7.2 7.2 0 1 1 0-14.4
+                           7.2 7.2 0 0 1 0 14.4Z"
+                    />
+                </svg>
+
+                <input
+                    type="search"
+                    placeholder="جستجو در درس‌ها، فایل‌ها و..."
+                    aria-label="جستجو"
+                >
+
+            </div>
+
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+
+
+                <!-- Notifications -->
+                <button
+                    type="button"
+                    class="header-action"
+                    aria-label="اعلان‌ها"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                        />
+                        <path d="M10 21h4"/>
+
+                    </svg>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <!-- Theme -->
+              <button
+type="button"
+class="header-action"
+id="themeToggle"
+aria-label="تغییر حالت نمایش"
+
+>
+
+
+<svg
+    class="theme-icon theme-sun"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+>
+
+    <circle
+        cx="12"
+        cy="12"
+        r="4"
+    />
+
+    <path
+        d="
+            M12 2v2
+            M12 20v2
+            M4.93 4.93l1.42 1.42
+            M17.65 17.65l1.42 1.42
+            M2 12h2
+            M20 12h2
+            M4.93 19.07l1.42-1.42
+            M17.65 6.35l1.42-1.42
+        "
+    />
+
+</svg>
+
+
+<svg
+    class="theme-icon theme-moon"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+>
+
+    <path
+        d="
+            M21 12.79
+            A9 9 0 1 1
+            11.21 3
+            A7 7 0 0 0
+            21 12.79Z
+        "
+    />
+
+</svg>
+
+
+</button>
+
+
+
+                <!-- User -->
+                <!-- <button
+                    type="button"
+                    class="user-menu"
+                    aria-label="پروفایل کاربری"
+                >
+
+                    <div class="user-avatar">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="3.2"
+                            />
+
+                            <path
+                                d="M5.5 20c.8-4 3-6 6.5-6s5.7 2 6.5 6"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="user-info">
+
+                        <strong>
+                         
+                        </strong>
+
+                        <span>
+                            دانش‌آموز
+                        </span>
+
+                    </div>
+
+
+                    <svg
+                        class="user-chevron"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="m7 10 5 5 5-5"/>
+                    </svg>
+
+                </button> -->
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             CATEGORY NAVIGATION
+        ========================================== -->
+
+        <nav
+            class="category-nav"
+            aria-label="دسته‌بندی اصلی"
+        >
+
+            <div class="category-inner">
+
+
+                <!-- Lessons -->
+
+
+
+                <!-- Exams -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
+
+                    <span class="category-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <rect
+                                x="4"
+                                y="4"
+                                width="16"
+                                height="16"
+                                rx="2"
+                            />
+
+                            <path d="M8 9h8"/>
+
+                            <path d="M8 13h6"/>
+
+                            <path d="M8 17h4"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        آزمون‌ها
+                    </span>
+
+                </a>
+
+
+                <!-- Archive -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
+
+                    <span class="category-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path d="M3 7h7l2 2h9v10H3z"/>
+
+                            <path d="M3 7V5h7l2 2"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        بایگانی
+                    </span>
+
+                </a>
+
+
+                <!-- Schedule -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
+
+                    <span class="category-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <rect
+                                x="4"
+                                y="5"
+                                width="16"
+                                height="15"
+                                rx="2"
+                            />
+
+                            <path d="M8 3v4"/>
+
+                            <path d="M16 3v4"/>
+
+                            <path d="M4 10h16"/>
+
+                            <path d="M8 14h3"/>
+
+                            <path d="M8 17h5"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        برنامه
+                    </span>
+
+                </a>
+
+
+                <!-- Files -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
+
+                    <span class="category-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path d="M5 4h14v16H5z"/>
+
+                            <path d="M8 8h8"/>
+
+                            <path d="M8 12h8"/>
+
+                            <path d="M8 16h5"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        فایل‌ها
+                    </span>
+
+                </a>
+
+
+                <!-- Notifications -->
+                <a
+                    href="#"
+                    class="category-item"
+                >
+
+                    <span class="category-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+
+                            <path d="M10 21h4"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        اعلان‌ها
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    <main class="main-content">
+
+<!-- =========================================
+     EXAMS SECTION
+========================================= -->
+<section
+    class="exams-section"
+    id="examsSection"
+>
+
+    <!-- ==============================
+         SECTION HEADING
+    =============================== -->
+
+    <div
+        class="section-heading"
+        id="examsSectionHeading"
+    >
+
+        <div
+            class="section-heading-right"
+        >
+
+            <div
+                class="section-icon"
+                id="examsSectionIcon"
+            >
+
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="10" class="w-12 h-12 text-neutral-30 mx-auto mb-3"><path d="M22 10V15C22 20 20 22 15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M22 10H18C15 10 14 9 14 6V2L22 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7 13H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7 17H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
+            </div>
+
+
+            <div
+                class="section-title"
+                id="examsSectionTitle"
+            >
+
+                <strong>
+                    آزمون‌های برگزار شده
+                </strong>
+
+                <span>
+                    آزمون‌های اخیر و فعال
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="section-more"
+            id="examsViewAll"
+            type="button"
+        >
+
+            مشاهده همه
+
+            <i data-lucide="chevron-left"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- ==============================
+         EXAMS LIST
+    =============================== -->
+
+    <div
+        class="exams-list"
+        id="exams"
+    >
+
+        <!--
+            آزمون‌ها توسط JavaScript
+            به صورت داینامیک ساخته می‌شوند
+        -->
+
+    </div>
+
+</section>
+<!-- =========================================
+     EXAM DETAILS SECTION
+========================================= -->
+<section
+    class="exam-details-section"
+    id="examDetailsSection"
+>
+
+    <!-- =====================================
+         PARTICIPANTS
+    ====================================== -->
+
+    <div
+        class="participants-card"
+        id="participantsCard"
+    >
+
+        <div
+            class="details-heading"
+            id="participantsHeading"
+        >
+
+            <div
+                class="details-heading-right"
+            >
+
+                <div
+                    class="details-icon participants-icon"
+                    id="participantsIcon"
+                >
+
+                    <i data-lucide="users"></i>
+
+                </div>
+
+
+                <div
+                    class="details-title"
+                    id="participantsTitle"
+                >
+
+                    <strong>
+                        شرکت‌کنندگان
+                    </strong>
+
+                    <span>
+                        افراد شرکت کرده در آزمون
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <span
+                class="participants-count"
+                id="participantsCount"
+            >
+                ۰ نفر
+            </span>
+
+        </div>
+
+
+        <!-- =================================
+             PARTICIPANTS LIST
+        ================================== -->
+
+        <div
+            class="participants-list"
+            id="participantsList"
+        >
+
+            <!--
+                شرکت‌کنندگان توسط JavaScript
+                به صورت داینامیک ساخته می‌شوند
+            -->
+
+        </div>
+
+
+        <!-- =================================
+             ALL PARTICIPANTS
+        ================================== -->
+
+        <button
+            class="participants-more"
+            id="participantsMore"
+            type="button"
+        >
+
+            مشاهده همه شرکت‌کنندگان
+
+            <i data-lucide="chevron-left"></i>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================
+         MY RESULT
+    ====================================== -->
+
+    <div
+        class="my-result-card"
+        id="myResultCard"
+    >
+
+        <div
+            class="details-heading"
+            id="resultHeading"
+        >
+
+            <div
+                class="details-heading-right"
+            >
+
+                <div
+                    class="details-icon result-icon"
+                    id="resultIcon"
+                >
+
+                    <i data-lucide="chart-no-axes-combined"></i>
+
+                </div>
+
+
+                <div
+                    class="details-title"
+                    id="resultTitle"
+                >
+
+                    <strong>
+                        نتیجه آزمون من
+                    </strong>
+
+                    <span>
+                        عملکرد شما در آزمون انتخاب‌شده
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <span
+                class="result-status"
+                id="resultStatus"
+            >
+                -
+            </span>
+
+        </div>
+
+
+
+        <!-- =================================
+             RESULT CONTENT
+        ================================== -->
+
+        <div
+            class="result-content"
+            id="resultContent"
+        >
+
+
+            <!-- =============================
+                 SCORE
+            ============================== -->
+
+            <div
+                class="result-score-box"
+                id="resultScoreBox"
+            >
+
+                <span
+                    class="result-score-label"
+                >
+                    نمره شما
+                </span>
+
+
+                <div
+                    class="result-score"
+                    id="resultScore"
+                >
+
+                    <strong
+                        id="resultScoreValue"
+                    >
+                        -
+                    </strong>
+
+                    <span
+                        id="resultScoreTotal"
+                    >
+                        / -
+                    </span>
+
+                </div>
+
+
+                <span
+                    class="result-score-percent"
+                    id="resultScorePercent"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+
+            <!-- =============================
+                 STATS
+            ============================== -->
+
+            <div
+                class="result-stats"
+                id="resultStats"
+            >
+
+
+                <!-- CORRECT -->
+
+                <div
+                    class="result-stat"
+                    id="resultCorrect"
+                >
+
+                    <div
+                        class="result-stat-icon correct"
+                    >
+
+                        <i data-lucide="check"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong
+                            id="correctCount"
+                        >
+                            -
+                        </strong>
+
+                        <span>
+                            درست
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- WRONG -->
+
+                <div
+                    class="result-stat"
+                    id="resultWrong"
+                >
+
+                    <div
+                        class="result-stat-icon wrong"
+                    >
+
+                        <i data-lucide="x"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong
+                            id="wrongCount"
+                        >
+                            -
+                        </strong>
+
+                        <span>
+                            غلط
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- UNANSWERED -->
+
+                <div
+                    class="result-stat"
+                    id="resultUnanswered"
+                >
+
+                    <div
+                        class="result-stat-icon unanswered"
+                    >
+
+                        <i data-lucide="circle-help"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong
+                            id="unansweredCount"
+                        >
+                            -
+                        </strong>
+
+                        <span>
+                            نزده
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME -->
+
+                <div
+                    class="result-stat"
+                    id="resultTime"
+                >
+
+                    <div
+                        class="result-stat-icon time"
+                    >
+
+                        <i data-lucide="clock-3"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong
+                            id="resultTimeValue"
+                        >
+                            -
+                        </strong>
+
+                        <span>
+                            زمان
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =============================
+                 RANK
+            ============================== -->
+
+            <div
+                class="result-rank-box"
+                id="resultRankBox"
+            >
+
+                <div
+                    class="rank-info"
+                    id="rankInfo"
+                >
+
+                    <span>
+                        رتبه شما
+                    </span>
+
+                    <strong
+                        id="userRank"
+                    >
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="rank-divider"
+                ></div>
+
+
+                <div
+                    class="rank-info"
+                    id="rankTotalInfo"
+                >
+
+                    <span>
+                        از بین
+                    </span>
+
+                    <strong
+                        id="rankTotal"
+                    >
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="rank-progress"
+                    id="rankProgress"
+                >
+
+                    <div
+                        class="rank-progress-fill"
+                        id="rankProgressFill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             RESULT DETAILS
+        ================================== -->
+
+        <button
+            class="result-more"
+            id="resultMore"
+            type="button"
+        >
+
+            مشاهده جزئیات کامل نتیجه
+
+            <i data-lucide="chevron-left"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript -->
+<script src="../config.js"></script>
+       
+<script src="./A.js"></script>
+<!-- فعال کردن آیکون ها -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
