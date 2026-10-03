@@ -1,31 +1,4 @@
 // =====================================
 // API CONFIG
 // =====================================
-
-// // حالت تست روی سیستم خودت
-// const API_URL = 
-//     window.location.hostname === "localhost" ||
-//     window.location.hostname === "127.0.0.1"
-
-//     ?
-
-//     "http://localhost:3000/api"
-
-//     :
-
-//    "https://iran-go4q.onrender.com/api";
-
-   
-
-
-// =====================================
-// API CONFIG
-// =====================================
-
-const API_URL = "https://iran-1.onrender.com/api";
-
-// const API_URL = "http://localhost:3000/api";
-
-// بعد از آنلاین شدن بک‌اند Render فقط همین خط تغییر می‌کند
-// مثال:
-// const API_URL = "https://your-backend.onrender.com";
+const API_URL = "https://iran-production-d9c4.up.railway.app/api";
